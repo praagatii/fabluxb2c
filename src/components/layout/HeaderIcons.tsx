@@ -36,7 +36,7 @@ function IconLink({
 }
 
 export function HeaderIcons() {
-  const { cartCount, wishlistCount, compareCount } = useStore();
+  const { cartCount, wishlistCount, compareCount, openCart } = useStore();
   return (
     <div className="flex items-center gap-0.5">
       <IconLink to="/account" label="Account">
@@ -49,9 +49,19 @@ export function HeaderIcons() {
       <IconLink to="/compare" label="Compare" count={compareCount} className="hidden sm:grid">
         <Scale className="h-5 w-5" aria-hidden="true" />
       </IconLink>
-      <IconLink to="/cart" label="Cart" count={cartCount}>
+      <button
+        type="button"
+        onClick={openCart}
+        aria-label={cartCount ? `Cart, ${cartCount} items` : "Cart"}
+        className="relative grid h-9 w-9 shrink-0 place-items-center rounded-sm text-navy transition-colors hover:text-teal sm:h-10 sm:w-10"
+      >
         <ShoppingBag className="h-5 w-5" aria-hidden="true" />
-      </IconLink>
+        {cartCount > 0 ? (
+          <span className="numeric absolute right-0.5 top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-gold px-1 text-micro font-semibold text-navy">
+            {cartCount}
+          </span>
+        ) : null}
+      </button>
     </div>
   );
 }

@@ -509,7 +509,7 @@ className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground tra
 
               <ul className="mt-6 divide-y divide-border border border-border">
                 {rows.map(({ line, product, unitPrice }) => (
-                  <li key={line.key} className="flex gap-4 p-4">
+                  <li key={line.key} className="flex flex-wrap items-start gap-4 p-4 sm:flex-nowrap">
                     <img
                       src={productImage(product.image)}
                       alt={product.name}
@@ -525,7 +525,7 @@ className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground tra
                         Fulfilled by {product.fulfilledBy}
                       </p>
                     </div>
-                    <p className="numeric text-body text-navy">
+                    <p className="numeric mt-1 basis-full text-right text-body text-navy sm:ml-auto sm:basis-auto">
                       {formatPrice(unitPrice * line.quantity)}
                     </p>
                   </li>

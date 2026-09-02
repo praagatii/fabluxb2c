@@ -15,9 +15,10 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
-import { StoreProvider } from "@/context/StoreContext";
+import { StoreProvider, useStore } from "@/context/StoreContext";
 import { AccountProvider } from "@/context/AccountContext";
 import { CompareBar } from "@/components/shop/CompareBar";
+import { CartDrawer } from "@/components/shop/CartDrawer";
 
 function NotFoundComponent() {
   return (
@@ -145,11 +146,19 @@ function RootComponent() {
             <Outlet />
           </main>
           {isAdmin ? null : <SiteFooter />}
+          {isAdmin ? null : <CartDrawer />}
           {isAdmin ? null : <CompareBar />}
+          {isAdmin ? null : <CompareSpacer />}
         </div>
         </AccountProvider>
       </StoreProvider>
     </QueryClientProvider>
   );
+}
+
+function CompareSpacer() {
+  const { compare } = useStore();
+  if (compare.length === 0) return null;
+  return <div aria-hidden="true" className="h-28 shrink-0" />;
 }
 

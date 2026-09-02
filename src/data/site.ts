@@ -17,7 +17,7 @@ export type HeroSlide = {
 export const heroSlides: HeroSlide[] = [
   {
     id: "hero-refrigeration",
-    eyebrow: "The Festive Edit",
+    eyebrow: "Refrigeration, Considered",
     title: "Cold storage, quietly considered",
     copy: "French door refrigeration from Voltek and Elba, with installation and demonstration included across 40 Indian cities.",
     primaryCta: { label: "Shop refrigerators", to: "/shop" },
@@ -103,10 +103,8 @@ export const reviewHighlights = [
 
 export const primaryNav = [
   { label: "Shop", to: "/shop", hasMegaMenu: true },
-  { label: "Interior Design", to: "/interior-design", hasMegaMenu: false },
-  { label: "B2B Store", to: "/b2b", hasMegaMenu: false },
-  { label: "Offers", to: "/offers", hasMegaMenu: false },
-  { label: "Support", to: "/support", hasMegaMenu: false },
+  { label: "Collections", to: "/collections", hasMegaMenu: false },
+  { label: "Brands", to: "/brands", hasMegaMenu: false },
 ];
 
 export const searchSuggestions = [

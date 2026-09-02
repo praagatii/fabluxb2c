@@ -12,6 +12,7 @@ type ProductRailProps = {
   copy?: string | undefined;
   products: Product[];
   viewAllTo?: string | undefined;
+  actionLabel?: string | undefined;
   className?: string | undefined;
 };
 
@@ -21,6 +22,7 @@ export function ProductRail({
   copy,
   products,
   viewAllTo = "/shop",
+  actionLabel = "View all",
   className,
 }: ProductRailProps) {
   const trackRef = useRef<HTMLUListElement>(null);
@@ -38,7 +40,7 @@ export function ProductRail({
         action={
           <div className="flex items-center gap-3">
             <SmartLink to={viewAllTo} className="link-gold text-body text-teal">
-              View all
+              {actionLabel}
             </SmartLink>
             <div className="hidden gap-2 sm:flex">
               <button

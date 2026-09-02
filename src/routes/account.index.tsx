@@ -45,7 +45,7 @@ function OrdersPage() {
                 ) : null}
               </div>
               <StatusChip status={order.status} />
-              <p className="numeric w-28 text-right text-body text-navy">{formatPrice(order.total)}</p>
+              <p className="numeric shrink-0 text-body text-navy sm:ml-auto sm:w-28 sm:text-right">{formatPrice(order.total)}</p>
               <SmartLink
                 to={`/account/orders/${order.id}`}
                 className="border border-border px-4 py-2.5 text-body text-navy transition-colors hover:text-teal"

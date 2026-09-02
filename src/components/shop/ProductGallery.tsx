@@ -45,7 +45,7 @@ export function ProductGallery({ product }: { product: Product }) {
         </button>
       </div>
 
-      <ul className="mt-4 flex gap-3">
+      <ul className="mt-4 flex gap-3 overflow-x-auto">
         {product.images.map((image, index) => (
           <li key={`${image}-${index}`}>
             <button

@@ -125,7 +125,7 @@ function CartPage() {
                 <li key={line.key} className="flex flex-col gap-4 p-5 sm:flex-row">
                   <SmartLink
                     to={`/shop/product/${product.id}`}
-                    className="block aspect-4/3 w-full shrink-0 bg-sky/40 sm:w-40"
+                    className="block aspect-4/3 w-32 shrink-0 bg-sky/40 sm:w-40"
                   >
                     <img
                       src={productImage(product.image)}

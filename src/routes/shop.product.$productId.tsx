@@ -325,18 +325,20 @@ function ProductDetailPage() {
             {product.specTable.map((group) => (
               <div key={group.group}>
                 <p className="label-eyebrow text-teal">{group.group}</p>
-                <table className="mt-3 w-full border border-border text-caption">
-                  <tbody>
-                    {group.rows.map((row) => (
-                      <tr key={row.label} className="border-b border-border last:border-0">
-                        <th scope="row" className="w-1/3 bg-beige px-4 py-3 text-left font-medium text-navy">
-                          {row.label}
-                        </th>
-                        <td className="px-4 py-3 text-muted-foreground">{row.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <div className="mt-3 overflow-x-auto">
+                  <table className="w-full border border-border text-caption">
+                    <tbody>
+                      {group.rows.map((row) => (
+                        <tr key={row.label} className="border-b border-border last:border-0">
+                          <th scope="row" className="w-1/3 bg-beige px-4 py-3 text-left font-medium text-navy">
+                            {row.label}
+                          </th>
+                          <td className="px-4 py-3 text-muted-foreground">{row.value}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             ))}
           </div>

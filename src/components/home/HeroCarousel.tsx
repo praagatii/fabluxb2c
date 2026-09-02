@@ -22,8 +22,8 @@ export function HeroCarousel() {
   const go = (delta: number) => setIndex((i) => (i + delta + count) % count);
 
   return (
-    <section aria-roledescription="carousel" aria-label="Featured offers" className="relative">
-      <div className="relative h-[32rem] w-full overflow-hidden sm:h-[36rem]">
+    <section aria-roledescription="carousel" aria-label="Featured offers" className="relative -mt-16 sm:-mt-[4.5rem]">
+      <div className="relative min-h-dvh w-full overflow-hidden">
         {heroSlides.map((slide, i) => (
           <div
             key={slide.id}

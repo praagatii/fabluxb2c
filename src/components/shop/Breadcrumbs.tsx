@@ -14,7 +14,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
                 {item.label}
               </SmartLink>
             ) : (
-              <span className="text-navy">{item.label}</span>
+              <span className="max-w-[16rem] truncate text-navy">{item.label}</span>
             )}
             {index < items.length - 1 ? (
               <ChevronRight className="h-3 w-3" aria-hidden="true" />

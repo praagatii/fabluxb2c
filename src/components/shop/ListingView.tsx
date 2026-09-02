@@ -100,7 +100,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
                       setSort(event.target.value as SortKey);
                       setPage(1);
                     }}
-                    className="border border-border bg-card px-3 py-2 text-body text-navy"
+                    className="max-w-full border border-border bg-card px-3 py-2 text-body text-navy"
                   >
                     {sortOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -162,7 +162,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
             )}
 
             {pageCount > 1 ? (
-              <nav aria-label="Pagination" className="mt-10 flex items-center justify-center gap-2">
+              <nav aria-label="Pagination" className="mt-10 flex flex-wrap items-center justify-center gap-2">
                 <button
                   type="button"
                   onClick={() => setPage((p) => Math.max(1, p - 1))}

@@ -1,17 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HeroCarousel } from "@/components/home/HeroCarousel";
-import { CategoryGrid } from "@/components/home/CategoryGrid";
+import { HeroSection } from "@/components/home/HeroSection";
+import { EditorialFeature } from "@/components/home/EditorialFeature";
+import { ShopByCategory } from "@/components/home/ShopByCategory";
+import { InspirationSpaces } from "@/components/home/InspirationSpaces";
 import { ProductRail } from "@/components/home/ProductRail";
-import { InteriorDesignBand, B2BBand } from "@/components/home/PromoBands";
 import { BrandStrip } from "@/components/home/BrandStrip";
 import { TrustRow } from "@/components/home/TrustRow";
-import { ReviewHighlights } from "@/components/home/ReviewHighlights";
 import { NewsletterCapture } from "@/components/home/NewsletterCapture";
-import { featuredProducts, bestSellers, newArrivals } from "@/data/products";
+import hero2 from "@/assets/hero-2.jpg";
+import bandInteriors from "@/assets/band-interiors.jpg";
+import { featuredProducts, bestSellers } from "@/data/products";
 
 const title = "Fabluxe — Premium Home Electronics, Interiors & Trade Fittings";
 const description =
-  "Shop refrigerators, televisions, air conditioners and kitchen appliances with installation included, explore Fabluxora interior design, and browse the Fabluxe B2B fittings catalogue.";
+  "Considered appliances and interiors pieces for the modern Indian home, with installation included.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,31 +32,47 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <>
-      <HeroCarousel />
-      <CategoryGrid />
+      <HeroSection />
+
       <ProductRail
         eyebrow="Featured"
-        title="Chosen by our buying team"
-        copy="A short list of appliances we would put in our own homes this season."
+        title="New this season"
+        copy="A short list of appliances and pieces our buying team chose for this season."
         products={featuredProducts}
-        className="bg-card"
       />
-      <InteriorDesignBand />
-      <B2BBand />
+
+      <EditorialFeature
+        image={hero2}
+        alt="A Lumen OLED television in a calm living room"
+        eyebrow="The Lumen Edit"
+        title="A picture that behaves like a painting"
+        copy="The Lumen OLED Evo series, calibrated in Filmmaker mode and wall-mounted by our own installation team."
+        cta={{ label: "Explore televisions", to: "/shop/televisions" }}
+      />
+
+      <ShopByCategory />
+
       <ProductRail
         eyebrow="Best sellers"
         title="What India is buying this month"
         products={bestSellers}
-      />
-      <ProductRail
-        eyebrow="New arrivals"
-        title="Just landed in the catalogue"
-        products={newArrivals}
         className="bg-card"
       />
+
+      <EditorialFeature
+        image={bandInteriors}
+        alt="A Fabluxora Interiors living room in navy velvet, brass and linen"
+        eyebrow="Fabluxora Interiors"
+        title="Rooms designed around how you live"
+        copy="Room styles, completed projects and a consultation with a senior designer. Share your floor plan and we will return with a direction and material palette."
+        cta={{ label: "Explore interior design", to: "/interior-design" }}
+        align="right"
+      />
+
+      <InspirationSpaces />
+
       <BrandStrip />
       <TrustRow />
-      <ReviewHighlights />
       <NewsletterCapture />
     </>
   );

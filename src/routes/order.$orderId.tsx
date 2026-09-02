@@ -88,7 +88,7 @@ function OrderConfirmationPage() {
             const product = getProduct(item.productId);
             if (!product) return null;
             return (
-              <li key={`${item.productId}-${index}`} className="flex gap-4 p-4">
+              <li key={`${item.productId}-${index}`} className="flex flex-wrap items-start gap-4 p-4 sm:flex-nowrap">
                 <img
                   src={productImage(product.image)}
                   alt={product.name}
@@ -104,7 +104,7 @@ function OrderConfirmationPage() {
                     Fulfilled by {product.fulfilledBy}
                   </p>
                 </div>
-                <p className="numeric text-body text-navy">
+                <p className="numeric mt-1 basis-full text-right text-body text-navy sm:ml-auto sm:basis-auto">
                   {formatPrice(item.unitPrice * item.quantity)}
                 </p>
               </li>
@@ -135,7 +135,7 @@ function OrderConfirmationPage() {
                       key={`${item.productId}-${index}`}
                       className="flex items-baseline justify-between gap-4"
                     >
-                      <span className="text-navy">
+                      <span className="min-w-0 text-navy">
                         {getProduct(item.productId)?.name}
                         {item.quantity > 1 ? ` × ${item.quantity}` : ""}
                       </span>

@@ -1,132 +1,199 @@
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { AnnouncementBar } from "./AnnouncementBar";
+import { Search, Menu, X } from "lucide-react";
 import { BrandMark } from "./BrandMark";
-import { SearchField } from "./SearchField";
 import { HeaderIcons } from "./HeaderIcons";
-import { ShopMegaMenu } from "./ShopMegaMenu";
 import { SmartLink } from "@/components/common/SmartLink";
-import { primaryNav } from "@/data/site";
 import { categories } from "@/data/categories";
+import { cn } from "@/lib/utils";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const navLinks = [
+  { label: "Collections", to: "/collections" },
+  { label: "Brands", to: "/brands" },
+  { label: "Inspiration", to: "/interior-design" },
+];
 
 export function SiteHeader() {
-  const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-beige/95 backdrop-blur [padding-top:env(safe-area-inset-top)]">
-      <AnnouncementBar />
-
-      {/* Top row */}
-      <div className="mx-auto flex max-w-[80rem] items-center gap-2 px-4 py-3 sm:gap-4 sm:px-8">
-        <button
-          type="button"
-          className="grid h-10 w-10 shrink-0 place-items-center text-navy lg:hidden"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((o) => !o)}
-        >
-          {mobileOpen ? <Menu className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+    <header className="sticky top-0 z-50 border-b-0 bg-beige/10 backdrop-blur-md [padding-top:env(safe-area-inset-top)] [&_a]:no-underline">
+      <div className="mx-auto flex h-16 max-w-[80rem] items-center gap-4 px-4 sm:h-[4.5rem] sm:px-6">
         <BrandMark className="shrink-0" />
-        <div className="hidden min-w-0 flex-1 lg:block">
-          <SearchField />
-        </div>
-        <div className="ml-auto lg:ml-0">
-          <HeaderIcons />
-        </div>
-      </div>
 
-      {/* Mobile search */}
-      <div className="px-5 pb-3 lg:hidden">
-        <SearchField id="site-search-mobile" />
-      </div>
-
-      {/* Second row — desktop navigation */}
-      <nav
-        aria-label="Primary"
-        className="hidden border-y border-border lg:block"
-        onMouseLeave={() => setMegaOpen(false)}
-      >
-        <ul className="mx-auto flex max-w-[80rem] items-center gap-8 px-8">
-          {primaryNav.map((item) => (
-            <li key={item.label}>
-              {item.hasMegaMenu ? (
-                <button
-                  type="button"
-                  className="label-eyebrow flex items-center gap-1.5 py-3.5 text-navy transition-colors hover:text-teal"
-                  aria-expanded={megaOpen}
-                  onMouseEnter={() => setMegaOpen(true)}
-                  onClick={() => setMegaOpen((o) => !o)}
-                >
-                  {item.label}
-                  <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
-                </button>
-              ) : (
-                <SmartLink
-                  to={item.to}
-                  className="label-eyebrow link-gold block py-3.5 text-navy transition-colors hover:text-teal"
-                  onMouseEnter={() => setMegaOpen(false)}
-                >
-                  {item.label}
-                </SmartLink>
-              )}
-            </li>
-          ))}
-        </ul>
-        {megaOpen ? <ShopMegaMenu /> : null}
-      </nav>
-
-      {/* Mobile drawer */}
-      {mobileOpen ? (
-        <div className="border-t border-border bg-card lg:hidden">
-          <div className="flex items-center justify-between px-5 py-3">
-            <p className="label-eyebrow text-teal">Menu</p>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(false)}
-              aria-label="Close menu"
-              className="grid h-9 w-9 place-items-center text-navy"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-          <ul className="px-5 pb-6">
-            {primaryNav.map((item) => (
-              <li key={item.label} className="border-t border-border">
-                <SmartLink
-                  to={item.to}
-                  className="block py-3 text-body font-medium text-navy"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {item.label}
-                </SmartLink>
-                {item.hasMegaMenu ? (
-                  <ul className="pb-3">
-                    {categories.map((c) => (
-                      <li key={c.id}>
-                        {c.status === "live" ? (
+        {/* Desktop navigation */}
+        <div className="hidden lg:block">
+          <NavigationMenu
+            className={cn(
+              "static",
+              "[&>.absolute]:inset-x-0 [&>.absolute]:top-full [&>.absolute]:w-full",
+              "[&_[data-slot=navigation-menu-viewport]]:mt-1 [&_[data-slot=navigation-menu-viewport]]:!w-full",
+              "[&_[data-slot=navigation-menu-viewport]]:rounded-none [&_[data-slot=navigation-menu-viewport]]:shadow-xl [&_[data-slot=navigation-menu-viewport]]:ring-0",
+              "[&_[data-slot=navigation-menu-viewport]]:border-0 [&_[data-slot=navigation-menu-viewport]]:border-b",
+              "[&_[data-slot=navigation-menu-viewport]]:border-border",
+              "[&_[data-slot=navigation-menu-viewport]]:bg-card",
+              "[&_[data-slot=navigation-menu-viewport]]:transition-all [&_[data-slot=navigation-menu-viewport]]:duration-300 [&_[data-slot=navigation-menu-viewport]]:ease-in-out",
+            )}
+          >
+            <NavigationMenuList className="gap-1">
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="h-9 rounded-md bg-transparent px-3 text-body font-medium text-[#15202b] transition-colors hover:bg-navy/5 hover:text-teal focus:bg-navy/5 focus:text-teal data-[active]:bg-navy/5 data-[state=open]:bg-navy/5 data-[state=open]:text-teal">
+                  Shop
+                </NavigationMenuTrigger>
+                <NavigationMenuContent className="!w-full">
+                  <div className="mx-auto grid max-w-[80rem] gap-8 px-6 py-10 sm:px-8 lg:grid-cols-4">
+                    {categories.map((category) => (
+                      <div key={category.id} className="min-w-0">
+                        <div className="rule-gold mb-3" aria-hidden="true" />
+                        {category.status === "live" ? (
                           <SmartLink
-                            to={`/shop/${c.slug}`}
-                            className="block py-1.5 text-caption text-muted-foreground"
-                            onClick={() => setMobileOpen(false)}
+                            to={`/shop/${category.slug}`}
+                            className="link-gold text-heading text-[#15202b]"
                           >
-                            {c.name}
+                            {category.name}
                           </SmartLink>
                         ) : (
-                          <span className="block py-1.5 text-caption text-muted-foreground/70">
-                            {c.name} — coming soon
+                          <span className="text-heading text-muted-foreground">
+                            {category.name}
+                            <span className="label-eyebrow ml-2 text-teal">Coming soon</span>
                           </span>
                         )}
-                      </li>
+                        <ul className="mt-3 space-y-2">
+                          {category.subcategories.map((sub) => (
+                            <li key={sub.slug}>
+                              <SmartLink
+                                to={`/shop/${category.slug}/${sub.slug}`}
+                                className="text-caption text-muted-foreground transition-colors hover:text-teal"
+                              >
+                                {sub.name}
+                              </SmartLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     ))}
-                  </ul>
-                ) : null}
-              </li>
-            ))}
-          </ul>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {navLinks.map((link) => (
+                <NavigationMenuItem key={link.to}>
+                  <NavigationMenuLink
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "h-9 rounded-md bg-transparent px-3 text-body font-medium text-[#15202b] transition-colors hover:bg-navy/5 hover:text-teal focus:bg-navy/5 focus:text-teal",
+                    )}
+                  >
+                    <SmartLink to={link.to}>{link.label}</SmartLink>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
-      ) : null}
+
+        {/* Desktop search */}
+        <div className="hidden flex-1 justify-center px-6 lg:flex">
+          <div className="relative w-full max-w-md">
+            <Search
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-teal"
+              aria-hidden="true"
+            />
+            <input
+              type="search"
+              placeholder="Search products…"
+              className="h-10 w-full rounded-md border border-border bg-card pl-9 pr-3 text-body text-[#15202b] placeholder:text-muted-foreground"
+            />
+          </div>
+        </div>
+
+        {/* Right actions */}
+        <div className="ml-auto flex items-center gap-1">
+          <HeaderIcons />
+
+          <div className="lg:hidden">
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Open menu"
+                  className="grid h-10 w-10 place-items-center rounded-md text-[#15202b]"
+                >
+                  <Menu className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full bg-beige sm:max-w-sm">
+                <div className="flex h-full flex-col overflow-y-auto px-6 py-8">
+                  <div className="mb-6 flex items-center justify-between">
+                    <BrandMark />
+                    <button
+                      type="button"
+                      onClick={() => setMobileOpen(false)}
+                      aria-label="Close menu"
+                      className="grid h-9 w-9 place-items-center text-[#15202b]"
+                    >
+                      <X className="h-5 w-5" aria-hidden="true" />
+                    </button>
+                  </div>
+
+                  <div className="relative mb-6">
+                    <Search
+                      className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-teal"
+                      aria-hidden="true"
+                    />
+                    <input
+                      type="search"
+                      placeholder="Search products…"
+                      className="h-11 w-full rounded-md border border-border bg-card pl-9 pr-3 text-body text-[#15202b] placeholder:text-muted-foreground"
+                    />
+                  </div>
+
+                  <nav className="flex flex-col gap-1">
+                    <div className="border-b border-border pb-4">
+                      <p className="label-eyebrow text-teal">Shop</p>
+                      <ul className="mt-3 space-y-1">
+                        {categories.map((category) =>
+                          category.status === "live" ? (
+                            <li key={category.id}>
+                              <SmartLink
+                                to={`/shop/${category.slug}`}
+                                onClick={() => setMobileOpen(false)}
+                                className="block py-2 text-body font-medium text-[#15202b]"
+                              >
+                                {category.name}
+                              </SmartLink>
+                            </li>
+                          ) : null,
+                        )}
+                      </ul>
+                    </div>
+
+                    {navLinks.map((link) => (
+                      <SmartLink
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => setMobileOpen(false)}
+                        className="block py-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                      >
+                        {link.label}
+                      </SmartLink>
+                    ))}
+                  </nav>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
     </header>
   );
 }

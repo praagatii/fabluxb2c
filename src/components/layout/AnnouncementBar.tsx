@@ -16,7 +16,7 @@ export function AnnouncementBar() {
   return (
     <div className="bg-navy text-primary-foreground">
       <p
-        className="label-eyebrow mx-auto max-w-[80rem] px-5 py-2.5 text-center text-sky sm:px-8"
+        className="label-eyebrow mx-auto flex min-h-[3rem] max-w-[80rem] items-center justify-center px-5 text-center text-sky sm:min-h-8 sm:px-8"
         aria-live="polite"
       >
         {announcements[index]}

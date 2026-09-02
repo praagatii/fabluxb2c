@@ -18,7 +18,7 @@ export function CompareBar() {
   const categoryName = categories.find((c) => c.slug === compareCategory)?.name;
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy/20 bg-card/95 backdrop-blur">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy/20 bg-card/95 backdrop-blur [padding-bottom:env(safe-area-inset-bottom)]">
       <div aria-live="polite">
         {compareNotice ? (
           <div className="flex items-start justify-between gap-4 bg-navy px-5 py-3 text-caption text-beige sm:px-8">

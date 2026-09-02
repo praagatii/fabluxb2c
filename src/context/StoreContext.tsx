@@ -37,6 +37,9 @@ type StoreState = {
   compareCategory: string | null;
   compareNotice: string | null;
   dismissCompareNotice: () => void;
+  cartOpen: boolean;
+  openCart: () => void;
+  closeCart: () => void;
   addToCart: (productId: string, options?: AddToCartOptions) => void;
   setQuantity: (key: string, quantity: number) => void;
   removeFromCart: (key: string) => void;
@@ -59,6 +62,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [wishlist, setWishlist] = useState<string[]>([]);
   const [compare, setCompare] = useState<string[]>([]);
   const [compareNotice, setCompareNotice] = useState<string | null>(null);
+  const [cartOpen, setCartOpen] = useState(false);
+
+  const openCart = useCallback(() => setCartOpen(true), []);
+  const closeCart = useCallback(() => setCartOpen(false), []);
 
   const addToCart = useCallback((productId: string, options: AddToCartOptions = {}) => {
     const product = getProduct(productId);
@@ -85,6 +92,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         },
       ];
     });
+    setCartOpen(true);
   }, []);
 
   const setQuantity = useCallback((key: string, quantity: number) => {
@@ -171,6 +179,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       compareCategory,
       compareNotice,
       dismissCompareNotice,
+      cartOpen,
+      openCart,
+      closeCart,
       addToCart,
       setQuantity,
       removeFromCart,
@@ -192,6 +203,9 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       compareCategory,
       compareNotice,
       dismissCompareNotice,
+      cartOpen,
+      openCart,
+      closeCart,
       addToCart,
       setQuantity,
       removeFromCart,
