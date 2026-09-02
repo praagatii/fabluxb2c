@@ -74,7 +74,7 @@ function Dashboard() {
                   style={{ height: `${(point.value / peak) * 100}%` }}
                   aria-hidden="true"
                 />
-                <span className="text-xs text-muted-foreground">{point.label}</span>
+                <span className="text-caption text-muted-foreground">{point.label}</span>
               </div>
             ))}
           </div>
@@ -85,13 +85,13 @@ function Dashboard() {
             {revenueByCompany.map((company) => (
               <li key={company.name}>
                 <div className="flex items-baseline justify-between gap-2">
-                  <span className="text-sm text-navy">{company.name}</span>
-                  <span className="numeric text-sm text-navy">{formatINR(company.value)}</span>
+                  <span className="text-caption text-navy">{company.name}</span>
+                  <span className="numeric text-body text-navy">{formatINR(company.value)}</span>
                 </div>
                 <div className="mt-2 h-2 rounded-full bg-muted">
                   <div className="h-2 rounded-full bg-gold" style={{ width: `${company.share}%` }} />
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-1 text-caption text-muted-foreground">
                   {company.share}% of revenue · GSTIN {company.gstin}
                 </p>
               </li>
@@ -102,7 +102,7 @@ function Dashboard() {
 
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         <div>
-          <h2 className="mb-2 text-sm font-medium text-navy">Recent orders</h2>
+          <h2 className="mb-2 text-body font-medium text-navy">Recent orders</h2>
           <AdminTable head={["Order", "Customer", "Total", "Status", "Companies"]}>
             {adminOrders.slice(0, 5).map((order) => (
               <tr key={order.id}>
@@ -126,12 +126,12 @@ function Dashboard() {
 
         <div className="space-y-4">
           <div>
-            <h2 className="mb-2 text-sm font-medium text-navy">Low stock alerts</h2>
+            <h2 className="mb-2 text-body font-medium text-navy">Low stock alerts</h2>
             <AdminTable head={["Product", "SKU", "Stock"]}>
               {lowStock.map((item) => (
                 <tr key={item.id}>
                   <Td>{item.name}</Td>
-                  <Td className="numeric text-xs">{item.sku}</Td>
+                  <Td className="numeric text-caption">{item.sku}</Td>
                   <Td>
                     <StatusPill tone={item.stock === 0 ? "danger" : "warning"}>
                       {item.stock} left
@@ -143,14 +143,14 @@ function Dashboard() {
           </div>
 
           <div>
-            <h2 className="mb-2 text-sm font-medium text-navy">Open enquiries</h2>
+            <h2 className="mb-2 text-body font-medium text-navy">Open enquiries</h2>
             <AdminTable head={["Reference", "From", "Enquiry", "Received"]}>
               {openEnquiries.map((row) => (
                 <tr key={row.id}>
-                  <Td className="numeric text-xs">{row.id}</Td>
+                  <Td className="numeric text-caption">{row.id}</Td>
                   <Td>{row.who}</Td>
                   <Td>{row.what}</Td>
-                  <Td className="text-xs text-muted-foreground">{row.when}</Td>
+                  <Td className="text-caption text-muted-foreground">{row.when}</Td>
                 </tr>
               ))}
             </AdminTable>

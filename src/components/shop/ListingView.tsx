@@ -66,8 +66,8 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
         <Container>
           <span className="rule-gold mb-4" aria-hidden="true" />
           <p className="label-eyebrow text-gold">{eyebrow}</p>
-          <h1 className="mt-3 max-w-2xl text-3xl leading-tight text-beige sm:text-4xl">{title}</h1>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-sky">{copy}</p>
+          <h1 className="mt-3 max-w-2xl font-display text-display text-beige">{title}</h1>
+          <p className="mt-3 max-w-2xl text-body leading-relaxed text-sky">{copy}</p>
         </Container>
       </header>
 
@@ -77,7 +77,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
 
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
-              <p className="numeric text-sm text-muted-foreground">
+              <p className="numeric text-caption text-muted-foreground">
                 <span className="font-semibold text-navy">{results.length}</span> products
                 {activeCount > 0 ? ` · ${activeCount} filters applied` : ""}
               </p>
@@ -86,13 +86,13 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(true)}
-                  className="flex items-center gap-2 border border-border px-3 py-2 text-sm text-navy lg:hidden"
+                  className="flex items-center gap-2 border border-border px-3 py-2 text-body text-navy lg:hidden"
                 >
                   <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
                   Filters
                 </button>
 
-                <label className="flex items-center gap-2 text-sm text-muted-foreground">
+                <label className="flex items-center gap-2 text-caption text-muted-foreground">
                   <span className="sr-only sm:not-sr-only">Sort by</span>
                   <select
                     value={sort}
@@ -100,7 +100,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
                       setSort(event.target.value as SortKey);
                       setPage(1);
                     }}
-                    className="border border-border bg-card px-3 py-2 text-sm text-navy"
+                    className="border border-border bg-card px-3 py-2 text-body text-navy"
                   >
                     {sortOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -140,7 +140,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
             </div>
 
             {visible.length === 0 ? (
-              <p className="py-16 text-center text-sm text-muted-foreground">
+              <p className="py-16 text-center text-caption text-muted-foreground">
                 No products match these filters.{" "}
                 <button type="button" onClick={reset} className="link-gold text-teal">
                   Reset filters
@@ -167,7 +167,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
                   type="button"
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={safePage === 1}
-                  className="border border-border px-3 py-2 text-sm text-navy disabled:opacity-40"
+                  className="border border-border px-3 py-2 text-body text-navy disabled:opacity-40"
                 >
                   Previous
                 </button>
@@ -178,7 +178,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
                     aria-current={number === safePage ? "page" : undefined}
                     onClick={() => setPage(number)}
                     className={cn(
-                      "numeric h-9 w-9 border border-border text-sm text-navy",
+                      "numeric h-9 w-9 border border-border text-body text-navy",
                       number === safePage && "bg-navy text-primary-foreground",
                     )}
                   >
@@ -189,7 +189,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
                   type="button"
                   onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
                   disabled={safePage === pageCount}
-                  className="border border-border px-3 py-2 text-sm text-navy disabled:opacity-40"
+                  className="border border-border px-3 py-2 text-body text-navy disabled:opacity-40"
                 >
                   Next
                 </button>
@@ -211,7 +211,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
             <button
               type="button"
               onClick={() => setDrawerOpen(false)}
-              className="mb-4 ml-auto flex items-center gap-2 text-sm text-navy"
+              className="mb-4 ml-auto flex items-center gap-2 text-body text-navy"
             >
               Close <X className="h-4 w-4" aria-hidden="true" />
             </button>

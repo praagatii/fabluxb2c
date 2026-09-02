@@ -17,14 +17,14 @@ export function SupportContactForm() {
               {channel.to ? (
                 <SmartLink
                   to={channel.to}
-                  className="mt-3 block font-medium text-navy transition-colors hover:text-teal"
+                  className="mt-3 block text-body font-medium text-navy transition-colors hover:text-teal"
                 >
                   {channel.value}
                 </SmartLink>
               ) : (
-                <p className="mt-3 font-medium text-navy">{channel.value}</p>
+                <p className="mt-3 text-body font-medium text-navy">{channel.value}</p>
               )}
-              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{channel.copy}</p>
+              <p className="mt-2 text-caption leading-relaxed text-muted-foreground">{channel.copy}</p>
             </div>
           ))}
         </div>
@@ -32,7 +32,7 @@ export function SupportContactForm() {
         <div className="mt-10">
           <span className="rule-gold mb-4" aria-hidden="true" />
           <p className="label-eyebrow text-teal">Frequently asked</p>
-          <h2 className="mt-3 font-heading text-2xl text-navy">Quick answers</h2>
+          <h2 className="mt-3 text-heading text-navy">Quick answers</h2>
           <ul className="mt-5 space-y-3">
             {[
               "How do I track my order?",
@@ -42,7 +42,7 @@ export function SupportContactForm() {
               <li key={q}>
                 <SmartLink
                   to="/support/faq"
-                  className="group flex items-center justify-between border border-border bg-card px-5 py-4 text-sm text-navy transition-colors hover:border-teal"
+                  className="group flex items-center justify-between border border-border bg-card px-5 py-4 text-body text-navy transition-colors hover:border-teal"
                 >
                   {q}
                   <Search className="h-4 w-4 text-teal" aria-hidden="true" />
@@ -63,52 +63,52 @@ export function SupportContactForm() {
       >
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Send an enquiry</p>
-        <h2 className="mt-3 font-heading text-2xl text-navy">We'll take it from here</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h2 className="mt-3 text-heading text-navy">We'll take it from here</h2>
+        <p className="mt-2 text-caption text-muted-foreground">
           An order ID helps us find your details instantly, but isn't required.
         </p>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <label className="block text-xs text-muted-foreground">
+          <label className="block text-caption text-muted-foreground">
             Name
             <input
               required
               placeholder="Your full name"
-              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
             />
           </label>
-          <label className="block text-xs text-muted-foreground">
+          <label className="block text-caption text-muted-foreground">
             Email
             <input
               required
               type="email"
               placeholder="you@example.com"
-              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
             />
           </label>
-          <label className="block text-xs text-muted-foreground">
+          <label className="block text-caption text-muted-foreground">
             Phone
             <input
               required
               type="tel"
               placeholder="10-digit mobile"
-              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
             />
           </label>
-          <label className="block text-xs text-muted-foreground">
+          <label className="block text-caption text-muted-foreground">
             Order ID <span className="text-muted-foreground/70">(optional)</span>
             <input
               placeholder="e.g. FBX-2026-000148"
-              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+              className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
             />
           </label>
         </div>
 
-        <label className="mt-4 block text-xs text-muted-foreground">
+        <label className="mt-4 block text-caption text-muted-foreground">
           Subject
           <select
             required
-            className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy"
+            className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy"
           >
             <option value="">Choose a topic</option>
             <option>Order & delivery</option>
@@ -121,25 +121,25 @@ export function SupportContactForm() {
           </select>
         </label>
 
-        <label className="mt-4 block text-xs text-muted-foreground">
+        <label className="mt-4 block text-caption text-muted-foreground">
           Message
           <textarea
             required
             rows={5}
             placeholder="Tell us what you need help with."
-            className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+            className="mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
           />
         </label>
 
         <button
           type="submit"
-          className="mt-5 w-full bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+          className="mt-5 w-full bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
         >
           Send enquiry
         </button>
 
         {sent ? (
-          <p className="mt-4 border border-teal/40 bg-teal/5 p-4 text-sm text-teal">
+          <p className="mt-4 border border-teal/40 bg-teal/5 p-4 text-caption text-teal">
             Thanks — your enquiry is logged. Our team replies within one working day.
           </p>
         ) : null}
@@ -155,26 +155,26 @@ export function SupportContactDetails() {
         <Phone className="mt-0.5 h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
         <div>
           <p className="label-eyebrow text-teal">Call</p>
-          <p className="numeric mt-1 text-sm font-medium text-navy">1800 209 4455</p>
+          <p className="numeric mt-1 text-body font-medium text-navy">1800 209 4455</p>
         </div>
       </div>
       <div className="flex gap-3 border border-border bg-card p-5">
         <Mail className="mt-0.5 h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
         <div>
           <p className="label-eyebrow text-teal">Email</p>
-          <p className="mt-1 text-sm font-medium text-navy">care@fabluxe.in</p>
+          <p className="mt-1 text-body font-medium text-navy">care@fabluxe.in</p>
         </div>
       </div>
       <div className="flex gap-3 border border-border bg-card p-5">
         <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
         <div>
           <p className="label-eyebrow text-teal">Visit</p>
-          <p className="mt-1 text-sm text-navy">
+          <p className="mt-1 text-body text-navy">
             4th Floor, Prestige Atrium, Residency Road, Bengaluru 560025
           </p>
         </div>
       </div>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-caption text-muted-foreground">
         Part of the Fabluxe group —{" "}
         <a
           href={groupUrl}

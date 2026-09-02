@@ -47,14 +47,14 @@ function EnquiryPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.3fr]">
           <div>
             <B2BPageMark>Trade enquiry</B2BPageMark>
-            <h1 className="mt-4 font-display text-4xl leading-tight text-navy">
+            <h1 className="mt-4 text-heading leading-tight text-navy">
               Tell us what the project needs
             </h1>
-            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 text-body leading-relaxed text-muted-foreground">
               Everything in the B2B store is quoted, not sold online. Share your company details and
               the lines you are specifying, and a trade account manager takes it from there.
             </p>
-            <ul className="mt-8 space-y-4 text-sm leading-relaxed text-muted-foreground">
+            <ul className="mt-8 space-y-4 text-caption leading-relaxed text-muted-foreground">
               <li>
                 <span className="label-eyebrow block text-teal">One working day</span>
                 Every enquiry is acknowledged with a reference number and an owner.

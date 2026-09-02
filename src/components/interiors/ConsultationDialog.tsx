@@ -19,7 +19,7 @@ export function ConsultationDialog({
     setSent(true);
   };
 
-  const field = "border border-border bg-background px-3 py-2 text-sm text-navy";
+  const field = "border border-border bg-background px-3 py-2 text-body text-navy";
 
   return (
     <div className="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-navy/70 p-4">
@@ -28,7 +28,7 @@ export function ConsultationDialog({
           <div>
             <span className="rule-gold mb-3" aria-hidden="true" />
             <p className="label-eyebrow text-teal">Fabluxora Interiors</p>
-            <h2 className="mt-2 font-display text-2xl text-navy">Book a consultation</h2>
+            <h2 className="mt-2 text-heading text-navy">Book a consultation</h2>
           </div>
           <button type="button" aria-label="Close" onClick={onClose} className="text-navy">
             <X className="h-5 w-5" aria-hidden="true" />
@@ -37,14 +37,14 @@ export function ConsultationDialog({
 
         {sent ? (
           <div className="mt-6 space-y-4">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-caption text-muted-foreground">
               Thank you — a senior designer will call you within one working day to agree a time,
               at the studio or at your home.
             </p>
             <button
               type="button"
               onClick={onClose}
-              className="bg-navy px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Close
             </button>
@@ -52,7 +52,7 @@ export function ConsultationDialog({
         ) : (
           <form onSubmit={submit} className="mt-6 space-y-4">
             {context ? (
-              <p className="text-sm text-muted-foreground">
+              <p className="text-caption text-muted-foreground">
                 Enquiry about <span className="text-navy">{context}</span>.
               </p>
             ) : null}
@@ -87,11 +87,11 @@ export function ConsultationDialog({
             />
             <button
               type="submit"
-              className="w-full bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="w-full bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Request a consultation
             </button>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-caption text-muted-foreground">
               Enquiry only. A designer discusses scope and cost with you directly after the visit.
             </p>
           </form>

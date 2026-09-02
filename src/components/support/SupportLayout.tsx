@@ -24,7 +24,7 @@ export function SupportLayout({ children }: { children: ReactNode }) {
           <div className="pt-8 pb-5">
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-teal">Customer Support</p>
-            <h1 className="mt-3 font-heading text-3xl leading-tight text-navy sm:text-4xl">
+            <h1 className="mt-3 text-heading text-navy">
               Help and support
             </h1>
           </div>
@@ -38,7 +38,7 @@ export function SupportLayout({ children }: { children: ReactNode }) {
                   exactActive
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "shrink-0 whitespace-nowrap border-b-2 px-3 pb-3 text-sm transition-colors",
+                    "shrink-0 whitespace-nowrap border-b-2 px-3 pb-3 text-body transition-colors",
                     active
                       ? "border-gold font-medium text-navy"
                       : "border-transparent text-muted-foreground hover:text-navy",

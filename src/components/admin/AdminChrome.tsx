@@ -36,8 +36,8 @@ export function AdminPageHeader({
       <div>
         <span className="rule-gold mb-3" aria-hidden="true" />
         <p className="label-eyebrow text-teal">{eyebrow}</p>
-        <h1 className="mt-2 font-heading text-2xl leading-tight text-navy sm:text-3xl">{title}</h1>
-        {copy ? <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{copy}</p> : null}
+        <h1 className="mt-2 text-heading text-navy">{title}</h1>
+        {copy ? <p className="mt-2 max-w-2xl text-caption text-muted-foreground">{copy}</p> : null}
       </div>
       {actions ? <div className="flex flex-wrap gap-2">{actions}</div> : null}
     </div>
@@ -59,7 +59,7 @@ export function AdminCard({
     <section className={cn("rounded-md border border-border bg-card", className)}>
       {title ? (
         <header className="flex items-center justify-between gap-3 border-b border-border px-4 py-3">
-          <h2 className="text-sm font-medium text-navy">{title}</h2>
+          <h2 className="text-body font-medium text-navy">{title}</h2>
           {action}
         </header>
       ) : null}
@@ -80,8 +80,8 @@ export function StatCard({
   return (
     <div className="rounded-md border border-border bg-card p-4">
       <p className="label-eyebrow text-teal">{label}</p>
-      <p className="numeric mt-2 font-heading text-2xl text-navy">{value}</p>
-      {sub ? <p className="mt-1 text-xs text-muted-foreground">{sub}</p> : null}
+      <p className="numeric mt-2 text-heading text-navy">{value}</p>
+      {sub ? <p className="mt-1 text-caption text-muted-foreground">{sub}</p> : null}
     </div>
   );
 }
@@ -103,7 +103,7 @@ export function StatusPill({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full px-2 py-0.5 text-[0.7rem] font-medium tracking-wide",
+        "inline-flex items-center rounded-full px-2 py-0.5 text-caption font-medium tracking-wide",
         pillTone[tone],
       )}
     >
@@ -121,13 +121,13 @@ export function AdminTable({
 }) {
   return (
     <div className="overflow-x-auto rounded-md border border-border bg-card">
-      <table className="w-full min-w-[46rem] border-collapse text-sm">
+      <table className="w-full min-w-[46rem] border-collapse text-body">
         <thead>
           <tr className="border-b border-border bg-muted/50 text-left">
             {head.map((cell, i) => (
               <th
                 key={i}
-                className="px-3 py-2 text-[0.7rem] font-medium uppercase tracking-[0.12em] text-muted-foreground"
+                className="px-3 py-2 text-caption font-medium uppercase tracking-[0.12em] text-muted-foreground"
               >
                 {cell}
               </th>
@@ -149,14 +149,14 @@ export function NoAccess({ section }: { section: string }) {
   return (
     <div className="mx-auto max-w-lg rounded-md border border-border bg-card p-10 text-center">
       <Lock className="mx-auto h-6 w-6 text-teal" aria-hidden="true" />
-      <h2 className="mt-4 font-heading text-xl text-navy">You don't have access to this</h2>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <h2 className="mt-4 text-heading text-navy">You don't have access to this</h2>
+      <p className="mt-2 text-body text-muted-foreground">
         {section} is restricted. You are signed in as <strong className="text-navy">{role}</strong>.
         Ask a Director to change your access level.
       </p>
       <Link
         to="/admin"
-        className="mt-6 inline-flex items-center justify-center rounded-sm bg-navy px-4 py-2 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+        className="mt-6 inline-flex items-center justify-center rounded-sm bg-navy px-4 py-2 text-body text-primary-foreground transition-opacity hover:opacity-90"
       >
         Back to dashboard
       </Link>
@@ -184,7 +184,7 @@ export function ReadOnlyNote({ section }: { section: AdminSection }) {
   const { mayEdit, role } = useAdmin();
   if (mayEdit(section)) return null;
   return (
-    <p className="mb-4 rounded-sm border border-border bg-sky/40 px-3 py-2 text-xs text-navy">
+    <p className="mb-4 rounded-sm border border-border bg-sky/40 px-3 py-2 text-caption text-navy">
       Read-only — the {role} role can browse this section but not make changes.
     </p>
   );
@@ -201,7 +201,7 @@ export function AdminBreadcrumbs() {
 
   return (
     <nav aria-label="Breadcrumb" className="mb-5">
-      <ol className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+      <ol className="flex flex-wrap items-center gap-2 text-caption text-muted-foreground">
         <li className="flex items-center gap-2">
           <Link to="/admin" className="transition-colors hover:text-teal">
             Admin

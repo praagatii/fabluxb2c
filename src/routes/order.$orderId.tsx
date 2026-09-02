@@ -34,8 +34,8 @@ function OrderConfirmationPage() {
   if (!order) {
     return (
       <Container className="py-16">
-        <h1 className="font-display text-2xl text-navy">Order not found</h1>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <h1 className="text-heading text-navy">Order not found</h1>
+        <p className="mt-3 text-caption text-muted-foreground">
           This prototype keeps orders in memory, so a page refresh clears newly placed ones.
         </p>
       </Container>
@@ -55,25 +55,25 @@ function OrderConfirmationPage() {
           <CheckCircle2 className="mx-auto h-10 w-10 text-teal" aria-hidden="true" />
           <span className="rule-gold mx-auto mt-6" aria-hidden="true" />
           <p className="label-eyebrow mt-4 text-teal">Thank you</p>
-          <h1 className="mt-3 font-display text-3xl text-navy sm:text-4xl">Your order is placed</h1>
+          <h1 className="mt-3 text-heading text-navy">Your order is placed</h1>
           {/* Order ID format is a placeholder — the client has no order-numbering format yet. */}
-          <p className="numeric mt-4 text-sm text-navy">
+          <p className="numeric mt-4 text-body text-navy">
             Order ID <span className="font-semibold">{order.id}</span>
           </p>
-          <p className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground">
+          <p className="mt-2 inline-flex items-center gap-2 text-caption text-muted-foreground">
             <Truck className="h-4 w-4 text-teal" aria-hidden="true" />
             {order.deliveryEstimate}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <SmartLink
               to={`/account/orders/${order.id}`}
-              className="bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Track order
             </SmartLink>
             <SmartLink
               to="/shop"
-              className="border border-border px-6 py-3.5 text-sm text-navy transition-colors hover:text-teal"
+              className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
             >
               Continue shopping
             </SmartLink>
@@ -96,15 +96,15 @@ function OrderConfirmationPage() {
                   className="aspect-4/3 w-24 shrink-0 object-cover"
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm text-navy">{product.name}</p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-body text-navy">{product.name}</p>
+                  <p className="text-caption text-muted-foreground">
                     {[item.colour, item.size].filter(Boolean).join(" · ")} · Qty {item.quantity}
                   </p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-caption text-muted-foreground">
                     Fulfilled by {product.fulfilledBy}
                   </p>
                 </div>
-                <p className="numeric text-sm text-navy">
+                <p className="numeric text-body text-navy">
                   {formatPrice(item.unitPrice * item.quantity)}
                 </p>
               </li>
@@ -117,7 +117,7 @@ function OrderConfirmationPage() {
             {split ? "Two invoices, one order ID" : "Invoice"}
           </p>
           {split ? (
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-2xl text-caption leading-relaxed text-muted-foreground">
               This order contains items from two Fabluxe group companies. Each company raises its
               own invoice under the single order ID {order.id}.
             </p>
@@ -127,9 +127,9 @@ function OrderConfirmationPage() {
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             {groups.map((group) => (
               <section key={group.key} className="border border-border bg-card p-6">
-                <h2 className="font-display text-xl text-navy">{group.name}</h2>
-                <p className="numeric mt-1 text-xs text-muted-foreground">GSTIN {group.gstin}</p>
-                <ul className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
+                <h2 className="text-heading text-navy">{group.name}</h2>
+                <p className="numeric mt-1 text-caption text-muted-foreground">GSTIN {group.gstin}</p>
+                <ul className="mt-4 space-y-2 border-t border-border pt-4 text-body">
                   {group.items.map((item, index) => (
                     <li
                       key={`${item.productId}-${index}`}
@@ -146,8 +146,8 @@ function OrderConfirmationPage() {
                   ))}
                 </ul>
                 <p className="mt-4 flex items-baseline justify-between border-t border-border pt-4">
-                  <span className="text-sm text-muted-foreground">Invoice total</span>
-                  <span className="numeric text-base font-semibold text-navy">
+                  <span className="text-caption text-muted-foreground">Invoice total</span>
+                  <span className="numeric text-body font-semibold text-navy">
                     {formatPrice(group.total)}
                   </span>
                 </p>
@@ -155,7 +155,7 @@ function OrderConfirmationPage() {
                   type="button"
                   disabled
                   title="Invoices are issued by the client's invoice system"
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 border border-border px-4 py-3 text-sm text-muted-foreground opacity-60"
+                  className="mt-5 inline-flex w-full items-center justify-center gap-2 border border-border px-4 py-3 text-body text-muted-foreground opacity-60"
                 >
                   <Download className="h-4 w-4" aria-hidden="true" />
                   Download invoice
@@ -165,7 +165,7 @@ function OrderConfirmationPage() {
           </div>
         </div>
 
-        <dl className="mt-10 max-w-sm space-y-3 border border-border bg-card p-6 text-sm">
+        <dl className="mt-10 max-w-sm space-y-3 border border-border bg-card p-6 text-body">
           <div className="flex justify-between">
             <dt className="text-muted-foreground">Subtotal</dt>
             <dd className="numeric text-navy">{formatPrice(order.subtotal)}</dd>
@@ -187,8 +187,8 @@ function OrderConfirmationPage() {
             <dd className="numeric text-navy">{formatPrice(order.taxes)}</dd>
           </div>
           <div className="flex justify-between border-t border-border pt-3">
-            <dt className="font-display text-lg text-navy">Total paid</dt>
-            <dd className="numeric text-lg font-semibold text-navy">{formatPrice(order.total)}</dd>
+            <dt className="text-body text-navy">Total paid</dt>
+            <dd className="numeric text-body font-semibold text-navy">{formatPrice(order.total)}</dd>
           </div>
         </dl>
       </Container>

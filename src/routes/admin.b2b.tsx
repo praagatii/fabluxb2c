@@ -61,8 +61,8 @@ function B2BScreen() {
             aria-pressed={tab === key}
             className={
               tab === key
-                ? "rounded-full bg-navy px-3 py-1.5 text-xs text-primary-foreground"
-                : "rounded-full border border-border px-3 py-1.5 text-xs text-navy hover:border-teal"
+                ? "rounded-full bg-navy px-3 py-1.5 text-caption text-primary-foreground"
+                : "rounded-full border border-border px-3 py-1.5 text-caption text-navy hover:border-teal"
             }
           >
             {label}
@@ -75,7 +75,7 @@ function B2BScreen() {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="mb-3 rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy"
+            className="mb-3 rounded-sm border border-border bg-background px-3 py-2 text-body text-navy"
           >
             <option value="all">All categories</option>
             {b2bCategories.map((c) => (
@@ -87,14 +87,14 @@ function B2BScreen() {
               <tr key={product.id}>
                 <Td>
                   <p className="text-navy">{product.name}</p>
-                  <p className="text-xs text-muted-foreground">{product.brand}</p>
+                  <p className="text-caption text-muted-foreground">{product.brand}</p>
                 </Td>
-                <Td className="numeric text-xs">{product.sku}</Td>
-                <Td className="text-xs">{b2bCategories.find((c) => c.slug === product.categorySlug)?.name}</Td>
-                <Td className="text-xs">{product.moq}</Td>
-                <Td className="text-xs">{product.leadTime}</Td>
+                <Td className="numeric text-caption">{product.sku}</Td>
+                <Td className="text-caption">{b2bCategories.find((c) => c.slug === product.categorySlug)?.name}</Td>
+                <Td className="text-caption">{product.moq}</Td>
+                <Td className="text-caption">{product.leadTime}</Td>
                 <Td>
-                  <button disabled={!editable} className="text-xs text-teal hover:underline disabled:text-muted-foreground disabled:no-underline">
+                  <button disabled={!editable} className="text-caption text-teal hover:underline disabled:text-muted-foreground disabled:no-underline">
                     Edit
                   </button>
                 </Td>
@@ -106,13 +106,13 @@ function B2BScreen() {
         <AdminTable head={["Reference", "Company", "Contact", "GSTIN", "Product", "Quantity", "Received", "Status"]}>
           {enquiries.map((enquiry) => (
             <tr key={enquiry.id}>
-              <Td className="numeric text-xs">{enquiry.id}</Td>
+              <Td className="numeric text-caption">{enquiry.id}</Td>
               <Td>{enquiry.company}</Td>
-              <Td className="text-xs">{enquiry.contact}</Td>
-              <Td className="numeric text-xs">{enquiry.gstin ?? "—"}</Td>
-              <Td className="text-xs">{enquiry.product}</Td>
-              <Td className="text-xs">{enquiry.quantity}</Td>
-              <Td className="text-xs">{enquiry.receivedAt}</Td>
+              <Td className="text-caption">{enquiry.contact}</Td>
+              <Td className="numeric text-caption">{enquiry.gstin ?? "—"}</Td>
+              <Td className="text-caption">{enquiry.product}</Td>
+              <Td className="text-caption">{enquiry.quantity}</Td>
+              <Td className="text-caption">{enquiry.receivedAt}</Td>
               <Td>
                 {editable ? (
                   <select
@@ -124,7 +124,7 @@ function B2BScreen() {
                         ),
                       )
                     }
-                    className="rounded-sm border border-border bg-background px-2 py-1 text-xs text-navy"
+                    className="rounded-sm border border-border bg-background px-2 py-1 text-caption text-navy"
                   >
                     <option>New</option>
                     <option>Quoted</option>

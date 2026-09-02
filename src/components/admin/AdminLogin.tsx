@@ -16,8 +16,8 @@ export function AdminLogin() {
       <div className="w-full max-w-md rounded-md border border-border bg-card p-8">
         <span className="rule-gold mb-3" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Fabluxe admin</p>
-        <h1 className="mt-2 font-heading text-2xl text-navy">Sign in to the portal</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="mt-2 text-heading text-navy">Sign in to the portal</h1>
+        <p className="mt-2 text-caption text-muted-foreground">
           Prototype only — any credentials work. Pick a role to preview its access level.
         </p>
 
@@ -29,28 +29,28 @@ export function AdminLogin() {
           }}
         >
           <label className="block">
-            <span className="mb-1 block text-xs font-medium text-navy">Email</span>
+            <span className="mb-1 block text-caption font-medium text-navy">Email</span>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal"
+              className="w-full rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal"
             />
           </label>
           <label className="block">
-            <span className="mb-1 block text-xs font-medium text-navy">Password</span>
+            <span className="mb-1 block text-caption font-medium text-navy">Password</span>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal"
+              className="w-full rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal"
             />
           </label>
 
           <fieldset>
-            <legend className="mb-2 text-xs font-medium text-navy">Demo role</legend>
+            <legend className="mb-2 text-caption font-medium text-navy">Demo role</legend>
             <div className="grid grid-cols-2 gap-2">
               {adminRoles.map((option) => (
                 <button
@@ -59,7 +59,7 @@ export function AdminLogin() {
                   onClick={() => setRole(option)}
                   aria-pressed={role === option}
                   className={cn(
-                    "rounded-sm border px-3 py-2 text-sm transition-colors",
+                    "rounded-sm border px-3 py-2 text-body transition-colors",
                     role === option
                       ? "border-navy bg-navy text-primary-foreground"
                       : "border-border text-navy hover:border-teal",
@@ -69,12 +69,12 @@ export function AdminLogin() {
                 </button>
               ))}
             </div>
-            <p className="mt-2 text-xs text-muted-foreground">{roleBlurb[role]}</p>
+            <p className="mt-2 text-caption text-muted-foreground">{roleBlurb[role]}</p>
           </fieldset>
 
           <button
             type="submit"
-            className="w-full rounded-sm bg-navy px-4 py-2.5 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+            className="w-full rounded-sm bg-navy px-4 py-2.5 text-body text-primary-foreground transition-opacity hover:opacity-90"
           >
             Sign in as {role}
           </button>

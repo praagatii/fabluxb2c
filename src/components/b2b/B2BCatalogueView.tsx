@@ -75,11 +75,11 @@ export function B2BCatalogueView({
   const filters = (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <p className="font-display text-lg text-navy">Filters</p>
+        <p className="text-heading text-navy">Filters</p>
         <button
           type="button"
           onClick={() => setSelected({})}
-          className="link-gold text-xs uppercase tracking-[0.18em] text-teal"
+          className="link-gold text-caption uppercase tracking-[0.18em] text-teal"
         >
           Reset
         </button>
@@ -91,7 +91,7 @@ export function B2BCatalogueView({
           {brands.map((brand) => (
             <label
               key={brand}
-              className="flex cursor-pointer items-center gap-2 text-sm text-navy"
+              className="flex cursor-pointer items-center gap-2 text-body text-navy"
             >
               <input
                 type="checkbox"
@@ -112,7 +112,7 @@ export function B2BCatalogueView({
             {facet.values.map((entry) => (
               <label
                 key={entry.value}
-                className="flex cursor-pointer items-center justify-between gap-3 text-sm text-navy"
+                className="flex cursor-pointer items-center justify-between gap-3 text-body text-navy"
               >
                 <span className="flex items-center gap-2">
                   <input
@@ -123,7 +123,7 @@ export function B2BCatalogueView({
                   />
                   {entry.value}
                 </span>
-                <span className="numeric text-xs text-muted-foreground">{entry.count}</span>
+                <span className="numeric text-caption text-muted-foreground">{entry.count}</span>
               </label>
             ))}
           </div>
@@ -154,13 +154,13 @@ export function B2BCatalogueView({
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Search by product, brand or SKU"
-              className="w-full border border-border bg-card py-2.5 pl-9 pr-3 text-sm text-navy placeholder:text-muted-foreground focus:border-teal focus:outline-none"
+              className="w-full border border-border bg-card py-2.5 pl-9 pr-3 text-body text-navy placeholder:text-muted-foreground focus:border-teal focus:outline-none"
             />
           </div>
           <button
             type="button"
             onClick={() => setPanelOpen((open) => !open)}
-            className="inline-flex items-center gap-2 border border-border px-4 py-2.5 text-xs uppercase tracking-[0.18em] text-navy lg:hidden"
+            className="inline-flex items-center gap-2 border border-border px-4 py-2.5 text-caption uppercase tracking-[0.18em] text-navy lg:hidden"
             aria-expanded={panelOpen}
           >
             {panelOpen ? (
@@ -176,13 +176,13 @@ export function B2BCatalogueView({
           <div className="mt-5 border border-border bg-card p-5 lg:hidden">{filters}</div>
         ) : null}
 
-        <p className="mt-5 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+        <p className="mt-5 text-caption uppercase tracking-[0.18em] text-muted-foreground">
           <span className="numeric text-navy">{results.length}</span> item
           {results.length === 1 ? "" : "s"} — enquiry only
         </p>
 
         {results.length === 0 ? (
-          <p className="mt-10 border border-dashed border-border p-10 text-center text-sm text-muted-foreground">
+          <p className="mt-10 border border-dashed border-border p-10 text-center text-caption text-muted-foreground">
             Nothing matches that search yet. Clear a filter, or raise an enquiry and the trade desk
             will source it.
           </p>

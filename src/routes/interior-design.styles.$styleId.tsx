@@ -67,10 +67,10 @@ function StyleDetail() {
           <Container>
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-gold">Room style</p>
-            <h1 className="mt-3 font-display text-4xl text-primary-foreground sm:text-5xl">
+            <h1 className="mt-3 font-display text-display text-primary-foreground">
               {style.name}
             </h1>
-            <p className="mt-3 max-w-xl text-sm text-sky sm:text-base">{style.tagline}</p>
+            <p className="mt-3 max-w-xl text-body text-sky">{style.tagline}</p>
           </Container>
         </div>
       </section>
@@ -80,9 +80,9 @@ function StyleDetail() {
           <div>
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-teal">The idea</p>
-            <p className="mt-4 font-display text-2xl leading-snug text-navy">{style.intro}</p>
+            <p className="mt-4 text-heading leading-snug text-navy">{style.intro}</p>
             {style.description.map((paragraph) => (
-              <p key={paragraph} className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              <p key={paragraph} className="mt-4 text-body leading-relaxed text-muted-foreground">
                 {paragraph}
               </p>
             ))}
@@ -92,7 +92,7 @@ function StyleDetail() {
                 {style.suits.map((id) => (
                   <li
                     key={id}
-                    className="border border-border bg-card px-4 py-2 text-xs uppercase tracking-[0.12em] text-navy"
+                    className="border border-border bg-card px-4 py-2 text-caption uppercase tracking-[0.12em] text-navy"
                   >
                     {roomTypeLabel(id)}
                   </li>
@@ -107,8 +107,8 @@ function StyleDetail() {
             <ul className="mt-4 divide-y divide-border">
               {style.materials.map((material) => (
                 <li key={material.name} className="py-3">
-                  <p className="text-sm text-navy">{material.name}</p>
-                  <p className="text-xs text-muted-foreground">{material.note}</p>
+                  <p className="text-caption text-navy">{material.name}</p>
+                  <p className="text-caption text-muted-foreground">{material.note}</p>
                 </li>
               ))}
             </ul>
@@ -146,7 +146,7 @@ function StyleDetail() {
                     <p className="label-eyebrow text-teal">
                       {roomTypeLabel(project.roomTypeId)} · {project.city}
                     </p>
-                    <h3 className="mt-3 font-display text-lg leading-snug text-navy">
+                    <h3 className="mt-3 text-heading leading-snug text-navy">
                       {project.title}
                     </h3>
                   </div>
@@ -161,20 +161,20 @@ function StyleDetail() {
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
-            <h2 className="font-display text-3xl text-primary-foreground sm:text-4xl">
+            <h2 className="font-display text-display text-primary-foreground">
               Take {style.name} further
             </h2>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <button
                 type="button"
                 onClick={() => setDialogOpen(true)}
-                className="bg-gold px-7 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-sky"
+                className="bg-gold px-7 py-3.5 text-body font-medium text-navy transition-colors hover:bg-sky"
               >
                 Book a consultation
               </button>
               <a
                 href="/support"
-                className="border border-sky px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
+                className="border border-sky px-7 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
               >
                 Contact customer support
               </a>
@@ -196,13 +196,13 @@ function StyleNotFound() {
   return (
     <Section>
       <span className="rule-gold mb-4" aria-hidden="true" />
-      <h1 className="font-display text-3xl text-navy">We could not find that style</h1>
-      <p className="mt-3 text-sm text-muted-foreground">
+      <h1 className="text-heading text-navy">We could not find that style</h1>
+      <p className="mt-3 text-caption text-muted-foreground">
         It may have been renamed. Browse the six current room styles instead.
       </p>
       <Link
         to="/interior-design"
-        className="mt-6 inline-block bg-navy px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-teal"
+        className="mt-6 inline-block bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
       >
         Back to interior design
       </Link>

@@ -14,7 +14,7 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-beige/95 backdrop-blur">
+    <header className="sticky top-0 z-50 bg-beige/95 backdrop-blur [padding-top:env(safe-area-inset-top)]">
       <AnnouncementBar />
 
       {/* Top row */}
@@ -96,7 +96,7 @@ export function SiteHeader() {
               <li key={item.label} className="border-t border-border">
                 <SmartLink
                   to={item.to}
-                  className="block py-3 font-display text-lg text-navy"
+                  className="block py-3 text-body font-medium text-navy"
                   onClick={() => setMobileOpen(false)}
                 >
                   {item.label}
@@ -108,13 +108,13 @@ export function SiteHeader() {
                         {c.status === "live" ? (
                           <SmartLink
                             to={`/shop/${c.slug}`}
-                            className="block py-1.5 text-sm text-muted-foreground"
+                            className="block py-1.5 text-caption text-muted-foreground"
                             onClick={() => setMobileOpen(false)}
                           >
                             {c.name}
                           </SmartLink>
                         ) : (
-                          <span className="block py-1.5 text-sm text-muted-foreground/70">
+                          <span className="block py-1.5 text-caption text-muted-foreground/70">
                             {c.name} — coming soon
                           </span>
                         )}

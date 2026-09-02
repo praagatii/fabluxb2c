@@ -41,10 +41,10 @@ function B2BLanding() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <B2BPageMark>Trade catalogue</B2BPageMark>
-            <h1 className="mt-4 font-display text-4xl leading-tight text-navy sm:text-5xl">
+            <h1 className="mt-4 font-display text-display leading-tight text-navy">
               A trade catalogue for the people who build the room
             </h1>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-xl text-body leading-relaxed text-muted-foreground">
               The Fabluxe B2B Store lists what we supply to contractors, studios and developers —
               door furniture, motion hardware, fixtures, appliance packages and site materials. It
               is a catalogue for specification, not a checkout. Nothing here is priced online and
@@ -53,14 +53,14 @@ function B2BLanding() {
             <div className="mt-8 flex flex-wrap gap-3">
               <SmartLink
                 to="/b2b/catalogue"
-                className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+                className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
               >
                 Browse the catalogue
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </SmartLink>
               <SmartLink
                 to="/b2b/enquiry"
-                className="border border-navy px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-beige"
+                className="border border-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-beige"
               >
                 Raise a bulk enquiry
               </SmartLink>
@@ -85,8 +85,8 @@ function B2BLanding() {
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {b2bAudience.map((item) => (
             <div key={item.title} className="border-t-2 border-teal pt-5">
-              <h3 className="font-display text-xl text-navy">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.copy}</p>
+              <h3 className="text-heading text-navy">{item.title}</h3>
+              <p className="mt-2 text-caption leading-relaxed text-muted-foreground">{item.copy}</p>
             </div>
           ))}
         </div>
@@ -128,11 +128,11 @@ function B2BLanding() {
                   <p className="label-eyebrow text-teal">{category.tagline}</p>
                   <B2BLabel />
                 </div>
-                <h3 className="mt-3 font-display text-xl text-navy">{category.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <h3 className="mt-3 text-heading text-navy">{category.name}</h3>
+                <p className="mt-2 text-caption leading-relaxed text-muted-foreground">
                   {category.description}
                 </p>
-                <p className="numeric mt-4 text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <p className="numeric mt-4 text-caption uppercase tracking-[0.18em] text-muted-foreground">
                   {category.itemCount} lines listed
                 </p>
               </div>
@@ -154,7 +154,7 @@ function B2BLanding() {
           <Link
             to="/b2b/enquiry"
             search={{ product: "" }}
-            className="inline-flex shrink-0 items-center gap-2 bg-gold px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+            className="inline-flex shrink-0 items-center gap-2 bg-gold px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
           >
             Start an enquiry
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

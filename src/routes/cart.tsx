@@ -85,8 +85,8 @@ function CartPage() {
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Cart" }]} />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Your order</p>
-        <h1 className="mt-3 font-display text-3xl text-navy sm:text-4xl">Shopping cart</h1>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <h1 className="mt-3 text-heading text-navy">Shopping cart</h1>
+        <p className="mt-3 text-caption text-muted-foreground">
           {rows.length} {rows.length === 1 ? "line" : "lines"} in your cart
         </p>
       </Container>
@@ -94,14 +94,14 @@ function CartPage() {
       {rows.length === 0 ? (
         <Container className="py-12">
           <div className="border border-border bg-card p-12 text-center">
-            <h2 className="font-display text-2xl text-navy">Your cart is empty</h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
+            <h2 className="text-heading text-navy">Your cart is empty</h2>
+            <p className="mx-auto mt-3 max-w-md text-caption text-muted-foreground">
               Add an appliance or an interiors piece and it will appear here with delivery and
               invoice details.
             </p>
             <SmartLink
               to="/shop"
-              className="mt-6 inline-block bg-navy px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Browse the catalogue
             </SmartLink>
@@ -111,7 +111,7 @@ function CartPage() {
         <Container className="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
           <div>
             {splitOrder ? (
-              <p className="mb-6 flex items-start gap-3 border border-border bg-sky/40 px-4 py-3 text-xs leading-relaxed text-navy">
+              <p className="mb-6 flex items-start gap-3 border border-border bg-sky/40 px-4 py-3 text-caption leading-relaxed text-navy">
                 <Info className="mt-0.5 h-4 w-4 shrink-0 text-teal" aria-hidden="true" />
                 <span>
                   This order will be fulfilled by two Fabluxe companies —{" "}
@@ -137,15 +137,15 @@ function CartPage() {
 
                   <div className="flex min-w-0 flex-1 flex-col">
                     <p className="label-eyebrow text-teal">{product.brand}</p>
-                    <h2 className="mt-1 font-display text-lg leading-snug text-navy">
+                    <h2 className="mt-1 text-heading leading-snug text-navy">
                       <SmartLink to={`/shop/product/${product.id}`} className="link-gold">
                         {product.name}
                       </SmartLink>
                     </h2>
-                    <p className="mt-1 text-xs text-muted-foreground">
+                    <p className="mt-1 text-caption text-muted-foreground">
                       {[line.colour, line.size].filter(Boolean).join(" · ")}
                     </p>
-                    <p className="mt-1 text-xs text-muted-foreground">
+                    <p className="mt-1 text-caption text-muted-foreground">
                       Fulfilled by {product.fulfilledBy}
                     </p>
 
@@ -159,7 +159,7 @@ function CartPage() {
                         >
                           <Minus className="h-4 w-4" aria-hidden="true" />
                         </button>
-                        <span className="numeric w-10 text-center text-sm text-navy">
+                        <span className="numeric w-10 text-center text-body text-navy">
                           {line.quantity}
                         </span>
                         <button
@@ -172,17 +172,17 @@ function CartPage() {
                         </button>
                       </div>
 
-                      <div className="numeric text-sm text-navy">
+                      <div className="numeric text-body text-navy">
                         <span className="font-semibold">{formatPrice(lineTotal)}</span>
                         {line.quantity > 1 ? (
-                          <span className="ml-2 text-xs text-muted-foreground">
+                          <span className="ml-2 text-caption text-muted-foreground">
                             {formatPrice(unitPrice)} each
                           </span>
                         ) : null}
                       </div>
                     </div>
 
-                    <div className="mt-4 flex flex-wrap items-center gap-4 text-xs">
+                    <div className="mt-4 flex flex-wrap items-center gap-4 text-body">
                       <button
                         type="button"
                         onClick={() => moveToWishlist(line.key)}
@@ -209,7 +209,7 @@ function CartPage() {
             <p className="label-eyebrow text-teal">Order summary</p>
 
             <div className="mt-5">
-              <label htmlFor="coupon" className="text-xs text-muted-foreground">
+              <label htmlFor="coupon" className="text-caption text-muted-foreground">
                 Coupon or discount code
               </label>
               <div className="mt-2 flex">
@@ -218,12 +218,12 @@ function CartPage() {
                   value={code}
                   onChange={(event) => setCode(event.target.value)}
                   placeholder="FABFEST"
-                  className="min-w-0 flex-1 border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+                  className="min-w-0 flex-1 border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
                 />
                 <button
                   type="button"
                   onClick={applyCoupon}
-                  className="bg-navy px-4 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+                  className="bg-navy px-4 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
                 >
                   Apply
                 </button>
@@ -231,7 +231,7 @@ function CartPage() {
 
               <div aria-live="polite">
                 {applied ? (
-                  <p className="mt-3 flex items-center justify-between gap-3 bg-beige px-3 py-2 text-xs text-navy">
+                  <p className="mt-3 flex items-center justify-between gap-3 bg-beige px-3 py-2 text-caption text-navy">
                     <span className="inline-flex items-center gap-2">
                       <Tag className="h-3.5 w-3.5 text-teal" aria-hidden="true" />
                       {applied.code} applied — {applied.percent}% off
@@ -250,7 +250,7 @@ function CartPage() {
                   </p>
                 ) : null}
                 {couponError ? (
-                  <p className="mt-3 text-xs text-destructive">{couponError}</p>
+                  <p className="mt-3 text-caption text-destructive">{couponError}</p>
                 ) : null}
               </div>
 
@@ -258,7 +258,7 @@ function CartPage() {
                 type="button"
                 onClick={() => setOffersOpen((open) => !open)}
                 aria-expanded={offersOpen}
-                className="mt-3 text-xs text-teal underline-offset-4 hover:underline"
+                className="mt-3 text-body text-teal underline-offset-4 hover:underline"
               >
                 {offersOpen ? "Hide available offers" : "View available offers"}
               </button>
@@ -268,26 +268,26 @@ function CartPage() {
                   {coupons.map((coupon) => (
                     <li key={coupon.code}>
                       <div className="flex items-center justify-between gap-3">
-                        <span className="numeric bg-sky/60 px-2 py-0.5 text-xs font-semibold text-navy">
+                        <span className="numeric bg-sky/60 px-2 py-0.5 text-caption font-semibold text-navy">
                           {coupon.code}
                         </span>
                         <button
                           type="button"
                           onClick={() => setCode(coupon.code)}
-                          className="text-xs text-teal underline-offset-4 hover:underline"
+                          className="text-body text-teal underline-offset-4 hover:underline"
                         >
                           Use code
                         </button>
                       </div>
-                      <p className="mt-1 text-xs text-navy">{coupon.title}</p>
-                      <p className="text-xs leading-relaxed text-muted-foreground">{coupon.copy}</p>
+                      <p className="mt-1 text-caption text-navy">{coupon.title}</p>
+                      <p className="text-caption leading-relaxed text-muted-foreground">{coupon.copy}</p>
                     </li>
                   ))}
                 </ul>
               ) : null}
             </div>
 
-            <dl className="mt-6 space-y-3 border-t border-border pt-5 text-sm">
+            <dl className="mt-6 space-y-3 border-t border-border pt-5 text-body">
               <div className="flex items-center justify-between">
                 <dt className="text-muted-foreground">Subtotal</dt>
                 <dd className="numeric text-navy">{formatPrice(subtotal)}</dd>
@@ -309,18 +309,18 @@ function CartPage() {
                 <dd className="numeric text-navy">{formatPrice(taxes)}</dd>
               </div>
               <div className="flex items-center justify-between border-t border-border pt-4">
-                <dt className="font-display text-lg text-navy">Total</dt>
-                <dd className="numeric text-lg font-semibold text-navy">{formatPrice(total)}</dd>
+                <dt className="text-body text-navy">Total</dt>
+                <dd className="numeric text-body font-semibold text-navy">{formatPrice(total)}</dd>
               </div>
             </dl>
 
             <SmartLink
               to="/checkout"
-              className="mt-6 block bg-navy px-6 py-3.5 text-center text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 block bg-navy px-6 py-3.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Proceed to checkout
             </SmartLink>
-            <p className="mt-3 text-center text-xs text-muted-foreground">
+            <p className="mt-3 text-center text-caption text-muted-foreground">
               Returns and warranty as per company policy.
             </p>
           </aside>

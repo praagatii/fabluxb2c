@@ -45,7 +45,7 @@ const paymentOptions = [
 ];
 
 const inputClass =
-  "mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground";
+  "mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground";
 
 function Field({
   label,
@@ -61,7 +61,7 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <label className="block text-xs text-muted-foreground">
+    <label className="block text-caption text-muted-foreground">
       {label}
       <input
         name={name}
@@ -196,13 +196,13 @@ function CheckoutPage() {
     return (
       <Container className="py-16">
         <div className="border border-border bg-card p-12 text-center">
-          <h1 className="font-display text-2xl text-navy">Your cart is empty</h1>
-          <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
+          <h1 className="text-heading text-navy">Your cart is empty</h1>
+          <p className="mx-auto mt-3 max-w-md text-caption text-muted-foreground">
             Add something to the cart before heading to checkout.
           </p>
           <SmartLink
             to="/shop"
-            className="mt-6 inline-block bg-navy px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Browse the catalogue
           </SmartLink>
@@ -219,7 +219,7 @@ function CheckoutPage() {
         />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Secure checkout</p>
-        <h1 className="mt-3 font-display text-3xl text-navy sm:text-4xl">Complete your order</h1>
+        <h1 className="mt-3 text-heading text-navy">Complete your order</h1>
 
         <ol className="mt-8 grid gap-3 sm:grid-cols-4">
           {steps.map((label, index) => {
@@ -237,7 +237,7 @@ function CheckoutPage() {
               >
                 <span
                   className={cn(
-                    "numeric grid h-7 w-7 shrink-0 place-items-center rounded-full text-xs font-semibold",
+                    "numeric grid h-7 w-7 shrink-0 place-items-center rounded-full text-caption font-semibold",
                     active
                       ? "bg-navy text-primary-foreground"
                       : done
@@ -247,7 +247,7 @@ function CheckoutPage() {
                 >
                   {done ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : number}
                 </span>
-                <span className={cn("text-xs", active ? "text-navy" : "text-muted-foreground")}>
+                <span className={cn("text-caption", active ? "text-navy" : "text-muted-foreground")}>
                   {label}
                 </span>
               </li>
@@ -260,10 +260,10 @@ function CheckoutPage() {
         <div className="border border-border bg-card p-6 sm:p-8">
           {step === 1 ? (
             <section aria-labelledby="step-account">
-              <h2 id="step-account" className="font-display text-2xl text-navy">
+              <h2 id="step-account" className="text-heading text-navy">
                 {mode === "create" ? "Create an account to continue" : "Sign in to continue"}
               </h2>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-caption text-muted-foreground">
                 Browsing is open to everyone, but an account is required to place an order.
               </p>
               <form onSubmit={submitAccount} className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -278,14 +278,14 @@ function CheckoutPage() {
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="w-full bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto"
+                    className="w-full bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto"
                   >
                     {mode === "create" ? "Create account & continue" : "Sign in & continue"}
                   </button>
                   <button
                     type="button"
                     onClick={() => setMode(mode === "create" ? "signin" : "create")}
-                    className="ml-0 mt-3 block text-xs text-teal underline-offset-4 hover:underline sm:ml-5 sm:mt-0 sm:inline"
+                    className="ml-0 mt-3 block text-body text-teal underline-offset-4 hover:underline sm:ml-5 sm:mt-0 sm:inline"
                   >
                     {mode === "create" ? "Sign in instead" : "Create an account instead"}
                   </button>
@@ -296,7 +296,7 @@ function CheckoutPage() {
 
           {step === 2 ? (
             <section aria-labelledby="step-address">
-              <h2 id="step-address" className="font-display text-2xl text-navy">
+              <h2 id="step-address" className="text-heading text-navy">
                 Delivery address
               </h2>
               <fieldset className="mt-6">
@@ -306,7 +306,7 @@ function CheckoutPage() {
                     <label
                       key={address.id}
                       className={cn(
-                        "cursor-pointer border p-4 text-sm",
+                        "cursor-pointer border p-4 text-body",
                         addressId === address.id ? "border-gold bg-sky/30" : "border-border",
                       )}
                     >
@@ -321,7 +321,7 @@ function CheckoutPage() {
                         />
                         <span className="label-eyebrow text-navy">{address.label}</span>
                       </span>
-                      <span className="mt-2 block text-xs leading-relaxed text-muted-foreground">
+                      <span className="mt-2 block text-caption leading-relaxed text-muted-foreground">
                         {address.name}, {address.line1}
                         {address.line2 ? `, ${address.line2}` : ""}, {address.city},{" "}
                         {address.state} {address.pincode}
@@ -356,14 +356,14 @@ function CheckoutPage() {
                 <div className="mt-6 flex flex-wrap gap-3">
                   <button
                     type="submit"
-                    className="bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+                    className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
                   >
                     Continue to payment
                   </button>
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="border border-border px-6 py-3.5 text-sm text-navy transition-colors hover:text-teal"
+                    className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
                   >
                     Back
                   </button>
@@ -374,7 +374,7 @@ function CheckoutPage() {
 
           {step === 3 ? (
             <section aria-labelledby="step-payment">
-              <h2 id="step-payment" className="font-display text-2xl text-navy">
+              <h2 id="step-payment" className="text-heading text-navy">
                 Payment method
               </h2>
               <div className="mt-6 divide-y divide-border border border-border">
@@ -390,14 +390,14 @@ function CheckoutPage() {
                         className="mt-1 accent-[var(--color-teal)]"
                       />
                       <span>
-                        <span className="block text-sm text-navy">{option.label}</span>
-                        <span className="block text-xs text-muted-foreground">{option.copy}</span>
+                        <span className="block text-body text-navy">{option.label}</span>
+                        <span className="block text-caption text-muted-foreground">{option.copy}</span>
                       </span>
                     </label>
 
                     {option.id === "upi" && payment === "upi" ? (
                       <div className="grid gap-5 border-t border-border bg-beige/60 p-4 sm:grid-cols-[minmax(0,1fr)_10rem]">
-                        <label className="block text-xs text-muted-foreground">
+                        <label className="block text-caption text-muted-foreground">
                           UPI ID
                           <input
                             value={upiId}
@@ -409,7 +409,7 @@ function CheckoutPage() {
                         <div className="grid aspect-square place-items-center border border-dashed border-teal/60 bg-card text-center">
                           <span className="px-2">
                             <QrCode className="mx-auto h-8 w-8 text-teal" aria-hidden="true" />
-                            <span className="mt-2 block text-[0.625rem] leading-snug text-muted-foreground">
+                            <span className="mt-2 block text-caption leading-snug text-muted-foreground">
                               QR placeholder
                             </span>
                           </span>
@@ -420,19 +420,19 @@ function CheckoutPage() {
                     {(option.id === "credit-card" || option.id === "debit-card") &&
                     payment === option.id ? (
                       <div className="grid gap-4 border-t border-border bg-beige/60 p-4 sm:grid-cols-2">
-                        <label className="block text-xs text-muted-foreground sm:col-span-2">
+                        <label className="block text-caption text-muted-foreground sm:col-span-2">
                           Card number
                           <input placeholder="0000 0000 0000 0000" className={inputClass} />
                         </label>
-                        <label className="block text-xs text-muted-foreground">
+                        <label className="block text-caption text-muted-foreground">
                           Expiry
                           <input placeholder="MM / YY" className={inputClass} />
                         </label>
-                        <label className="block text-xs text-muted-foreground">
+                        <label className="block text-caption text-muted-foreground">
                           CVV
                           <input placeholder="•••" className={inputClass} />
                         </label>
-                        <p className="flex items-center gap-2 text-xs text-muted-foreground sm:col-span-2">
+                        <p className="flex items-center gap-2 text-caption text-muted-foreground sm:col-span-2">
                           <CreditCard className="h-3.5 w-3.5 text-teal" aria-hidden="true" />
                           Card details are not processed in this prototype.
                         </p>
@@ -441,7 +441,7 @@ function CheckoutPage() {
 
                     {option.id === "net-banking" && payment === "net-banking" ? (
                       <div className="border-t border-border bg-beige/60 p-4">
-                        <label className="block text-xs text-muted-foreground">
+                        <label className="block text-caption text-muted-foreground">
                           Select your bank
                           <select className={inputClass}>
                             <option>State Bank of India</option>
@@ -461,15 +461,15 @@ function CheckoutPage() {
                 <button
                   type="button"
                   onClick={() => setStep(4)}
-                  className="bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
-                >
-                  Continue to review
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setStep(2)}
-                  className="border border-border px-6 py-3.5 text-sm text-navy transition-colors hover:text-teal"
-                >
+className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                  >
+                    Continue to review
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStep(2)}
+                    className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
+                  >
                   Back
                 </button>
               </div>
@@ -478,21 +478,21 @@ function CheckoutPage() {
 
           {step === 4 ? (
             <section aria-labelledby="step-review">
-              <h2 id="step-review" className="font-display text-2xl text-navy">
+              <h2 id="step-review" className="text-heading text-navy">
                 Review and place order
               </h2>
 
               <div className="mt-6 grid gap-6 sm:grid-cols-2">
                 <div className="border border-border p-4">
                   <p className="label-eyebrow text-teal">Account</p>
-                  <p className="mt-2 text-sm text-navy">{user?.name ?? "Guest"}</p>
-                  <p className="text-xs text-muted-foreground">{user?.email}</p>
-                  <p className="text-xs text-muted-foreground">{user?.phone}</p>
+                  <p className="mt-2 text-body text-navy">{user?.name ?? "Guest"}</p>
+                  <p className="text-caption text-muted-foreground">{user?.email}</p>
+                  <p className="text-caption text-muted-foreground">{user?.phone}</p>
                 </div>
                 <div className="border border-border p-4">
                   <p className="label-eyebrow text-teal">Delivering to</p>
-                  <p className="mt-2 text-sm text-navy">{selectedAddress?.label}</p>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-2 text-body text-navy">{selectedAddress?.label}</p>
+                  <p className="text-caption leading-relaxed text-muted-foreground">
                     {selectedAddress?.line1}
                     {selectedAddress?.line2 ? `, ${selectedAddress.line2}` : ""},{" "}
                     {selectedAddress?.city}, {selectedAddress?.state} {selectedAddress?.pincode}
@@ -500,7 +500,7 @@ function CheckoutPage() {
                 </div>
                 <div className="border border-border p-4 sm:col-span-2">
                   <p className="label-eyebrow text-teal">Payment</p>
-                  <p className="mt-2 text-sm text-navy">
+                  <p className="mt-2 text-body text-navy">
                     {paymentOptions.find((p) => p.id === payment)?.label}
                     {payment === "upi" && upiId ? ` · ${upiId}` : ""}
                   </p>
@@ -517,22 +517,22 @@ function CheckoutPage() {
                       className="aspect-4/3 w-24 shrink-0 object-cover"
                     />
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm text-navy">{product.name}</p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-body text-navy">{product.name}</p>
+                      <p className="text-caption text-muted-foreground">
                         {[line.colour, line.size].filter(Boolean).join(" · ")} · Qty {line.quantity}
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-caption text-muted-foreground">
                         Fulfilled by {product.fulfilledBy}
                       </p>
                     </div>
-                    <p className="numeric text-sm text-navy">
+                    <p className="numeric text-body text-navy">
                       {formatPrice(unitPrice * line.quantity)}
                     </p>
                   </li>
                 ))}
               </ul>
 
-              <label className="mt-6 flex items-start gap-3 text-xs text-muted-foreground">
+              <label className="mt-6 flex items-start gap-3 text-caption text-muted-foreground">
                 <input
                   type="checkbox"
                   checked={terms}
@@ -548,15 +548,15 @@ function CheckoutPage() {
                   type="button"
                   disabled={!terms}
                   onClick={submitOrder}
-                  className="bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  Place order
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setStep(3)}
-                  className="border border-border px-6 py-3.5 text-sm text-navy transition-colors hover:text-teal"
-                >
+className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    Place order
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setStep(3)}
+                    className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
+                  >
                   Back
                 </button>
               </div>
@@ -568,7 +568,7 @@ function CheckoutPage() {
           <p className="label-eyebrow text-teal">Order summary</p>
 
           <div className="mt-5">
-            <label htmlFor="checkout-coupon" className="text-xs text-muted-foreground">
+            <label htmlFor="checkout-coupon" className="text-caption text-muted-foreground">
               Coupon or discount code
             </label>
             <div className="mt-2 flex">
@@ -577,18 +577,18 @@ function CheckoutPage() {
                 value={code}
                 onChange={(event) => setCode(event.target.value)}
                 placeholder="FABFEST"
-                className="min-w-0 flex-1 border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground"
+                className="min-w-0 flex-1 border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground"
               />
               <button
                 type="button"
                 onClick={applyCoupon}
-                className="bg-navy px-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="bg-navy px-4 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
               >
                 Apply
               </button>
             </div>
             {applied ? (
-              <p className="mt-3 flex items-center justify-between text-xs text-teal">
+              <p className="mt-3 flex items-center justify-between text-caption text-teal">
                 <span>{applied.code} applied</span>
                 <button
                   type="button"
@@ -599,13 +599,13 @@ function CheckoutPage() {
                 </button>
               </p>
             ) : null}
-            {couponError ? <p className="mt-3 text-xs text-destructive">{couponError}</p> : null}
-            <p className="mt-3 text-xs text-muted-foreground">
+            {couponError ? <p className="mt-3 text-caption text-destructive">{couponError}</p> : null}
+            <p className="mt-3 text-caption text-muted-foreground">
               Available codes: {coupons.map((c) => c.code).join(", ")}
             </p>
           </div>
 
-          <dl className="mt-6 space-y-3 border-t border-border pt-5 text-sm">
+          <dl className="mt-6 space-y-3 border-t border-border pt-5 text-body">
             <div className="flex items-center justify-between">
               <dt className="text-muted-foreground">Subtotal</dt>
               <dd className="numeric text-navy">{formatPrice(subtotal)}</dd>
@@ -627,8 +627,8 @@ function CheckoutPage() {
               <dd className="numeric text-navy">{formatPrice(taxes)}</dd>
             </div>
             <div className="flex items-center justify-between border-t border-border pt-4">
-              <dt className="font-display text-lg text-navy">Total</dt>
-              <dd className="numeric text-lg font-semibold text-navy">{formatPrice(total)}</dd>
+              <dt className="text-body text-navy">Total</dt>
+              <dd className="numeric text-body font-semibold text-navy">{formatPrice(total)}</dd>
             </div>
           </dl>
         </aside>

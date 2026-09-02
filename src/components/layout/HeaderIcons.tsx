@@ -27,7 +27,7 @@ function IconLink({
     >
       {children}
       {count && count > 0 ? (
-        <span className="numeric absolute right-0.5 top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-gold px-1 text-[0.625rem] font-semibold text-navy">
+        <span className="numeric absolute right-0.5 top-0.5 grid h-4 min-w-4 place-items-center rounded-full bg-gold px-1 text-micro font-semibold text-navy">
           {count}
         </span>
       ) : null}

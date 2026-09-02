@@ -17,15 +17,15 @@ export function NewsletterCapture() {
         <div className="mx-auto max-w-2xl text-center">
           <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
           <p className="label-eyebrow text-gold">The Fabluxe Letter</p>
-          <h2 className="mt-3 text-3xl text-beige sm:text-4xl">
+          <h2 className="font-display mt-3 text-display text-beige">
             New arrivals, private offers and design notes
           </h2>
-          <p className="mt-3 text-sm text-sky">
+          <p className="mt-3 text-body text-sky">
             One considered email a month. No forwarding, no selling of data.
           </p>
 
           {submitted ? (
-            <p className="mt-8 text-sm text-gold" role="status">
+            <p className="mt-8 text-body text-gold" role="status">
               Thank you — we have added {email} to the list.
             </p>
           ) : (
@@ -43,11 +43,11 @@ export function NewsletterCapture() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your.name@email.com"
-                className="h-12 w-full border border-teal/60 bg-transparent px-4 text-sm text-beige placeholder:text-sky/60"
+                className="h-12 w-full border border-teal/60 bg-transparent px-4 text-body text-beige placeholder:text-sky/60"
               />
               <button
                 type="submit"
-                className="h-12 bg-beige px-6 text-sm font-medium text-navy transition-colors hover:bg-gold"
+                className="h-12 bg-beige px-6 text-body font-medium text-navy transition-colors hover:bg-gold"
               >
                 Subscribe
               </button>

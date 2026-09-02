@@ -64,41 +64,41 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
 
       <div className="flex flex-1 flex-col p-5">
         <p className="label-eyebrow text-teal">{product.brand}</p>
-        <h3 className="mt-2 font-display text-lg leading-snug text-navy">
+        <h3 className="mt-2 text-heading leading-snug text-navy">
           <SmartLink to={`/shop/product/${product.id}`} className="link-gold">
             {product.name}
           </SmartLink>
         </h3>
 
-        <p className="mt-2 text-xs text-muted-foreground">{product.specs.slice(0, 3).join(" · ")}</p>
+        <p className="mt-2 text-caption text-muted-foreground">{product.specs.slice(0, 3).join(" · ")}</p>
 
         {list ? (
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+          <p className="mt-3 max-w-xl text-body leading-relaxed text-muted-foreground">
             {product.description}
           </p>
         ) : null}
 
         <div className="mt-4 flex items-center gap-1.5">
           <Star className="h-3.5 w-3.5 text-gold" fill="currentColor" aria-hidden="true" />
-          <span className="numeric text-xs text-navy">{product.rating.toFixed(1)}</span>
-          <span className="numeric text-xs text-muted-foreground">
+          <span className="numeric text-caption text-navy">{product.rating.toFixed(1)}</span>
+          <span className="numeric text-caption text-muted-foreground">
             ({product.reviewCount} reviews)
           </span>
         </div>
 
         <div className="mt-4 flex flex-wrap items-baseline gap-2">
-          <span className="numeric text-lg font-semibold text-navy">
+          <span className="numeric text-body font-semibold text-navy">
             {formatPrice(product.price)}
           </span>
-          <span className="numeric text-xs text-muted-foreground line-through">
+          <span className="numeric text-caption text-muted-foreground line-through">
             {formatPrice(product.mrp)}
           </span>
-          <span className="numeric bg-beige px-2 py-0.5 text-xs font-semibold text-teal">
+          <span className="numeric bg-beige px-2 py-0.5 text-caption font-semibold text-teal">
             {discount}% off
           </span>
         </div>
 
-        <p className="mt-2 text-xs text-muted-foreground">
+        <p className="mt-2 text-caption text-muted-foreground">
           {product.availability} · Fulfilled by {product.fulfilledBy}
         </p>
 
@@ -106,11 +106,11 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
           <button
             type="button"
             onClick={() => addToCart(product.id)}
-            className="w-full bg-navy px-4 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto sm:flex-1"
+            className="w-full bg-navy px-4 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto sm:flex-1"
           >
             Add to cart
           </button>
-          <label className="flex cursor-pointer items-center gap-2 text-xs text-muted-foreground">
+          <label className="flex cursor-pointer items-center gap-2 text-caption text-muted-foreground">
             <input
               type="checkbox"
               checked={compared}

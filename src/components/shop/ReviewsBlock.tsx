@@ -35,9 +35,9 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
   return (
     <div className="grid gap-10 lg:grid-cols-[20rem_1fr]">
       <div>
-        <p className="numeric font-display text-5xl text-navy">{rating.toFixed(1)}</p>
+        <p className="numeric font-display text-display text-navy">{rating.toFixed(1)}</p>
         <Stars value={rating} className="mt-2" />
-        <p className="numeric mt-2 text-xs text-muted-foreground">
+        <p className="numeric mt-2 text-caption text-muted-foreground">
           Based on {reviews.length} published reviews
         </p>
 
@@ -52,11 +52,11 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
                   className="flex w-full items-center gap-3 text-left"
                   aria-pressed={starFilter === row.star}
                 >
-                  <span className="numeric w-10 text-xs text-navy">{row.star} ★</span>
+                  <span className="numeric w-10 text-caption text-navy">{row.star} ★</span>
                   <span className="h-2 flex-1 bg-sky/60">
                     <span className="block h-full bg-teal" style={{ width: `${percent}%` }} />
                   </span>
-                  <span className="numeric w-6 text-right text-xs text-muted-foreground">
+                  <span className="numeric w-6 text-right text-caption text-muted-foreground">
                     {row.count}
                   </span>
                 </button>
@@ -68,7 +68,7 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
           <button
             type="button"
             onClick={() => setStarFilter(null)}
-            className="link-gold mt-4 text-xs text-teal"
+            className="link-gold mt-4 text-caption text-teal"
           >
             Clear star filter
           </button>
@@ -77,7 +77,7 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
         <form onSubmit={submit} className="mt-8 border border-border bg-card p-5">
           <p className="label-eyebrow text-teal">Write a review</p>
           {submitted ? (
-            <p className="mt-3 text-sm text-muted-foreground">
+            <p className="mt-3 text-caption text-muted-foreground">
               Thank you — your review has been received and will appear after moderation.
             </p>
           ) : (
@@ -101,22 +101,22 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
               <input
                 required
                 placeholder="Review title"
-                className="w-full border border-border bg-background px-3 py-2 text-sm text-navy"
+                className="w-full border border-border bg-background px-3 py-2 text-body text-navy"
               />
               <textarea
                 required
                 rows={4}
                 placeholder="What stood out about this product?"
-                className="w-full border border-border bg-background px-3 py-2 text-sm text-navy"
+                className="w-full border border-border bg-background px-3 py-2 text-body text-navy"
               />
-              <label className="flex cursor-pointer items-center gap-2 border border-dashed border-border px-3 py-3 text-xs text-muted-foreground">
+              <label className="flex cursor-pointer items-center gap-2 border border-dashed border-border px-3 py-3 text-caption text-muted-foreground">
                 <ImagePlus className="h-4 w-4" aria-hidden="true" />
                 Add photos (placeholder — uploads are disabled in this prototype)
                 <input type="file" className="sr-only" disabled />
               </label>
               <button
                 type="submit"
-                className="w-full bg-navy px-4 py-3 text-sm text-primary-foreground transition-colors hover:bg-teal"
+                className="w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
               >
                 Submit review
               </button>
@@ -130,9 +130,9 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
           <li key={review.id} className="border-b border-border pb-6">
             <div className="flex flex-wrap items-center gap-3">
               <Stars value={review.rating} />
-              <p className="font-display text-lg text-navy">{review.title}</p>
+              <p className="text-heading text-navy">{review.title}</p>
             </div>
-            <p className="numeric mt-1 text-xs text-muted-foreground">
+            <p className="numeric mt-1 text-caption text-muted-foreground">
               {review.author} · {formatReviewDate(review.date)}
               {review.verified ? (
                 <span className="label-eyebrow ml-3 bg-beige px-2 py-1 text-teal">
@@ -140,15 +140,15 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
                 </span>
               ) : null}
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{review.body}</p>
-            <p className="numeric mt-3 flex items-center gap-2 text-xs text-muted-foreground">
+            <p className="mt-3 text-body leading-relaxed text-muted-foreground">{review.body}</p>
+            <p className="numeric mt-3 flex items-center gap-2 text-caption text-muted-foreground">
               <ThumbsUp className="h-3.5 w-3.5" aria-hidden="true" /> {review.helpful} found this
               helpful
             </p>
           </li>
         ))}
         {visible.length === 0 ? (
-          <li className="text-sm text-muted-foreground">No reviews at this rating yet.</li>
+          <li className="text-caption text-muted-foreground">No reviews at this rating yet.</li>
         ) : null}
       </ul>
     </div>

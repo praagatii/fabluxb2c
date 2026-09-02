@@ -45,7 +45,7 @@ function PortfolioIndex() {
   );
 
   const selectClass =
-    "border border-border bg-card px-3 py-2 text-sm text-navy focus:outline-none focus:ring-1 focus:ring-teal";
+    "border border-border bg-card px-3 py-2 text-body text-navy focus:outline-none focus:ring-1 focus:ring-teal";
 
   return (
     <div className="bg-background">
@@ -103,7 +103,7 @@ function PortfolioIndex() {
           </label>
         </div>
 
-        <p className="mt-6 text-sm text-muted-foreground">
+        <p className="mt-6 text-caption text-muted-foreground">
           Showing {filtered.length} of {projects.length} projects
         </p>
 
@@ -127,10 +127,10 @@ function PortfolioIndex() {
                   <p className="label-eyebrow text-teal">
                     {roomTypeLabel(project.roomTypeId)} · {project.city}
                   </p>
-                  <h2 className="mt-3 font-display text-lg leading-snug text-navy">
+                  <h2 className="mt-3 text-heading leading-snug text-navy">
                     {project.title}
                   </h2>
-                  <p className="mt-auto pt-4 text-xs text-muted-foreground">
+                  <p className="mt-auto pt-4 text-caption text-muted-foreground">
                     {styleById(project.styleId)?.name} · {project.area} · {project.year}
                   </p>
                 </div>
@@ -140,7 +140,7 @@ function PortfolioIndex() {
         </ul>
 
         {filtered.length === 0 ? (
-          <p className="mt-10 border border-border bg-card p-8 text-center text-sm text-muted-foreground">
+          <p className="mt-10 border border-border bg-card p-8 text-center text-caption text-muted-foreground">
             No projects match that combination yet. Try widening one of the filters.
           </p>
         ) : null}

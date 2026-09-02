@@ -9,8 +9,8 @@ const makeReference = () =>
   `FBX-B2B-${String(Math.floor(1000 + Math.random() * 8999))}`;
 
 const field =
-  "w-full border border-border bg-card px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground focus:border-teal focus:outline-none";
-const labelClass = "block text-xs uppercase tracking-[0.18em] text-teal";
+  "w-full border border-border bg-card px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground focus:border-teal focus:outline-none";
+const labelClass = "block text-caption uppercase tracking-[0.18em] text-teal";
 
 export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string | undefined }) {
   const initial = initialProductId
@@ -27,10 +27,10 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
           <B2BLabel />
           <span className="label-eyebrow text-teal">Enquiry received</span>
         </div>
-        <h2 className="mt-3 font-display text-3xl text-navy">Your enquiry is with the trade desk</h2>
-        <p className="mt-3 text-sm text-muted-foreground">Reference number</p>
-        <p className="numeric mt-1 font-display text-2xl text-navy">{reference}</p>
-        <ul className="mt-6 space-y-3 text-sm leading-relaxed text-muted-foreground">
+        <h2 className="mt-3 font-display text-display text-navy">Your enquiry is with the trade desk</h2>
+        <p className="mt-3 text-caption text-muted-foreground">Reference number</p>
+        <p className="numeric mt-1 text-heading text-navy">{reference}</p>
+        <ul className="mt-6 space-y-3 text-body leading-relaxed text-muted-foreground">
           <li>1. A trade account manager reviews the specification within one working day.</li>
           <li>2. We confirm availability, lead time and delivery phasing for your site.</li>
           <li>3. A written quotation follows by email against your reference number.</li>
@@ -38,14 +38,14 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
         <div className="mt-8 flex flex-wrap gap-3">
           <SmartLink
             to="/b2b"
-            className="bg-navy px-5 py-3 text-xs uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+            className="bg-navy px-5 py-3 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
           >
             Back to the catalogue
           </SmartLink>
           <button
             type="button"
             onClick={() => setReference(null)}
-            className="border border-navy px-5 py-3 text-xs uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-beige"
+            className="border border-navy px-5 py-3 text-caption uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-beige"
           >
             Raise another enquiry
           </button>
@@ -115,7 +115,7 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
           className={`mt-2 ${field}`}
         />
         {initial ? (
-          <p className="mt-2 text-xs text-muted-foreground">
+          <p className="mt-2 text-caption text-muted-foreground">
             Pre-filled from {initial.name}. Add more items on the same line if the enquiry covers a
             package.
           </p>
@@ -158,11 +158,11 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
 
       <button
         type="submit"
-        className="w-full bg-navy px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal sm:w-auto"
+        className="w-full bg-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal sm:w-auto"
       >
         Submit enquiry
       </button>
-      <p className="text-xs text-muted-foreground">
+      <p className="text-caption text-muted-foreground">
         No payment is taken here. The B2B store is a browsing catalogue — every order is confirmed
         by the trade desk against a written quotation.
       </p>

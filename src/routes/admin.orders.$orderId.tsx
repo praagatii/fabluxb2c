@@ -45,8 +45,8 @@ function OrderDetail() {
   if (!order) {
     return (
       <AdminCard>
-        <p className="text-sm text-navy">Order {orderId} was not found.</p>
-        <Link to="/admin/orders" className="mt-3 inline-block text-sm text-teal hover:underline">
+        <p className="text-body text-navy">Order {orderId} was not found.</p>
+        <Link to="/admin/orders" className="mt-3 inline-block text-body text-teal hover:underline">
           Back to orders
         </Link>
       </AdminCard>
@@ -62,7 +62,7 @@ function OrderDetail() {
         title={order.id}
         copy={`${meta?.customer ?? "Customer"} · placed ${order.placedAt} · ${order.paymentMethod}`}
         actions={
-          <Link to="/admin/orders" className="rounded-sm border border-border px-3 py-2 text-sm text-navy hover:border-teal">
+          <Link to="/admin/orders" className="rounded-sm border border-border px-3 py-2 text-body text-navy hover:border-teal">
             Back to orders
           </Link>
         }
@@ -73,9 +73,9 @@ function OrderDetail() {
         <div className="space-y-4 lg:col-span-2">
           {groups.map((group) => (
             <div key={group.key}>
-              <h2 className="mb-2 text-sm font-medium text-navy">
+              <h2 className="mb-2 text-body font-medium text-navy">
                 Fulfilled by {group.name}{" "}
-                <span className="text-xs font-normal text-muted-foreground">GSTIN {group.gstin}</span>
+                <span className="text-caption font-normal text-muted-foreground">GSTIN {group.gstin}</span>
               </h2>
               <AdminTable head={["Item", "Variant", "Qty", "Unit price", "Line total"]}>
                 {group.items.map((item, i) => {
@@ -83,7 +83,7 @@ function OrderDetail() {
                   return (
                     <tr key={`${item.productId}-${i}`}>
                       <Td>{product?.name ?? item.productId}</Td>
-                      <Td className="text-xs text-muted-foreground">
+                      <Td className="text-caption text-muted-foreground">
                         {[item.colour, item.size].filter(Boolean).join(" · ") || "—"}
                       </Td>
                       <Td className="numeric">{item.quantity}</Td>
@@ -97,7 +97,7 @@ function OrderDetail() {
           ))}
 
           <AdminCard title="Invoices">
-            <p className="mb-3 text-xs text-muted-foreground">
+            <p className="mb-3 text-caption text-muted-foreground">
               {groups.length === 2
                 ? "This order is split across both companies: one shared order ID, two separate invoices."
                 : "Single-company order, one invoice."}
@@ -105,16 +105,16 @@ function OrderDetail() {
             <AdminTable head={["Invoice", "Company", "GST registration", "Amount", ""]}>
               {groups.map((group, index) => (
                 <tr key={group.key}>
-                  <Td className="numeric text-xs">
+                  <Td className="numeric text-caption">
                     {order.id}/{index + 1}
                   </Td>
                   <Td>{group.name}</Td>
-                  <Td className="numeric text-xs">{group.gstin}</Td>
+                  <Td className="numeric text-caption">{group.gstin}</Td>
                   <Td className="numeric">{formatINR(group.total)}</Td>
                   <Td>
                     <button
                       disabled
-                      className="cursor-not-allowed rounded-sm border border-border px-3 py-1.5 text-xs text-muted-foreground"
+                      className="cursor-not-allowed rounded-sm border border-border px-3 py-1.5 text-caption text-muted-foreground"
                     >
                       Download PDF
                     </button>
@@ -134,7 +134,7 @@ function OrderDetail() {
               disabled={!editable}
               value={status}
               onChange={(e) => setStatus(e.target.value as OrderStatus)}
-              className="mt-3 w-full rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy disabled:opacity-70"
+              className="mt-3 w-full rounded-sm border border-border bg-background px-3 py-2 text-body text-navy disabled:opacity-70"
             >
               {orderStatuses.map((s) => (
                 <option key={s}>{s}</option>
@@ -143,16 +143,16 @@ function OrderDetail() {
             {editable ? (
               <button
                 onClick={() => setNote(`Status set to ${status}. Prototype only — nothing was saved.`)}
-                className="mt-2 w-full rounded-sm bg-navy px-3 py-2 text-sm text-primary-foreground hover:opacity-90"
+                className="mt-2 w-full rounded-sm bg-navy px-3 py-2 text-body text-primary-foreground hover:opacity-90"
               >
                 Update status
               </button>
             ) : null}
-            {note ? <p className="mt-2 text-xs text-teal">{note}</p> : null}
+            {note ? <p className="mt-2 text-caption text-teal">{note}</p> : null}
           </AdminCard>
 
           <AdminCard title="Summary">
-            <dl className="space-y-1.5 text-sm">
+            <dl className="space-y-1.5 text-body">
               {[
                 ["Subtotal", order.subtotal],
                 ["Discount", -order.discount],
@@ -169,7 +169,7 @@ function OrderDetail() {
           </AdminCard>
 
           <AdminCard title="Delivery address">
-            <address className="text-sm not-italic text-navy">
+            <address className="text-body not-italic text-navy">
               {order.address.name}
               <br />
               {order.address.line1}
@@ -179,7 +179,7 @@ function OrderDetail() {
               <br />
               {order.address.phone}
             </address>
-            <p className="mt-2 text-xs text-muted-foreground">{order.deliveryEstimate}</p>
+            <p className="mt-2 text-caption text-muted-foreground">{order.deliveryEstimate}</p>
           </AdminCard>
         </div>
       </div>

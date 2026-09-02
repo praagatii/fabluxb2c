@@ -83,30 +83,30 @@ function CategoriesScreen() {
             }}
           >
             <label className="grow">
-              <span className="mb-1 block text-xs font-medium text-navy">Category name (e.g. Furniture)</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Category name (e.g. Furniture)</span>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Furniture"
-                className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal"
+                className="w-full rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal"
               />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Fulfilled by</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Fulfilled by</span>
               <select
                 value={company}
                 onChange={(e) => setCompany(e.target.value as Category["fulfilledBy"])}
-                className="rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy"
+                className="rounded-sm border border-border bg-background px-3 py-2 text-body text-navy"
               >
                 <option value={companies.electronics.name}>{companies.electronics.name}</option>
                 <option value={companies.interiors.name}>{companies.interiors.name}</option>
               </select>
             </label>
-            <button className="rounded-sm bg-navy px-4 py-2 text-sm text-primary-foreground hover:opacity-90">
+            <button className="rounded-sm bg-navy px-4 py-2 text-body text-primary-foreground hover:opacity-90">
               Add category
             </button>
           </form>
-          <p className="mt-2 text-xs text-muted-foreground">
+          <p className="mt-2 text-caption text-muted-foreground">
             Slug is generated automatically — the storefront route <code>/shop/$category</code> picks it up with no
             developer involvement.
           </p>
@@ -127,14 +127,14 @@ function CategoriesScreen() {
                         current.map((c) => (c.id === category.id ? { ...c, name: e.target.value } : c)),
                       )
                     }
-                    className="rounded-sm border border-transparent bg-transparent px-1 py-0.5 font-heading text-lg text-navy hover:border-border focus:border-teal focus:outline-none"
+                    className="rounded-sm border border-transparent bg-transparent px-1 py-0.5 text-heading text-navy hover:border-border focus:border-teal focus:outline-none"
                     aria-label={`Rename ${category.name}`}
                   />
                   <StatusPill tone={category.status === "live" ? "positive" : "warning"}>
                     {category.status === "live" ? "Live" : "Coming soon"}
                   </StatusPill>
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-1 text-caption text-muted-foreground">
                   /shop/{category.slug} · {category.productCount} products · {category.fulfilledBy}
                 </p>
               </div>
@@ -159,12 +159,12 @@ function CategoriesScreen() {
 
             <div className="mt-3 flex flex-wrap gap-2">
               {category.subcategories.map((sub) => (
-                <span key={sub.slug} className="rounded-full bg-muted px-3 py-1 text-xs text-navy">
+                <span key={sub.slug} className="rounded-full bg-muted px-3 py-1 text-caption text-navy">
                   {sub.name}
                 </span>
               ))}
               {!category.subcategories.length ? (
-                <span className="text-xs text-muted-foreground">No sub-categories yet</span>
+                <span className="text-caption text-muted-foreground">No sub-categories yet</span>
               ) : null}
             </div>
 
@@ -189,9 +189,9 @@ function CategoriesScreen() {
                   value={subName[category.id] ?? ""}
                   onChange={(e) => setSubName((s) => ({ ...s, [category.id]: e.target.value }))}
                   placeholder="Nest a sub-category"
-                  className="grow rounded-sm border border-border bg-background px-3 py-1.5 text-xs text-navy outline-none focus:border-teal"
+                  className="grow rounded-sm border border-border bg-background px-3 py-1.5 text-caption text-navy outline-none focus:border-teal"
                 />
-                <button className="rounded-sm border border-border px-3 py-1.5 text-xs text-navy hover:border-teal">
+                <button className="rounded-sm border border-border px-3 py-1.5 text-caption text-navy hover:border-teal">
                   Nest
                 </button>
               </form>

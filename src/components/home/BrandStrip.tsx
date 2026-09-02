@@ -8,7 +8,7 @@ export function BrandStrip() {
         <p className="label-eyebrow text-center text-teal">Brands we carry</p>
         <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
           {brands.map((brand) => (
-            <li key={brand} className="font-display text-lg text-navy/70">
+            <li key={brand} className="font-display text-body text-navy/70">
               {brand}
             </li>
           ))}

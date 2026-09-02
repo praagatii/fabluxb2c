@@ -22,7 +22,7 @@ export const Route = createFileRoute("/account/login")({
 });
 
 const inputClass =
-  "mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground";
+  "mt-1.5 w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground";
 
 function LoginPage() {
   const { signIn } = useAccount();
@@ -42,22 +42,22 @@ function LoginPage() {
       <div className="mx-auto max-w-md border border-border bg-card p-8">
         <span className="rule-gold" aria-hidden="true" />
         <p className="label-eyebrow mt-4 text-teal">Fabluxe account</p>
-        <h1 className="mt-3 font-display text-3xl text-navy">Sign in</h1>
-        <p className="mt-3 text-sm text-muted-foreground">
+        <h1 className="mt-3 text-heading text-navy">Sign in</h1>
+        <p className="mt-3 text-caption text-muted-foreground">
           Any email and password will work in this prototype.
         </p>
         <form onSubmit={submit} className="mt-6">
-          <label className="block text-xs text-muted-foreground">
+          <label className="block text-caption text-muted-foreground">
             Email
             <input name="email" type="email" required placeholder="you@example.com" className={inputClass} />
           </label>
-          <label className="mt-4 block text-xs text-muted-foreground">
+          <label className="mt-4 block text-caption text-muted-foreground">
             Password
             <input name="password" type="password" required placeholder="••••••••" className={inputClass} />
           </label>
           <button
             type="submit"
-            className="mt-6 w-full bg-navy px-6 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-6 w-full bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Sign in
           </button>

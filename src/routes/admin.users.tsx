@@ -38,7 +38,7 @@ function UsersScreen() {
   const [company, setCompany] = useState("Fabluxe Group");
 
   const field =
-    "w-full rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal";
+    "w-full rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal";
 
   return (
     <>
@@ -71,15 +71,15 @@ function UsersScreen() {
           }}
         >
           <label>
-            <span className="mb-1 block text-xs font-medium text-navy">Full name</span>
+            <span className="mb-1 block text-caption font-medium text-navy">Full name</span>
             <input className={field} value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <label>
-            <span className="mb-1 block text-xs font-medium text-navy">Work email</span>
+            <span className="mb-1 block text-caption font-medium text-navy">Work email</span>
             <input type="email" className={field} value={email} onChange={(e) => setEmail(e.target.value)} />
           </label>
           <label>
-            <span className="mb-1 block text-xs font-medium text-navy">Company</span>
+            <span className="mb-1 block text-caption font-medium text-navy">Company</span>
             <select className={field} value={company} onChange={(e) => setCompany(e.target.value)}>
               <option>Fabluxe Group</option>
               <option>{companies.electronics.name}</option>
@@ -87,7 +87,7 @@ function UsersScreen() {
             </select>
           </label>
           <label>
-            <span className="mb-1 block text-xs font-medium text-navy">Access level</span>
+            <span className="mb-1 block text-caption font-medium text-navy">Access level</span>
             <select className={field} value={role} onChange={(e) => setRole(e.target.value as AdminRole)}>
               {adminRoles.map((option) => (
                 <option key={option}>{option}</option>
@@ -95,20 +95,20 @@ function UsersScreen() {
             </select>
           </label>
           <div className="flex items-end">
-            <button className="w-full rounded-sm bg-navy px-4 py-2 text-sm text-primary-foreground hover:opacity-90">
+            <button className="w-full rounded-sm bg-navy px-4 py-2 text-body text-primary-foreground hover:opacity-90">
               Send invite
             </button>
           </div>
         </form>
-        <p className="mt-2 text-xs text-muted-foreground">{roleBlurb[role]}</p>
+        <p className="mt-2 text-caption text-muted-foreground">{roleBlurb[role]}</p>
       </AdminCard>
 
       <AdminTable head={["Name", "Email", "Company", "Role", "Status", "Last active", ""]}>
         {list.map((user) => (
           <tr key={user.id}>
             <Td>{user.name}</Td>
-            <Td className="text-xs">{user.email}</Td>
-            <Td className="text-xs">{user.company}</Td>
+            <Td className="text-caption">{user.email}</Td>
+            <Td className="text-caption">{user.company}</Td>
             <Td>
               <select
                 value={user.role}
@@ -117,7 +117,7 @@ function UsersScreen() {
                     current.map((u) => (u.id === user.id ? { ...u, role: e.target.value as AdminRole } : u)),
                   )
                 }
-                className="rounded-sm border border-border bg-background px-2 py-1 text-xs text-navy"
+                className="rounded-sm border border-border bg-background px-2 py-1 text-caption text-navy"
               >
                 {adminRoles.map((option) => (
                   <option key={option}>{option}</option>
@@ -131,7 +131,7 @@ function UsersScreen() {
                 {user.status}
               </StatusPill>
             </Td>
-            <Td className="text-xs">{user.lastActive}</Td>
+            <Td className="text-caption">{user.lastActive}</Td>
             <Td>
               <button
                 onClick={() =>
@@ -143,7 +143,7 @@ function UsersScreen() {
                     ),
                   )
                 }
-                className="text-xs text-teal hover:underline"
+                className="text-caption text-teal hover:underline"
               >
                 {user.status === "Suspended" ? "Restore" : "Suspend"}
               </button>

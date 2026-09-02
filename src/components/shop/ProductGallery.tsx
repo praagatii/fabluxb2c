@@ -39,7 +39,7 @@ export function ProductGallery({ product }: { product: Product }) {
           type="button"
           onClick={() => setLightbox(true)}
           aria-label="Open full-screen image"
-          className="absolute bottom-3 right-3 flex items-center gap-2 bg-card px-3 py-2 text-xs text-navy"
+          className="absolute bottom-3 right-3 flex items-center gap-2 bg-card px-3 py-2 text-caption text-navy"
         >
           <ZoomIn className="h-4 w-4" aria-hidden="true" /> View larger
         </button>
@@ -75,7 +75,7 @@ export function ProductGallery({ product }: { product: Product }) {
             type="button"
             aria-label="Close image"
             onClick={() => setLightbox(false)}
-            className="absolute right-6 top-6 flex items-center gap-2 text-sm text-beige"
+            className="absolute right-6 top-6 flex items-center gap-2 text-body text-beige"
           >
             Close <X className="h-5 w-5" aria-hidden="true" />
           </button>

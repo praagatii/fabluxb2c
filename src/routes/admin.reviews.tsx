@@ -61,8 +61,8 @@ function ReviewsScreen() {
             aria-pressed={filter === option}
             className={
               filter === option
-                ? "rounded-full bg-navy px-3 py-1.5 text-xs text-primary-foreground"
-                : "rounded-full border border-border px-3 py-1.5 text-xs text-navy hover:border-teal"
+                ? "rounded-full bg-navy px-3 py-1.5 text-caption text-primary-foreground"
+                : "rounded-full border border-border px-3 py-1.5 text-caption text-navy hover:border-teal"
             }
           >
             {option}
@@ -87,22 +87,22 @@ function ReviewsScreen() {
                   <p className="font-medium text-navy">{review.title}</p>
                   <StatusPill tone={tone(review.status)}>{review.status}</StatusPill>
                 </div>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="mt-1 text-caption text-muted-foreground">
                   {review.author} on {review.productName} · {review.submittedAt}
                 </p>
-                <p className="mt-2 max-w-2xl text-sm text-navy">{review.body}</p>
+                <p className="mt-2 max-w-2xl text-body text-navy">{review.body}</p>
                 {review.reply ? (
-                  <p className="mt-2 border-l-2 border-teal pl-3 text-sm text-muted-foreground">
+                  <p className="mt-2 border-l-2 border-teal pl-3 text-caption text-muted-foreground">
                     Fabluxe replied: {review.reply}
                   </p>
                 ) : null}
               </div>
               {editable ? (
                 <div className="flex flex-wrap gap-2">
-                  <button onClick={() => setStatus(review.id, "Approved")} className="rounded-sm border border-border px-3 py-1.5 text-xs text-navy hover:border-teal">
+                  <button onClick={() => setStatus(review.id, "Approved")} className="rounded-sm border border-border px-3 py-1.5 text-caption text-navy hover:border-teal">
                     Approve
                   </button>
-                  <button onClick={() => setStatus(review.id, "Hidden")} className="rounded-sm border border-border px-3 py-1.5 text-xs text-navy hover:border-teal">
+                  <button onClick={() => setStatus(review.id, "Hidden")} className="rounded-sm border border-border px-3 py-1.5 text-caption text-navy hover:border-teal">
                     Hide
                   </button>
                   <button
@@ -110,7 +110,7 @@ function ReviewsScreen() {
                       setReplyTo(review.id);
                       setReplyText(review.reply ?? "");
                     }}
-                    className="rounded-sm border border-border px-3 py-1.5 text-xs text-navy hover:border-teal"
+                    className="rounded-sm border border-border px-3 py-1.5 text-caption text-navy hover:border-teal"
                   >
                     Reply
                   </button>
@@ -133,9 +133,9 @@ function ReviewsScreen() {
                   value={replyText}
                   onChange={(e) => setReplyText(e.target.value)}
                   placeholder="Write a public reply"
-                  className="grow rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal"
+                  className="grow rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal"
                 />
-                <button className="rounded-sm bg-navy px-4 py-2 text-sm text-primary-foreground hover:opacity-90">
+                <button className="rounded-sm bg-navy px-4 py-2 text-body text-primary-foreground hover:opacity-90">
                   Post reply
                 </button>
               </form>

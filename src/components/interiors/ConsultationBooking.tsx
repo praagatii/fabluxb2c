@@ -17,7 +17,7 @@ import {
 } from "@/data/consultation";
 
 const field =
-  "w-full border border-border bg-background px-3 py-2.5 text-sm text-navy placeholder:text-muted-foreground focus:border-gold focus:outline-none";
+  "w-full border border-border bg-background px-3 py-2.5 text-body text-navy placeholder:text-muted-foreground focus:border-gold focus:outline-none";
 const labelCls = "label-eyebrow text-teal";
 
 type Booking = {
@@ -66,7 +66,7 @@ export function ConsultationBooking() {
         </span>
         <span className="rule-gold mb-3 mt-6 block" aria-hidden="true" />
         <p className={labelCls}>Consultation requested</p>
-        <h2 className="mt-3 font-display text-3xl text-navy">
+        <h2 className="mt-3 font-display text-display text-navy">
           Thank you{booking.name ? `, ${booking.name.split(" ")[0]}` : ""} — your slot is held
         </h2>
 
@@ -80,17 +80,17 @@ export function ConsultationBooking() {
           ].map((row) => (
             <div key={row.label} className="bg-card p-5">
               <dt className={labelCls}>{row.label}</dt>
-              <dd className="mt-2 text-sm text-navy">{row.value}</dd>
+              <dd className="mt-2 text-body text-navy">{row.value}</dd>
             </div>
           ))}
         </dl>
 
-        <h3 className="mt-10 font-display text-xl text-navy">What happens next</h3>
+        <h3 className="mt-10 text-heading text-navy">What happens next</h3>
         <ol className="mt-4 grid gap-3">
           {whatHappensNext.map((step, index) => (
             <li key={step} className="flex gap-3 border-l-2 border-gold bg-beige/60 px-4 py-3">
-              <span className="font-display text-lg text-gold">{index + 1}</span>
-              <span className="text-sm leading-relaxed text-muted-foreground">{step}</span>
+              <span className="font-display text-heading text-gold">{index + 1}</span>
+              <span className="text-body leading-relaxed text-muted-foreground">{step}</span>
             </li>
           ))}
         </ol>
@@ -98,14 +98,14 @@ export function ConsultationBooking() {
         <div className="mt-8 flex flex-wrap gap-3">
           <a
             href={designerPhoneHref}
-            className="flex items-center gap-2 border border-navy px-6 py-3 text-sm text-navy transition-colors hover:border-gold hover:text-teal"
+            className="flex items-center gap-2 border border-navy px-6 py-3 text-body text-navy transition-colors hover:border-gold hover:text-teal"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             Call the studio — {designerPhone}
           </a>
           <Link
             to="/interior-design/portfolio"
-            className="bg-navy px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Browse completed projects
           </Link>
@@ -137,22 +137,22 @@ export function ConsultationBooking() {
                   onChange={() => setMode(option.id)}
                   className="sr-only"
                 />
-                <span className="block font-display text-lg text-navy">{option.label}</span>
-                <span className="mt-2 block text-sm leading-relaxed text-muted-foreground">
+                <span className="block text-heading text-navy">{option.label}</span>
+                <span className="mt-2 block text-caption leading-relaxed text-muted-foreground">
                   {option.copy}
                 </span>
-                <span className="mt-3 block text-xs uppercase tracking-widest text-teal">
+                <span className="mt-3 block text-micro uppercase tracking-widest text-teal">
                   {option.duration}
                 </span>
               </label>
             );
           })}
         </div>
-        <p className="mt-4 flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+        <p className="mt-4 flex flex-wrap items-center gap-2 text-body text-muted-foreground">
           Prefer to speak first?
           <a
             href={designerPhoneHref}
-            className="inline-flex items-center gap-2 border border-navy px-4 py-2 text-sm text-navy transition-colors hover:border-gold hover:text-teal"
+            className="inline-flex items-center gap-2 border border-navy px-4 py-2 text-body text-navy transition-colors hover:border-gold hover:text-teal"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             Call a designer now — {designerPhone}
@@ -229,7 +229,7 @@ export function ConsultationBooking() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => toggleRoom(room.id)}
-                className={`border px-4 py-2 text-sm transition-colors ${
+                className={`border px-4 py-2 text-body transition-colors ${
                   active
                     ? "border-gold bg-navy text-primary-foreground"
                     : "border-border bg-card text-navy hover:border-teal"
@@ -273,15 +273,15 @@ export function ConsultationBooking() {
                     : "border-border bg-card text-navy hover:border-teal"
                 } disabled:cursor-not-allowed disabled:border-dashed disabled:bg-muted disabled:text-muted-foreground disabled:opacity-60`}
               >
-                <span className="block text-xs uppercase tracking-widest">{date.weekday}</span>
-                <span className="mt-1 block font-display text-xl">{date.day}</span>
-                <span className="block text-xs">{date.month}</span>
+                <span className="block text-micro uppercase tracking-widest">{date.weekday}</span>
+                <span className="mt-1 block text-heading">{date.day}</span>
+                <span className="block text-micro">{date.month}</span>
               </button>
             );
           })}
         </div>
 
-        <p className="mt-6 text-sm text-navy">
+        <p className="mt-6 text-body text-navy">
           Slots for <span className="font-medium">{formatBookingDate(dateISO)}</span>
         </p>
         <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-5">
@@ -298,7 +298,7 @@ export function ConsultationBooking() {
                   setSlot(time);
                   setError(null);
                 }}
-                className={`border px-3 py-3 text-sm transition-colors ${
+                className={`border px-3 py-3 text-body transition-colors ${
                   active
                     ? "border-gold bg-navy text-primary-foreground"
                     : "border-border bg-card text-navy hover:border-teal"
@@ -309,7 +309,7 @@ export function ConsultationBooking() {
             );
           })}
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">
+        <p className="mt-3 text-caption text-muted-foreground">
           Struck-through slots are already taken. Sundays are closed.
         </p>
       </fieldset>
@@ -325,16 +325,16 @@ export function ConsultationBooking() {
         />
       </fieldset>
 
-      {error ? <p className="text-sm text-destructive">{error}</p> : null}
+      {error ? <p className="text-caption text-destructive">{error}</p> : null}
 
       <div>
         <button
           type="submit"
-          className="bg-navy px-8 py-4 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+          className="bg-navy px-8 py-4 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
         >
           Request this consultation
         </button>
-        <p className="mt-3 text-xs text-muted-foreground">
+        <p className="mt-3 text-caption text-muted-foreground">
           Enquiry only. Nothing is priced online — scope and cost are discussed with a designer
           after the consultation.
         </p>

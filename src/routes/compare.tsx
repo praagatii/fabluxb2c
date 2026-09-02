@@ -54,10 +54,10 @@ function ComparePage() {
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Compare" }]} />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Like for like</p>
-        <h1 className="mt-3 font-display text-3xl text-navy sm:text-4xl">
+        <h1 className="mt-3 text-heading text-navy">
           Compare {categoryName ?? "products"}
         </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 max-w-2xl text-caption leading-relaxed text-muted-foreground">
           Comparison is limited to one category at a time — a refrigerator against another
           refrigerator — so that every row on the table means the same thing. Up to four products.
         </p>
@@ -66,13 +66,13 @@ function ComparePage() {
       {items.length === 0 ? (
         <Container className="py-14">
           <div className="border border-border bg-card p-10 text-center">
-            <h2 className="font-display text-2xl text-navy">Nothing to compare yet</h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
+            <h2 className="text-heading text-navy">Nothing to compare yet</h2>
+            <p className="mx-auto mt-3 max-w-md text-caption text-muted-foreground">
               Tick “Add to compare” on any product card to build a side-by-side table.
             </p>
             <SmartLink
               to="/shop"
-              className="mt-6 inline-block bg-navy px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Browse the catalogue
             </SmartLink>
@@ -81,13 +81,13 @@ function ComparePage() {
       ) : (
         <Container className="py-10">
           <div className="mb-4 flex items-center justify-between gap-4">
-            <p className="text-xs text-muted-foreground">
+            <p className="text-caption text-muted-foreground">
               {items.length} of 4 products · differing rows are highlighted
             </p>
             <button
               type="button"
               onClick={clearCompare}
-              className="text-xs text-muted-foreground underline-offset-4 transition-colors hover:text-teal hover:underline"
+              className="text-body text-muted-foreground underline-offset-4 transition-colors hover:text-teal hover:underline"
             >
               Clear comparison
             </button>
@@ -124,7 +124,7 @@ function ComparePage() {
                       <p className="label-eyebrow mt-3 text-teal">{product.brand}</p>
                       <SmartLink
                         to={`/shop/product/${product.id}`}
-                        className="link-gold mt-1 block font-display text-base font-normal leading-snug text-navy"
+                        className="link-gold mt-1 block text-body font-normal leading-snug text-navy"
                       >
                         {product.name}
                       </SmartLink>
@@ -134,10 +134,10 @@ function ComparePage() {
                           fill="currentColor"
                           aria-hidden="true"
                         />
-                        <span className="numeric text-xs text-navy">
+                        <span className="numeric text-caption text-navy">
                           {product.rating.toFixed(1)}
                         </span>
-                        <span className="numeric text-xs text-muted-foreground">
+                        <span className="numeric text-caption text-muted-foreground">
                           ({product.reviewCount})
                         </span>
                       </span>
@@ -148,18 +148,18 @@ function ComparePage() {
 
               <tbody>
                 <tr>
-                  <th scope="row" className="border-b border-border p-4 text-sm text-navy">
+                  <th scope="row" className="border-b border-border p-4 text-caption text-navy">
                     Price
                   </th>
                   {items.map((product) => (
                     <td key={product.id} className="border-b border-l border-border p-4">
-                      <span className="numeric block text-lg font-semibold text-navy">
+                      <span className="numeric block text-body font-semibold text-navy">
                         {formatPrice(product.price)}
                       </span>
-                      <span className="numeric text-xs text-muted-foreground line-through">
+                      <span className="numeric text-caption text-muted-foreground line-through">
                         {formatPrice(product.mrp)}
                       </span>
-                      <span className="numeric ml-2 bg-beige px-2 py-0.5 text-xs font-semibold text-teal">
+                      <span className="numeric ml-2 bg-beige px-2 py-0.5 text-caption font-semibold text-teal">
                         {discountPercent(product)}% off
                       </span>
                     </td>
@@ -167,13 +167,13 @@ function ComparePage() {
                 </tr>
 
                 <tr>
-                  <th scope="row" className="border-b border-border p-4 text-sm text-navy">
+                  <th scope="row" className="border-b border-border p-4 text-caption text-navy">
                     Availability
                   </th>
                   {items.map((product) => (
                     <td
                       key={product.id}
-                      className="border-b border-l border-border p-4 text-sm text-muted-foreground"
+                      className="border-b border-l border-border p-4 text-caption text-muted-foreground"
                     >
                       {product.availability}
                     </td>
@@ -185,10 +185,10 @@ function ComparePage() {
                   const differs = new Set(values).size > 1;
                   return (
                     <tr key={label} className={cn(differs && "bg-sky/30")}>
-                      <th scope="row" className="border-b border-border p-4 text-sm text-navy">
+                      <th scope="row" className="border-b border-border p-4 text-caption text-navy">
                         {label}
                         {differs ? (
-                          <span className="ml-2 text-[0.625rem] uppercase tracking-widest text-teal">
+                          <span className="ml-2 text-caption uppercase tracking-widest text-teal">
                             differs
                           </span>
                         ) : null}
@@ -196,7 +196,7 @@ function ComparePage() {
                       {values.map((value, index) => (
                         <td
                           key={`${label}-${items[index]?.id}`}
-                          className="border-b border-l border-border p-4 text-sm text-muted-foreground"
+                          className="border-b border-l border-border p-4 text-caption text-muted-foreground"
                         >
                           {value}
                         </td>
@@ -206,7 +206,7 @@ function ComparePage() {
                 })}
 
                 <tr>
-                  <th scope="row" className="p-4 text-sm text-navy">
+                  <th scope="row" className="p-4 text-caption text-navy">
                     Buy
                   </th>
                   {items.map((product) => (
@@ -214,14 +214,14 @@ function ComparePage() {
                       <button
                         type="button"
                         onClick={() => addToCart(product.id)}
-                        className="w-full bg-navy px-4 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+                        className="w-full bg-navy px-4 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
                       >
                         Add to cart
                       </button>
                       <button
                         type="button"
                         onClick={() => removeFromCompare(product.id)}
-                        className="mt-2 w-full border border-border px-4 py-2 text-xs text-muted-foreground transition-colors hover:text-teal"
+                        className="mt-2 w-full border border-border px-4 py-2 text-body text-muted-foreground transition-colors hover:text-teal"
                       >
                         Remove
                       </button>

@@ -34,7 +34,7 @@ function OrderDetailPage() {
   if (!order) {
     return (
       <AccountLayout title="Order not found" crumbs={[{ label: "Orders", to: "/account" }]}>
-        <p className="border border-border bg-card p-6 text-sm text-muted-foreground">
+        <p className="border border-border bg-card p-6 text-caption text-muted-foreground">
           We couldn't find {orderId}. Newly placed orders live in memory only in this prototype.
         </p>
       </AccountLayout>
@@ -52,8 +52,8 @@ function OrderDetailPage() {
     >
       <div className="flex flex-wrap items-center gap-4">
         <StatusChip status={order.status} />
-        <p className="text-xs text-muted-foreground">Placed {order.placedAt}</p>
-        <p className="numeric text-sm text-navy">{formatPrice(order.total)}</p>
+        <p className="text-caption text-muted-foreground">Placed {order.placedAt}</p>
+        <p className="numeric text-body text-navy">{formatPrice(order.total)}</p>
       </div>
 
       <ol className="mt-8 grid gap-3 border border-border bg-card p-6 sm:grid-cols-4">
@@ -63,13 +63,13 @@ function OrderDetailPage() {
             <li key={stage} className="flex items-center gap-3">
               <span
                 className={cn(
-                  "grid h-7 w-7 shrink-0 place-items-center rounded-full text-xs",
+                  "grid h-7 w-7 shrink-0 place-items-center rounded-full text-caption",
                   done ? "bg-teal text-primary-foreground" : "bg-muted text-muted-foreground",
                 )}
               >
                 {done ? <Check className="h-3.5 w-3.5" aria-hidden="true" /> : index + 1}
               </span>
-              <span className={cn("text-xs", done ? "text-navy" : "text-muted-foreground")}>
+              <span className={cn("text-caption", done ? "text-navy" : "text-muted-foreground")}>
                 {stage}
               </span>
             </li>
@@ -81,8 +81,8 @@ function OrderDetailPage() {
         {groups.map((group) => (
           <section key={group.key} className="border border-border bg-card">
             <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-border p-5">
-              <h2 className="font-display text-xl text-navy">{group.name}</h2>
-              <p className="numeric text-xs text-muted-foreground">GSTIN {group.gstin}</p>
+              <h2 className="text-heading text-navy">{group.name}</h2>
+              <p className="numeric text-caption text-muted-foreground">GSTIN {group.gstin}</p>
             </header>
             <ul className="divide-y divide-border">
               {group.items.map((item, index) => {
@@ -97,12 +97,12 @@ function OrderDetailPage() {
                       className="aspect-4/3 w-24 shrink-0 object-cover"
                     />
                     <div className="min-w-0 flex-1">
-                      <p className="text-sm text-navy">{product.name}</p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-body text-navy">{product.name}</p>
+                      <p className="text-caption text-muted-foreground">
                         {[item.colour, item.size].filter(Boolean).join(" · ")} · Qty {item.quantity}
                       </p>
                     </div>
-                    <p className="numeric text-sm text-navy">
+                    <p className="numeric text-body text-navy">
                       {formatPrice(item.unitPrice * item.quantity)}
                     </p>
                   </li>
@@ -111,14 +111,14 @@ function OrderDetailPage() {
             </ul>
             {/* TODO: invoices come from the client's existing invoice system. */}
             <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border p-5">
-              <p className="text-xs text-muted-foreground">
+              <p className="text-caption text-muted-foreground">
                 Invoice total{" "}
                 <span className="numeric font-semibold text-navy">{formatPrice(group.total)}</span>
               </p>
               <button
                 type="button"
                 disabled
-                className="inline-flex items-center gap-2 border border-border px-4 py-2.5 text-xs text-muted-foreground opacity-60"
+                className="inline-flex items-center gap-2 border border-border px-4 py-2.5 text-body text-muted-foreground opacity-60"
               >
                 <Download className="h-3.5 w-3.5" aria-hidden="true" />
                 Download invoice
@@ -131,8 +131,8 @@ function OrderDetailPage() {
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <div className="border border-border bg-card p-5">
           <p className="label-eyebrow text-teal">Delivery address</p>
-          <p className="mt-2 text-sm text-navy">{order.address.name}</p>
-          <p className="text-xs leading-relaxed text-muted-foreground">
+          <p className="mt-2 text-body text-navy">{order.address.name}</p>
+          <p className="text-caption leading-relaxed text-muted-foreground">
             {order.address.line1}
             {order.address.line2 ? `, ${order.address.line2}` : ""}, {order.address.city},{" "}
             {order.address.state} {order.address.pincode}
@@ -142,12 +142,12 @@ function OrderDetailPage() {
         </div>
         <div className="border border-border bg-card p-5">
           <p className="label-eyebrow text-teal">Need help?</p>
-          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          <p className="mt-2 text-caption leading-relaxed text-muted-foreground">
             Raise a support request for installation, warranty or returns on this order.
           </p>
           <SmartLink
             to="/account/support"
-            className="mt-4 inline-block border border-border px-4 py-2.5 text-xs text-navy transition-colors hover:text-teal"
+            className="mt-4 inline-block border border-border px-4 py-2.5 text-body text-navy transition-colors hover:text-teal"
           >
             Contact support
           </SmartLink>

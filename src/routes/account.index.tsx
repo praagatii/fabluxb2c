@@ -33,22 +33,22 @@ function OrdersPage() {
           return (
             <li key={order.id} className="flex flex-wrap items-center gap-4 p-5">
               <div className="min-w-0 flex-1">
-                <p className="numeric text-sm font-semibold text-navy">{order.id}</p>
-                <p className="mt-1 text-xs text-muted-foreground">
+                <p className="numeric text-body font-semibold text-navy">{order.id}</p>
+                <p className="mt-1 text-caption text-muted-foreground">
                   Placed {order.placedAt} · {order.items.length}{" "}
                   {order.items.length === 1 ? "item" : "items"}
                 </p>
                 {invoices > 1 ? (
-                  <span className="mt-2 inline-block bg-beige px-2 py-0.5 text-xs text-teal">
+                  <span className="mt-2 inline-block bg-beige px-2 py-0.5 text-caption text-teal">
                     2 invoices
                   </span>
                 ) : null}
               </div>
               <StatusChip status={order.status} />
-              <p className="numeric w-28 text-right text-sm text-navy">{formatPrice(order.total)}</p>
+              <p className="numeric w-28 text-right text-body text-navy">{formatPrice(order.total)}</p>
               <SmartLink
                 to={`/account/orders/${order.id}`}
-                className="border border-border px-4 py-2.5 text-xs text-navy transition-colors hover:text-teal"
+                className="border border-border px-4 py-2.5 text-body text-navy transition-colors hover:text-teal"
               >
                 View detail
               </SmartLink>

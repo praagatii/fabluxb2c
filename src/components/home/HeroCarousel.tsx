@@ -47,22 +47,22 @@ export function HeroCarousel() {
                 <div className="max-w-xl">
                   <span className="rule-gold mb-4" aria-hidden="true" />
                   <p className="label-eyebrow text-gold">{slide.eyebrow}</p>
-                  <h1 className="mt-4 text-4xl leading-[1.1] text-beige sm:text-5xl lg:text-6xl">
+                  <h1 className="font-display mt-4 text-display text-beige">
                     {slide.title}
                   </h1>
-                  <p className="mt-5 max-w-md text-sm leading-relaxed text-sky sm:text-base">
+                  <p className="mt-5 max-w-md text-body leading-relaxed text-sky">
                     {slide.copy}
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <SmartLink
                       to={slide.primaryCta.to}
-                      className="bg-beige px-6 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-gold"
+                      className="bg-beige px-6 py-3.5 text-body font-medium text-navy transition-colors hover:bg-gold"
                     >
                       {slide.primaryCta.label}
                     </SmartLink>
                     <SmartLink
                       to={slide.secondaryCta.to}
-                      className="border border-sky/70 px-6 py-3.5 text-sm font-medium text-beige transition-colors hover:border-gold hover:text-gold"
+                      className="border border-sky/70 px-6 py-3.5 text-body font-medium text-beige transition-colors hover:border-gold hover:text-gold"
                     >
                       {slide.secondaryCta.label}
                     </SmartLink>

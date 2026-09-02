@@ -34,13 +34,13 @@ export function AccountLayout({
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Account", to: "/account" }, ...crumbs]} />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">{eyebrow}</p>
-        <h1 className="mt-3 font-display text-3xl text-navy sm:text-4xl">{title}</h1>
+        <h1 className="mt-3 text-heading text-navy">{title}</h1>
         {signedIn && user ? (
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p className="mt-3 text-caption text-muted-foreground">
             Signed in as {user.name} · {user.email}
           </p>
         ) : (
-          <p className="mt-3 text-sm text-muted-foreground">
+          <p className="mt-3 text-caption text-muted-foreground">
             You are browsing as a guest.{" "}
             <SmartLink to="/account/login" className="text-teal link-gold">
               Sign in
@@ -57,7 +57,7 @@ export function AccountLayout({
               <li key={item.to}>
                 <SmartLink
                   to={item.to}
-                  className="block px-5 py-3.5 text-sm text-navy transition-colors hover:bg-sky/40 hover:text-teal"
+                  className="block px-5 py-3.5 text-body text-navy transition-colors hover:bg-sky/40 hover:text-teal"
                 >
                   {item.label}
                 </SmartLink>
@@ -70,7 +70,7 @@ export function AccountLayout({
                   signOut();
                   void router.navigate({ to: "/account/login" });
                 }}
-                className="block w-full px-5 py-3.5 text-left text-sm text-muted-foreground transition-colors hover:bg-sky/40 hover:text-teal"
+                className="block w-full px-5 py-3.5 text-left text-body text-muted-foreground transition-colors hover:bg-sky/40 hover:text-teal"
               >
                 Sign out
               </button>

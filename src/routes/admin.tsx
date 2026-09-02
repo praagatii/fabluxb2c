@@ -34,7 +34,7 @@ function AdminShell() {
     <div className="flex min-h-[80vh] flex-col bg-beige lg:flex-row">
       <aside className="bg-navy px-4 py-6 text-sky lg:w-60 lg:shrink-0">
         <p className="label-eyebrow text-gold">Fabluxe</p>
-        <p className="mt-1 font-heading text-lg text-primary-foreground">Admin portal</p>
+        <p className="mt-1 text-heading text-primary-foreground">Admin portal</p>
         <nav className="mt-6 flex flex-wrap gap-1 lg:flex-col">
           {adminNav
             .filter((item) => can(item.section))
@@ -46,7 +46,7 @@ function AdminShell() {
                   key={item.to}
                   to={item.to}
                   className={cn(
-                    "rounded-sm px-3 py-2 text-sm transition-colors",
+                    "rounded-sm px-3 py-2 text-body transition-colors",
                     active
                       ? "bg-primary-foreground/12 text-primary-foreground"
                       : "text-sky/80 hover:bg-primary-foreground/8 hover:text-primary-foreground",
@@ -57,12 +57,12 @@ function AdminShell() {
               );
             })}
         </nav>
-        <div className="mt-8 border-t border-primary-foreground/15 pt-4 text-xs text-sky/70">
+        <div className="mt-8 border-t border-primary-foreground/15 pt-4 text-caption text-sky/70">
           <p className="truncate">{email}</p>
           <p className="mt-1">Signed in as {role}</p>
           <button
             onClick={signOut}
-            className="mt-3 rounded-sm border border-primary-foreground/30 px-3 py-1.5 text-xs text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+            className="mt-3 rounded-sm border border-primary-foreground/30 px-3 py-1.5 text-caption text-primary-foreground transition-colors hover:bg-primary-foreground/10"
           >
             Sign out
           </button>
@@ -71,15 +71,15 @@ function AdminShell() {
 
       <div className="min-w-0 flex-1">
         <header className="flex flex-wrap items-center justify-between gap-3 border-b border-border bg-card px-5 py-3">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-caption text-muted-foreground">
             Front-end prototype — no data is saved.
           </p>
-          <label className="flex items-center gap-2 text-xs text-muted-foreground">
+          <label className="flex items-center gap-2 text-caption text-muted-foreground">
             Demo role
             <select
               value={role}
               onChange={(e) => setRole(e.target.value as AdminRole)}
-              className="rounded-sm border border-border bg-background px-2 py-1 text-xs text-navy"
+              className="rounded-sm border border-border bg-background px-2 py-1 text-caption text-navy"
             >
               {adminRoles.map((r) => (
                 <option key={r} value={r}>

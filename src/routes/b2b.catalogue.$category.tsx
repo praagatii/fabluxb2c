@@ -39,8 +39,8 @@ export const Route = createFileRoute("/b2b/catalogue/$category")({
 function CategoryMissing() {
   return (
     <Section>
-      <h1 className="font-display text-3xl text-navy">That catalogue section does not exist</h1>
-      <p className="mt-3 text-sm text-muted-foreground">
+      <h1 className="text-heading text-navy">That catalogue section does not exist</h1>
+        <p className="mt-3 text-caption text-muted-foreground">
         <SmartLink to="/b2b/catalogue" className="link-gold text-teal">
           Browse the full catalogue
         </SmartLink>
@@ -78,8 +78,8 @@ function B2BCategoryPage() {
           <div className="absolute inset-0 bg-navy/60" />
           <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
             <B2BPageMark>{category.tagline}</B2BPageMark>
-            <h1 className="mt-3 font-display text-3xl text-beige sm:text-4xl">{category.name}</h1>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-sky">
+            <h1 className="mt-3 font-display text-display text-beige">{category.name}</h1>
+            <p className="mt-2 max-w-2xl text-caption leading-relaxed text-sky">
               {category.description}
             </p>
           </div>

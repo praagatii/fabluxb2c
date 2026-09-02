@@ -10,7 +10,7 @@ function CategoryTile({ category }: { category: (typeof categories)[number] }) {
   const body = (
     <>
       <div className="flex items-start justify-between gap-3">
-        <h3 className="font-display text-xl leading-snug text-navy">{category.name}</h3>
+        <h3 className="text-heading leading-snug text-navy">{category.name}</h3>
         {disabled ? (
           <span className="label-eyebrow shrink-0 bg-sky px-2 py-1 text-teal">Coming soon</span>
         ) : (
@@ -20,8 +20,8 @@ function CategoryTile({ category }: { category: (typeof categories)[number] }) {
           />
         )}
       </div>
-      <p className="mt-2 text-sm text-muted-foreground">{category.tagline}</p>
-      <p className="numeric mt-6 text-xs text-teal">
+      <p className="mt-2 text-caption text-muted-foreground">{category.tagline}</p>
+      <p className="numeric mt-6 text-caption text-teal">
         {disabled ? "In development" : `${category.productCount} products`}
       </p>
     </>

@@ -11,12 +11,12 @@ export function ShopMegaMenu() {
             {category.status === "live" ? (
               <SmartLink
                 to={`/shop/${category.slug}`}
-                className="link-gold font-display text-lg text-navy"
+                className="link-gold text-heading text-navy"
               >
                 {category.name}
               </SmartLink>
             ) : (
-              <span className="font-display text-lg text-muted-foreground">
+              <span className="text-heading text-muted-foreground">
                 {category.name}
                 <span className="label-eyebrow ml-2 text-teal">Coming soon</span>
               </span>
@@ -26,7 +26,7 @@ export function ShopMegaMenu() {
                 <li key={sub.slug}>
                   <SmartLink
                     to={`/shop/${category.slug}/${sub.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-teal"
+                    className="text-caption text-muted-foreground transition-colors hover:text-teal"
                   >
                     {sub.name}
                   </SmartLink>

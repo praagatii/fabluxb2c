@@ -33,13 +33,13 @@ function AccountWishlistPage() {
     <AccountLayout title="Wishlist" crumbs={[{ label: "Wishlist" }]}>
       {items.length === 0 ? (
         <div className="border border-border bg-card p-10 text-center">
-          <h2 className="font-display text-xl text-navy">Nothing saved yet</h2>
-          <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground">
+<h2 className="text-heading text-navy">Nothing saved yet</h2>
+          <p className="mx-auto mt-3 max-w-sm text-caption text-muted-foreground">
             Tap the heart on any product to keep it here for later.
           </p>
           <SmartLink
             to="/shop"
-            className="mt-6 inline-block bg-navy px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Browse the catalogue
           </SmartLink>
@@ -56,13 +56,13 @@ function AccountWishlistPage() {
               />
               <div className="min-w-0 flex-1">
                 <p className="label-eyebrow text-teal">{product.brand}</p>
-                <p className="mt-1 font-display text-base leading-snug text-navy">
+                <p className="mt-1 text-body leading-snug text-navy">
                   <SmartLink to={`/shop/product/${product.id}`} className="link-gold">
                     {product.name}
                   </SmartLink>
                 </p>
-                <p className="numeric mt-1 text-sm text-navy">{formatPrice(product.price)}</p>
-                <div className="mt-3 flex flex-wrap gap-3 text-xs">
+                <p className="numeric mt-1 text-body text-navy">{formatPrice(product.price)}</p>
+                <div className="mt-3 flex flex-wrap gap-3 text-body">
                   <button
                     type="button"
                     onClick={() => addToCart(product.id)}

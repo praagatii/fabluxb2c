@@ -37,7 +37,7 @@ export function ProductRail({
         copy={copy}
         action={
           <div className="flex items-center gap-3">
-            <SmartLink to={viewAllTo} className="link-gold text-sm text-teal">
+            <SmartLink to={viewAllTo} className="link-gold text-body text-teal">
               View all
             </SmartLink>
             <div className="hidden gap-2 sm:flex">

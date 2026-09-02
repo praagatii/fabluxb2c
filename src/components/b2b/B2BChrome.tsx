@@ -9,7 +9,7 @@ export function B2BLabel({ className }: { className?: string | undefined }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full bg-teal px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-beige",
+        "inline-flex items-center rounded-full bg-teal px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-beige",
         className,
       )}
     >
@@ -25,10 +25,10 @@ export function B2BHeaderBand() {
       <Container>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 py-3">
           <SmartLink to="/b2b" className="flex items-center gap-3">
-            <span className="inline-flex items-center rounded-full bg-beige px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.22em] text-teal">
+            <span className="inline-flex items-center rounded-full bg-beige px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-teal">
               B2B
             </span>
-            <span className="font-display text-lg leading-none">Fabluxe B2B Store</span>
+            <span className="font-display text-heading leading-none">Fabluxe B2B Store</span>
           </SmartLink>
           <nav aria-label="B2B catalogue" className="ml-auto">
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -36,7 +36,7 @@ export function B2BHeaderBand() {
                 <li key={category.id}>
                   <SmartLink
                     to={`/b2b/catalogue/${category.slug}`}
-                    className="text-[0.7rem] uppercase tracking-[0.18em] text-sky transition-colors hover:text-beige"
+                    className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-beige"
                   >
                     {category.name}
                   </SmartLink>
@@ -45,7 +45,7 @@ export function B2BHeaderBand() {
               <li>
                 <SmartLink
                   to="/b2b/enquiry"
-                  className="rounded-full border border-beige/60 px-3 py-1.5 text-[0.7rem] uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-teal"
+                  className="rounded-full border border-beige/60 px-3 py-1.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-teal"
                 >
                   Raise an enquiry
                 </SmartLink>
@@ -63,7 +63,7 @@ export function B2BBrowseOnlyLine() {
   return (
     <div className="border-b border-teal/25 bg-sky/45">
       <Container>
-        <p className="flex items-start gap-2.5 py-2.5 text-xs leading-relaxed text-navy">
+        <p className="flex items-start gap-2.5 py-2.5 text-caption leading-relaxed text-navy">
           <Info className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal" aria-hidden="true" />
           <span>{b2bBrowseOnlyLine}</span>
         </p>

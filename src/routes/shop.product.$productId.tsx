@@ -118,14 +118,14 @@ function ProductDetailPage() {
 
           <div>
             <p className="label-eyebrow text-teal">{product.brand}</p>
-            <h1 className="mt-3 font-display text-3xl leading-tight text-navy sm:text-4xl">
+            <h1 className="mt-3 text-heading leading-tight text-navy">
               {product.name}
             </h1>
 
             <button
               type="button"
               onClick={() => setTab("Reviews")}
-              className="mt-3 flex items-center gap-2 text-sm text-muted-foreground"
+              className="mt-3 flex items-center gap-2 text-body text-muted-foreground"
             >
               <Star className="h-4 w-4 text-gold" fill="currentColor" aria-hidden="true" />
               <span className="numeric text-navy">{product.rating.toFixed(1)}</span>
@@ -136,25 +136,25 @@ function ProductDetailPage() {
 
             <div className="mt-6 border-y border-border py-5">
               <div className="flex flex-wrap items-baseline gap-3">
-                <span className="numeric text-3xl font-semibold text-navy">
+                <span className="numeric text-heading font-semibold text-navy">
                   {formatPrice(price)}
                 </span>
-                <span className="numeric text-sm text-muted-foreground line-through">
+                <span className="numeric text-caption text-muted-foreground line-through">
                   {formatPrice(mrp)}
                 </span>
-                <span className="numeric bg-beige px-2 py-1 text-xs font-semibold text-teal">
+                <span className="numeric bg-beige px-2 py-1 text-caption font-semibold text-teal">
                   {discountPercent({ price, mrp })}% off
                 </span>
               </div>
-              <p className="numeric mt-2 text-sm text-teal">
+              <p className="numeric mt-2 text-caption text-teal">
                 You save {formatPrice(savings)} · inclusive of all taxes
               </p>
-              <p className="mt-3 flex items-center gap-2 text-xs text-muted-foreground">
+              <p className="mt-3 flex items-center gap-2 text-caption text-muted-foreground">
                 <Tag className="h-4 w-4 text-gold" aria-hidden="true" />
                 Coupon hint: apply <span className="numeric text-navy">FABLUXE5</span> at checkout
                 for an additional bank discount.
               </p>
-              <p className="mt-2 text-xs text-navy">
+              <p className="mt-2 text-caption text-navy">
                 {product.availability} · Fulfilled by {product.fulfilledBy}
               </p>
             </div>
@@ -169,7 +169,7 @@ function ProductDetailPage() {
                     onClick={() => setColour(option)}
                     aria-pressed={colour === option}
                     className={cn(
-                      "border px-4 py-2 text-sm text-navy",
+                      "border px-4 py-2 text-body text-navy",
                       colour === option ? "border-gold bg-beige" : "border-border",
                     )}
                   >
@@ -189,7 +189,7 @@ function ProductDetailPage() {
                     onClick={() => setSize(option.label)}
                     aria-pressed={size === option.label}
                     className={cn(
-                      "numeric border px-4 py-2 text-sm text-navy",
+                      "numeric border px-4 py-2 text-body text-navy",
                       size === option.label ? "border-gold bg-beige" : "border-border",
                     )}
                   >
@@ -209,7 +209,7 @@ function ProductDetailPage() {
                 >
                   <Minus className="h-4 w-4" aria-hidden="true" />
                 </button>
-                <span className="numeric w-10 text-center text-sm text-navy">{quantity}</span>
+                <span className="numeric w-10 text-center text-body text-navy">{quantity}</span>
                 <button
                   type="button"
                   aria-label="Increase quantity"
@@ -223,19 +223,19 @@ function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => addToCart(product.id, { quantity, colour, size })}
-                className="flex-1 bg-navy px-6 py-3 text-sm text-primary-foreground transition-colors hover:bg-teal"
+                className="flex-1 bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
               >
                 Add to cart
               </button>
               <SmartLink
                 to="/checkout"
-                className="flex-1 bg-gold px-6 py-3 text-center text-sm font-medium text-navy transition-opacity hover:opacity-90"
+                className="flex-1 bg-gold px-6 py-3 text-center text-body font-medium text-navy transition-opacity hover:opacity-90"
               >
                 Buy now
               </SmartLink>
             </div>
 
-            <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground">
+            <div className="mt-4 flex flex-wrap gap-4 text-body text-muted-foreground">
               <button
                 type="button"
                 onClick={() => toggleWishlist(product.id)}
@@ -268,11 +268,11 @@ function ProductDetailPage() {
               <p className="label-eyebrow flex items-center gap-2 text-teal">
                 <ShieldCheck className="h-4 w-4" aria-hidden="true" /> Returns and warranty
               </p>
-              <p className="mt-3 text-sm text-navy">Returns and warranty as per company policy</p>
+              <p className="mt-3 text-caption text-navy">Returns and warranty as per company policy</p>
               <button
                 type="button"
                 onClick={() => setSupportOpen(true)}
-                className="mt-4 border border-navy px-4 py-2 text-sm text-navy transition-colors hover:bg-navy hover:text-primary-foreground"
+                className="mt-4 border border-navy px-4 py-2 text-body text-navy transition-colors hover:bg-navy hover:text-primary-foreground"
               >
                 Contact customer support for terms
               </button>
@@ -305,13 +305,13 @@ function ProductDetailPage() {
       <Section>
         {tab === "Overview" ? (
           <div className="max-w-3xl">
-            <h2 className="font-display text-2xl text-navy">Overview</h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            <h2 className="text-heading text-navy">Overview</h2>
+            <p className="mt-4 text-caption leading-relaxed text-muted-foreground">
               {product.description}
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {product.specs.map((spec) => (
-                <li key={spec} className="border border-border px-4 py-3 text-sm text-navy">
+                <li key={spec} className="border border-border px-4 py-3 text-caption text-navy">
                   {spec}
                 </li>
               ))}
@@ -321,11 +321,11 @@ function ProductDetailPage() {
 
         {tab === "Specifications" ? (
           <div className="max-w-3xl space-y-8">
-            <h2 className="font-display text-2xl text-navy">Specifications</h2>
+            <h2 className="text-heading text-navy">Specifications</h2>
             {product.specTable.map((group) => (
               <div key={group.group}>
                 <p className="label-eyebrow text-teal">{group.group}</p>
-                <table className="mt-3 w-full border border-border text-sm">
+                <table className="mt-3 w-full border border-border text-caption">
                   <tbody>
                     {group.rows.map((row) => (
                       <tr key={row.label} className="border-b border-border last:border-0">
@@ -344,7 +344,7 @@ function ProductDetailPage() {
 
         {tab === "Reviews" ? (
           <div>
-            <h2 className="font-display text-2xl text-navy">Reviews</h2>
+            <h2 className="text-heading text-navy">Reviews</h2>
             <div className="mt-8">
               <ReviewsBlock productId={product.id} rating={product.rating} />
             </div>
@@ -353,15 +353,15 @@ function ProductDetailPage() {
 
         {tab === "Support" ? (
           <div className="max-w-2xl">
-            <h2 className="font-display text-2xl text-navy">Support</h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            <h2 className="text-heading text-navy">Support</h2>
+            <p className="mt-4 text-caption leading-relaxed text-muted-foreground">
               Installation, demonstration and servicing for this product are handled by{" "}
               {product.fulfilledBy}. Returns and warranty as per company policy.
             </p>
             <button
               type="button"
               onClick={() => setSupportOpen(true)}
-              className="mt-6 bg-navy px-5 py-3 text-sm text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 bg-navy px-5 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
             >
               Contact customer support for terms
             </button>
@@ -375,7 +375,7 @@ function ProductDetailPage() {
           title="How this model sits against the alternatives"
         />
         <div className="mt-8 overflow-x-auto">
-          <table className="w-full min-w-[48rem] border border-border text-sm">
+          <table className="w-full min-w-[48rem] border border-border text-caption">
             <thead>
               <tr className="bg-beige text-left">
                 <th scope="col" className="px-4 py-3 font-medium text-navy">
@@ -435,21 +435,21 @@ function ProductDetailPage() {
                   className="h-16 w-20 object-cover"
                 />
                 <div className="min-w-0">
-                  <p className="truncate text-sm text-navy">{item.name}</p>
-                  <p className="numeric text-xs text-muted-foreground">{formatPrice(item.price)}</p>
+                  <p className="truncate text-body text-navy">{item.name}</p>
+                  <p className="numeric text-caption text-muted-foreground">{formatPrice(item.price)}</p>
                 </div>
               </li>
             ))}
           </ul>
           <div className="border border-border bg-beige p-5 lg:w-72">
             <p className="label-eyebrow text-teal">Bundle total</p>
-            <p className="numeric mt-2 text-2xl font-semibold text-navy">
+            <p className="numeric mt-2 text-heading font-semibold text-navy">
               {formatPrice(bundleTotal)}
             </p>
             <button
               type="button"
               onClick={() => bundle.forEach((item) => addToCart(item.id))}
-              className="mt-4 w-full bg-navy px-4 py-3 text-sm text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-4 w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
             >
               Add all three to cart
             </button>

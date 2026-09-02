@@ -38,17 +38,17 @@ export function DeliveryCheck() {
           value={pincode}
           onChange={(event) => setPincode(event.target.value.replace(/\D/g, ""))}
           placeholder="6-digit pincode"
-          className="numeric w-full border border-border bg-card px-3 py-2 text-sm text-navy"
+          className="numeric w-full border border-border bg-card px-3 py-2 text-body text-navy"
         />
         <button
           type="submit"
-          className="bg-navy px-4 py-2 text-sm text-primary-foreground transition-colors hover:bg-teal"
+          className="bg-navy px-4 py-2 text-body text-primary-foreground transition-colors hover:bg-teal"
         >
           Check
         </button>
       </div>
-      {error ? <p className="mt-2 text-xs text-destructive">{error}</p> : null}
-      {result ? <p className="mt-2 text-xs text-navy">{result}</p> : null}
+      {error ? <p className="mt-2 text-caption text-destructive">{error}</p> : null}
+      {result ? <p className="mt-2 text-caption text-navy">{result}</p> : null}
     </form>
   );
 }

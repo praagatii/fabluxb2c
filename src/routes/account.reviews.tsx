@@ -55,12 +55,12 @@ function MyReviewsPage() {
           return (
             <li key={review.productId} className="p-5">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <p className="font-display text-base text-navy">
+                <p className="text-body text-navy">
                   <SmartLink to={`/shop/product/${review.productId}`} className="link-gold">
                     {product?.name ?? review.productId}
                   </SmartLink>
                 </p>
-                <p className="text-xs text-muted-foreground">{review.date}</p>
+                <p className="text-caption text-muted-foreground">{review.date}</p>
               </div>
               <div className="mt-2 flex items-center gap-1" aria-label={`${review.rating} out of 5`}>
                 {Array.from({ length: 5 }).map((_, index) => (
@@ -72,8 +72,8 @@ function MyReviewsPage() {
                   />
                 ))}
               </div>
-              <p className="mt-3 text-sm text-navy">{review.title}</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{review.body}</p>
+              <p className="mt-3 text-body text-navy">{review.title}</p>
+              <p className="mt-1 text-caption leading-relaxed text-muted-foreground">{review.body}</p>
             </li>
           );
         })}

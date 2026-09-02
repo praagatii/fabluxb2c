@@ -40,7 +40,7 @@ export function SectionHeading({
         <p className={cn("label-eyebrow", inverse ? "text-gold" : "text-teal")}>{eyebrow}</p>
         <Heading
           className={cn(
-            "mt-3 text-3xl leading-tight sm:text-4xl",
+            "font-display mt-3 text-display",
             inverse ? "text-beige" : "text-navy",
           )}
         >
@@ -50,7 +50,7 @@ export function SectionHeading({
         {copy ? (
           <p
             className={cn(
-              "mt-3 max-w-xl text-sm leading-relaxed",
+              "mt-3 max-w-xl text-body leading-relaxed",
               inverse ? "text-sky" : "text-muted-foreground",
               align === "center" && "mx-auto",
             )}

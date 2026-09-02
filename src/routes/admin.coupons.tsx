@@ -51,7 +51,7 @@ function CouponsScreen() {
   const [draft, setDraft] = useState<AdminCoupon>(blank);
 
   const field =
-    "w-full rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal";
+    "w-full rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal";
 
   return (
     <>
@@ -70,38 +70,38 @@ function CouponsScreen() {
             }}
           >
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Code</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Code</span>
               <input className={field} value={draft.code} onChange={(e) => setDraft({ ...draft, code: e.target.value })} placeholder="FESTIVE10" />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Type</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Type</span>
               <select className={field} value={draft.type} onChange={(e) => setDraft({ ...draft, type: e.target.value as AdminCoupon["type"] })}>
                 <option value="percent">Percent off</option>
                 <option value="flat">Flat amount</option>
               </select>
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Value</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Value</span>
               <input type="number" className={field} value={draft.value} onChange={(e) => setDraft({ ...draft, value: Number(e.target.value) })} />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Minimum order (₹)</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Minimum order (₹)</span>
               <input type="number" className={field} value={draft.minOrder} onChange={(e) => setDraft({ ...draft, minOrder: Number(e.target.value) })} />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Valid from</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Valid from</span>
               <input type="date" className={field} value={draft.from} onChange={(e) => setDraft({ ...draft, from: e.target.value })} />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Valid to</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Valid to</span>
               <input type="date" className={field} value={draft.to} onChange={(e) => setDraft({ ...draft, to: e.target.value })} />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Usage limit</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Usage limit</span>
               <input type="number" className={field} value={draft.usageLimit} onChange={(e) => setDraft({ ...draft, usageLimit: Number(e.target.value) })} />
             </label>
             <label>
-              <span className="mb-1 block text-xs font-medium text-navy">Status</span>
+              <span className="mb-1 block text-caption font-medium text-navy">Status</span>
               <select className={field} value={draft.status} onChange={(e) => setDraft({ ...draft, status: e.target.value as AdminCoupon["status"] })}>
                 <option>Active</option>
                 <option>Scheduled</option>
@@ -109,7 +109,7 @@ function CouponsScreen() {
               </select>
             </label>
             <div className="flex items-end">
-              <button className="w-full rounded-sm bg-navy px-4 py-2 text-sm text-primary-foreground hover:opacity-90">
+              <button className="w-full rounded-sm bg-navy px-4 py-2 text-body text-primary-foreground hover:opacity-90">
                 Create coupon
               </button>
             </div>
@@ -121,15 +121,15 @@ function CouponsScreen() {
         {list.map((coupon) => (
           <tr key={coupon.code}>
             <Td className="numeric font-medium text-navy">{coupon.code}</Td>
-            <Td className="text-xs capitalize">{coupon.type}</Td>
+            <Td className="text-caption capitalize">{coupon.type}</Td>
             <Td className="numeric">{coupon.type === "percent" ? `${coupon.value}%` : formatINR(coupon.value)}</Td>
             <Td className="numeric">{coupon.minOrder ? formatINR(coupon.minOrder) : "—"}</Td>
-            <Td className="text-xs">{coupon.from} → {coupon.to}</Td>
-            <Td className="numeric text-xs">{coupon.used} / {coupon.usageLimit}</Td>
+            <Td className="text-caption">{coupon.from} → {coupon.to}</Td>
+            <Td className="numeric text-caption">{coupon.used} / {coupon.usageLimit}</Td>
             <Td><StatusPill tone={tone(coupon.status)}>{coupon.status}</StatusPill></Td>
             <Td>
               {editable ? (
-                <div className="flex gap-2 text-xs">
+                <div className="flex gap-2 text-caption">
                   <button
                     onClick={() =>
                       setList((current) =>

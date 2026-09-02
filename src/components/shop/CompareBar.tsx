@@ -21,7 +21,7 @@ export function CompareBar() {
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-navy/20 bg-card/95 backdrop-blur">
       <div aria-live="polite">
         {compareNotice ? (
-          <div className="flex items-start justify-between gap-4 bg-navy px-5 py-3 text-xs text-beige sm:px-8">
+          <div className="flex items-start justify-between gap-4 bg-navy px-5 py-3 text-caption text-beige sm:px-8">
             <p className="max-w-3xl leading-relaxed">{compareNotice}</p>
             <button
               type="button"
@@ -56,7 +56,7 @@ export function CompareBar() {
                       aria-hidden="true"
                       className="h-8 w-10 object-cover"
                     />
-                    <span className="max-w-[9rem] truncate text-xs text-navy">{product.name}</span>
+                    <span className="max-w-[9rem] truncate text-caption text-navy">{product.name}</span>
                     <button
                       type="button"
                       onClick={() => removeFromCompare(id)}
@@ -75,13 +75,13 @@ export function CompareBar() {
             <button
               type="button"
               onClick={clearCompare}
-              className="text-xs text-muted-foreground underline-offset-4 transition-colors hover:text-teal hover:underline"
+              className="text-caption text-muted-foreground underline-offset-4 transition-colors hover:text-teal hover:underline"
             >
               Clear all
             </button>
             <SmartLink
               to="/compare"
-              className="bg-navy px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="bg-navy px-5 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Compare {compare.length}
             </SmartLink>

@@ -31,7 +31,7 @@ function Check({
   onToggle: () => void;
 }) {
   return (
-    <label className="flex cursor-pointer items-center justify-between gap-3 text-sm text-navy">
+    <label className="flex cursor-pointer items-center justify-between gap-3 text-body text-navy">
       <span className="flex items-center gap-2">
         <input
           type="checkbox"
@@ -42,7 +42,7 @@ function Check({
         {label}
       </span>
       {count === undefined ? null : (
-        <span className="numeric text-xs text-muted-foreground">{count}</span>
+        <span className="numeric text-caption text-muted-foreground">{count}</span>
       )}
     </label>
   );
@@ -55,18 +55,18 @@ export function FilterPanel({ facets, filters, onChange, onReset }: FilterPanelP
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between">
-        <p className="font-display text-lg text-navy">Filters</p>
+        <p className="text-heading text-navy">Filters</p>
         <button
           type="button"
           onClick={onReset}
-          className="link-gold text-xs uppercase tracking-[0.18em] text-teal"
+          className="link-gold text-caption uppercase tracking-[0.18em] text-teal"
         >
           Reset
         </button>
       </div>
 
       <Group title="Price">
-        <label className="block text-sm text-navy" htmlFor="price-range">
+        <label className="block text-body text-navy" htmlFor="price-range">
           Up to <span className="numeric font-semibold">{formatPrice(filters.priceMax)}</span>
         </label>
         <input
@@ -79,7 +79,7 @@ export function FilterPanel({ facets, filters, onChange, onReset }: FilterPanelP
           onChange={(event) => onChange({ ...filters, priceMax: Number(event.target.value) })}
           className="w-full accent-[var(--color-teal)]"
         />
-        <div className="numeric flex justify-between text-xs text-muted-foreground">
+        <div className="numeric flex justify-between text-caption text-muted-foreground">
           <span>{formatPrice(facets.priceMin)}</span>
           <span>{formatPrice(facets.priceMax)}</span>
         </div>
@@ -101,7 +101,7 @@ export function FilterPanel({ facets, filters, onChange, onReset }: FilterPanelP
         {[4.5, 4, 3.5, 3].map((rating) => (
           <label
             key={rating}
-            className="flex cursor-pointer items-center gap-2 text-sm text-navy"
+            className="flex cursor-pointer items-center gap-2 text-body text-navy"
           >
             <input
               type="radio"
@@ -114,7 +114,7 @@ export function FilterPanel({ facets, filters, onChange, onReset }: FilterPanelP
             <span className="numeric">{rating} and above</span>
           </label>
         ))}
-        <label className="flex cursor-pointer items-center gap-2 text-sm text-navy">
+        <label className="flex cursor-pointer items-center gap-2 text-body text-navy">
           <input
             type="radio"
             name="min-rating"

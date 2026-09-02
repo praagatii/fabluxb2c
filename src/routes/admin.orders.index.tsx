@@ -51,12 +51,12 @@ function OrdersScreen() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search order ID or customer"
-            className="rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy outline-none focus:border-teal"
+            className="rounded-sm border border-border bg-background px-3 py-2 text-body text-navy outline-none focus:border-teal"
           />
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="rounded-sm border border-border bg-background px-3 py-2 text-sm text-navy"
+            className="rounded-sm border border-border bg-background px-3 py-2 text-body text-navy"
           >
             <option value="all">All statuses</option>
             {orderStatuses.map((s) => (
@@ -69,12 +69,12 @@ function OrdersScreen() {
       <AdminTable head={["Order ID", "Customer", "Date", "Total", "Status", "Companies involved", ""]}>
         {rows.map((order) => (
           <tr key={order.id}>
-            <Td className="numeric text-xs">{order.id}</Td>
+            <Td className="numeric text-caption">{order.id}</Td>
             <Td>
               <p className="text-navy">{order.customer}</p>
-              <p className="text-xs text-muted-foreground">{order.email}</p>
+              <p className="text-caption text-muted-foreground">{order.email}</p>
             </Td>
-            <Td className="text-xs">{order.date}</Td>
+            <Td className="text-caption">{order.date}</Td>
             <Td className="numeric">{formatINR(order.total)}</Td>
             <Td>
               <StatusPill tone={order.status === "Delivered" ? "positive" : "neutral"}>
@@ -84,7 +84,7 @@ function OrdersScreen() {
             <Td>
               <div className="flex flex-wrap gap-1">
                 {order.companies.map((company) => (
-                  <span key={company} className="rounded-full bg-muted px-2 py-0.5 text-[0.7rem] text-navy">
+                  <span key={company} className="rounded-full bg-muted px-2 py-0.5 text-caption text-navy">
                     {company}
                   </span>
                 ))}
@@ -97,7 +97,7 @@ function OrdersScreen() {
               <Link
                 to="/admin/orders/$orderId"
                 params={{ orderId: order.id }}
-                className="text-xs text-teal hover:underline"
+                className="text-caption text-teal hover:underline"
               >
                 Open
               </Link>

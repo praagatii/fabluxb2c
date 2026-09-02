@@ -24,7 +24,7 @@ export function ReviewHighlights() {
                 />
               ))}
             </div>
-            <blockquote className="mt-4 flex-1 font-display text-lg leading-snug text-navy">
+            <blockquote className="mt-4 flex-1 font-display text-heading leading-snug text-navy">
               “{review.quote}”
             </blockquote>
             <p className="label-eyebrow mt-5 text-teal">

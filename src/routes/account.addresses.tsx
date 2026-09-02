@@ -31,11 +31,11 @@ function AddressesPage() {
             <div className="flex items-center justify-between">
               <p className="label-eyebrow text-teal">{address.label}</p>
               {address.isDefault ? (
-                <span className="bg-beige px-2 py-0.5 text-xs text-teal">Default</span>
+                <span className="bg-beige px-2 py-0.5 text-caption text-teal">Default</span>
               ) : null}
             </div>
-            <p className="mt-3 text-sm text-navy">{address.name}</p>
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            <p className="mt-3 text-body text-navy">{address.name}</p>
+            <p className="text-caption leading-relaxed text-muted-foreground">
               {address.line1}
               {address.line2 ? `, ${address.line2}` : ""}, {address.city}, {address.state}{" "}
               {address.pincode}
@@ -45,7 +45,7 @@ function AddressesPage() {
             <button
               type="button"
               onClick={() => removeAddress(address.id)}
-              className="mt-4 inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-teal"
+              className="mt-4 inline-flex items-center gap-1.5 text-body text-muted-foreground transition-colors hover:text-teal"
             >
               <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
               Remove
@@ -53,7 +53,7 @@ function AddressesPage() {
           </article>
         ))}
       </div>
-      <p className="mt-5 text-xs text-muted-foreground">
+      <p className="mt-5 text-caption text-muted-foreground">
         New addresses are added during checkout in this prototype.
       </p>
     </AccountLayout>

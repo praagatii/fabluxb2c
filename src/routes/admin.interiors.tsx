@@ -65,8 +65,8 @@ function InteriorsScreen() {
             aria-pressed={tab === key}
             className={
               tab === key
-                ? "rounded-full bg-navy px-3 py-1.5 text-xs text-primary-foreground"
-                : "rounded-full border border-border px-3 py-1.5 text-xs text-navy hover:border-teal"
+                ? "rounded-full bg-navy px-3 py-1.5 text-caption text-primary-foreground"
+                : "rounded-full border border-border px-3 py-1.5 text-caption text-navy hover:border-teal"
             }
           >
             {label}
@@ -78,12 +78,12 @@ function InteriorsScreen() {
         <AdminTable head={["Reference", "Name", "Contact", "Mode", "Date", "Slot", "Status"]}>
           {requests.map((request) => (
             <tr key={request.id}>
-              <Td className="numeric text-xs">{request.id}</Td>
+              <Td className="numeric text-caption">{request.id}</Td>
               <Td>{request.name}</Td>
-              <Td className="text-xs">{request.contact}</Td>
-              <Td className="text-xs">{request.mode}</Td>
-              <Td className="text-xs">{request.date}</Td>
-              <Td className="numeric text-xs">{request.slot}</Td>
+              <Td className="text-caption">{request.contact}</Td>
+              <Td className="text-caption">{request.mode}</Td>
+              <Td className="text-caption">{request.date}</Td>
+              <Td className="numeric text-caption">{request.slot}</Td>
               <Td>
                 {editable ? (
                   <select
@@ -97,7 +97,7 @@ function InteriorsScreen() {
                         ),
                       )
                     }
-                    className="rounded-sm border border-border bg-background px-2 py-1 text-xs text-navy"
+                    className="rounded-sm border border-border bg-background px-2 py-1 text-caption text-navy"
                   >
                     <option>New</option>
                     <option>Confirmed</option>
@@ -117,15 +117,15 @@ function InteriorsScreen() {
         <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {roomStyles.map((style) => (
             <AdminCard key={style.id} title={style.name}>
-              <p className="text-sm text-muted-foreground">{style.tagline}</p>
-              <p className="mt-2 text-xs text-muted-foreground">
+              <p className="text-caption text-muted-foreground">{style.tagline}</p>
+              <p className="mt-2 text-caption text-muted-foreground">
                 {style.materials.length} materials · {style.gallery.length} gallery images
               </p>
               <div className="mt-3 flex gap-2">
-                <button disabled={!editable} className="rounded-sm border border-border px-3 py-1.5 text-xs text-navy hover:border-teal disabled:opacity-50">
+                <button disabled={!editable} className="rounded-sm border border-border px-3 py-1.5 text-caption text-navy hover:border-teal disabled:opacity-50">
                   Edit style
                 </button>
-                <button disabled={!editable} className="rounded-sm border border-border px-3 py-1.5 text-xs text-navy hover:border-teal disabled:opacity-50">
+                <button disabled={!editable} className="rounded-sm border border-border px-3 py-1.5 text-caption text-navy hover:border-teal disabled:opacity-50">
                   Manage gallery
                 </button>
               </div>
@@ -139,10 +139,10 @@ function InteriorsScreen() {
           {projects.map((project) => (
             <tr key={project.id}>
               <Td>{project.title}</Td>
-              <Td className="text-xs">{roomStyles.find((s) => s.id === project.styleId)?.name}</Td>
-              <Td className="text-xs">{roomTypeLabel(project.roomTypeId)}</Td>
-              <Td className="text-xs">{project.city}</Td>
-              <Td className="numeric text-xs">{project.year}</Td>
+              <Td className="text-caption">{roomStyles.find((s) => s.id === project.styleId)?.name}</Td>
+              <Td className="text-caption">{roomTypeLabel(project.roomTypeId)}</Td>
+              <Td className="text-caption">{project.city}</Td>
+              <Td className="numeric text-caption">{project.year}</Td>
               <Td>
                 <button
                   disabled={!editable}

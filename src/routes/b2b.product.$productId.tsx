@@ -40,8 +40,8 @@ export const Route = createFileRoute("/b2b/product/$productId")({
 function ProductMissing() {
   return (
     <Section>
-      <h1 className="font-display text-3xl text-navy">That catalogue item does not exist</h1>
-      <p className="mt-3 text-sm text-muted-foreground">
+      <h1 className="text-heading text-navy">That catalogue item does not exist</h1>
+      <p className="mt-3 text-caption text-muted-foreground">
         <SmartLink to="/b2b/catalogue" className="link-gold text-teal">
           Browse the full catalogue
         </SmartLink>
@@ -85,12 +85,12 @@ function B2BProductPage() {
 
           <div>
             <B2BPageMark>{product.brand}</B2BPageMark>
-            <h1 className="mt-4 font-display text-3xl leading-tight text-navy sm:text-4xl">
+            <h1 className="mt-4 text-heading leading-tight text-navy">
               {product.name}
             </h1>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{product.summary}</p>
+            <p className="mt-4 text-body leading-relaxed text-muted-foreground">{product.summary}</p>
 
-            <dl className="mt-6 grid grid-cols-2 gap-4 border-y border-border py-5 text-sm">
+            <dl className="mt-6 grid grid-cols-2 gap-4 border-y border-border py-5 text-body">
               <div>
                 <dt className="label-eyebrow text-teal">SKU</dt>
                 <dd className="numeric mt-1 text-navy">{product.sku}</dd>
@@ -109,7 +109,7 @@ function B2BProductPage() {
               </div>
             </dl>
 
-            <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
+            <ul className="mt-6 space-y-2 text-body text-muted-foreground">
               {product.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-2">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
@@ -122,7 +122,7 @@ function B2BProductPage() {
               <Link
                 to="/b2b/enquiry"
                 search={{ product: product.id }}
-                className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+                className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
               >
                 Enquire about this product
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -132,13 +132,13 @@ function B2BProductPage() {
                 type="button"
                 disabled
                 title="Spec sheet PDF to be supplied by the client"
-                className="inline-flex cursor-not-allowed items-center gap-2 border border-border px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-muted-foreground"
+                className="inline-flex cursor-not-allowed items-center gap-2 border border-border px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-muted-foreground"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
                 Download spec sheet (PDF)
               </button>
             </div>
-            <p className="mt-3 text-xs text-muted-foreground">
+            <p className="mt-3 text-caption text-muted-foreground">
               Spec sheet placeholder — documentation is issued with the quotation.
             </p>
           </div>
@@ -148,7 +148,7 @@ function B2BProductPage() {
       <Section className="bg-card">
         <div className="flex items-center gap-3">
           <FileText className="h-4 w-4 text-teal" aria-hidden="true" />
-          <h2 className="font-display text-2xl text-navy">Specification</h2>
+          <h2 className="text-heading text-navy">Specification</h2>
           <B2BLabel className="ml-auto" />
         </div>
         <div className="mt-6 grid gap-8 lg:grid-cols-2">
@@ -157,7 +157,7 @@ function B2BProductPage() {
               <p className="label-eyebrow border-b border-border bg-beige px-5 py-3 text-teal">
                 {group.group}
               </p>
-              <table className="w-full text-sm">
+              <table className="w-full text-body">
                 <tbody>
                   {group.rows.map((row) => (
                     <tr key={row.label} className="border-b border-border last:border-b-0">
@@ -177,7 +177,7 @@ function B2BProductPage() {
           <p className="label-eyebrow border-b border-border bg-beige px-5 py-3 text-teal">
             Attributes
           </p>
-          <table className="w-full text-sm">
+          <table className="w-full text-body">
             <tbody>
               {Object.entries(product.attributes).map(([key, value]) => (
                 <tr key={key} className="border-b border-border last:border-b-0">
@@ -197,10 +197,10 @@ function B2BProductPage() {
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="label-eyebrow text-beige">Buying at volume?</p>
-            <h2 className="mt-2 font-display text-2xl text-beige">
+            <h2 className="mt-2 font-display text-display text-beige">
               Bulk and project pricing is quoted by the trade desk
             </h2>
-            <p className="mt-2 max-w-xl text-sm leading-relaxed text-sky">
+            <p className="mt-2 max-w-xl text-caption leading-relaxed text-sky">
               Send the quantity, the site and the programme. We confirm availability, phasing and a
               written price against your reference number.
             </p>
@@ -208,7 +208,7 @@ function B2BProductPage() {
           <Link
             to="/b2b/enquiry"
             search={{ product: product.id }}
-            className="inline-flex shrink-0 items-center gap-2 bg-beige px-6 py-3.5 text-xs uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+            className="inline-flex shrink-0 items-center gap-2 bg-beige px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
           >
             Raise a bulk enquiry
           </Link>
@@ -217,7 +217,7 @@ function B2BProductPage() {
 
       {related.length > 0 ? (
         <Section>
-          <h2 className="font-display text-2xl text-navy">More in {category?.name}</h2>
+          <h2 className="text-heading text-navy">More in {category?.name}</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((item) => (
               <B2BProductCard key={item.id} product={item} />

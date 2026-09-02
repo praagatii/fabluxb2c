@@ -27,7 +27,7 @@ export function SearchField({ id = "site-search" }: { id?: string }) {
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => setOpen(true)}
         onBlur={() => window.setTimeout(() => setOpen(false), 120)}
-        className="h-11 w-full rounded-sm border border-border bg-card pl-9 pr-3 text-sm text-navy placeholder:text-muted-foreground"
+        className="h-11 w-full rounded-sm border border-border bg-card pl-9 pr-3 text-body text-navy placeholder:text-muted-foreground"
       />
       {open && matches.length > 0 ? (
         <ul className="absolute z-50 mt-1 w-full border border-border bg-card py-1 shadow-lg">
@@ -35,7 +35,7 @@ export function SearchField({ id = "site-search" }: { id?: string }) {
             <li key={s}>
               <button
                 type="button"
-                className="block w-full px-4 py-2 text-left text-sm text-navy hover:bg-sky/50"
+                className="block w-full px-4 py-2 text-left text-body text-navy hover:bg-sky/50"
                 onMouseDown={() => setQuery(s)}
               >
                 {s}

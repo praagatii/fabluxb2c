@@ -65,10 +65,10 @@ function InteriorDesignLanding() {
             <div className="max-w-2xl">
               <span className="rule-gold mb-4" aria-hidden="true" />
               <p className="label-eyebrow text-gold">Fabluxora Interiors</p>
-              <h1 className="mt-4 font-display text-4xl leading-tight text-primary-foreground sm:text-6xl">
+              <h1 className="mt-4 font-display text-display leading-tight text-primary-foreground">
                 We design the whole room, not the shopping list
               </h1>
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-sky sm:text-base">
+              <p className="mt-5 max-w-xl text-body leading-relaxed text-sky">
                 Layout, light, joinery, materials and the pieces that sit in them — considered
                 together, by one senior designer who stays with your project from the first
                 conversation to handover.
@@ -77,13 +77,13 @@ function InteriorDesignLanding() {
                 <button
                   type="button"
                   onClick={() => setDialogOpen(true)}
-                  className="bg-gold px-7 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-sky"
+                className="bg-gold px-7 py-3.5 text-body font-medium text-navy transition-colors hover:bg-sky"
                 >
                   Book a consultation
                 </button>
                 <Link
                   to="/interior-design/portfolio"
-                  className="border border-sky px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
+                className="border border-sky px-7 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
                 >
                   See completed projects
                 </Link>
@@ -103,9 +103,9 @@ function InteriorDesignLanding() {
         <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {howItWorks.map((step) => (
             <li key={step.id} className="border border-border bg-card p-6">
-              <p className="font-display text-3xl text-gold">{step.step}</p>
-              <h3 className="mt-3 font-display text-xl text-navy">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.copy}</p>
+              <p className="font-display text-heading text-gold">{step.step}</p>
+              <h3 className="mt-3 text-heading text-navy">{step.title}</h3>
+              <p className="mt-2 text-caption leading-relaxed text-muted-foreground">{step.copy}</p>
             </li>
           ))}
         </ol>
@@ -147,8 +147,8 @@ function InteriorDesignLanding() {
                 />
                 <div className="flex flex-1 flex-col p-6">
                   <span className="rule-gold mb-3" aria-hidden="true" />
-                  <h3 className="font-display text-xl text-navy">{style.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="text-heading text-navy">{style.name}</h3>
+                  <p className="mt-2 text-caption leading-relaxed text-muted-foreground">
                     {style.tagline}
                   </p>
                   <p className="label-eyebrow mt-5 text-teal">
@@ -160,7 +160,7 @@ function InteriorDesignLanding() {
           ))}
         </ul>
         {styles.length === 0 ? (
-          <p className="mt-8 text-sm text-muted-foreground">
+          <p className="mt-8 text-caption text-muted-foreground">
             No styles listed for that room yet — a designer can still take it on. Book a
             consultation and we will work it out together.
           </p>
@@ -175,7 +175,7 @@ function InteriorDesignLanding() {
           action={
             <Link
               to="/interior-design/portfolio"
-              className="border border-navy px-5 py-2.5 text-sm font-medium text-navy transition-colors hover:border-gold hover:text-teal"
+              className="border border-navy px-5 py-2.5 text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
             >
               View all projects
             </Link>
@@ -201,7 +201,7 @@ function InteriorDesignLanding() {
                   <p className="label-eyebrow text-teal">
                     {roomTypeLabel(project.roomTypeId)} · {project.city}
                   </p>
-                  <h3 className="mt-3 font-display text-lg leading-snug text-navy">
+                  <h3 className="mt-3 text-heading leading-snug text-navy">
                     {project.title}
                   </h3>
                 </div>
@@ -217,9 +217,9 @@ function InteriorDesignLanding() {
           {testimonials.map((item) => (
             <li key={item.id} className="border border-border bg-card p-6">
               <span className="rule-gold mb-4" aria-hidden="true" />
-              <blockquote className="text-sm leading-relaxed text-navy">"{item.quote}"</blockquote>
-              <p className="mt-5 text-sm text-navy">{item.name}</p>
-              <p className="text-xs text-muted-foreground">{item.place}</p>
+              <blockquote className="text-body leading-relaxed text-navy">"{item.quote}"</blockquote>
+              <p className="mt-5 text-body text-navy">{item.name}</p>
+              <p className="text-caption text-muted-foreground">{item.place}</p>
             </li>
           ))}
         </ul>
@@ -230,10 +230,10 @@ function InteriorDesignLanding() {
           <div className="mx-auto max-w-2xl text-center">
             <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-gold">Next step</p>
-            <h2 className="mt-3 font-display text-3xl text-primary-foreground sm:text-4xl">
+            <h2 className="mt-3 font-display text-display text-primary-foreground">
               Start with a conversation
             </h2>
-            <p className="mt-4 text-sm leading-relaxed text-sky">
+            <p className="mt-4 text-caption leading-relaxed text-sky">
               Bring a floor plan, a few photographs, or nothing at all. The first consultation is
               about how you want the room to work.
             </p>
@@ -241,13 +241,13 @@ function InteriorDesignLanding() {
               <button
                 type="button"
                 onClick={() => setDialogOpen(true)}
-                className="bg-gold px-7 py-3.5 text-sm font-medium text-navy transition-colors hover:bg-sky"
+                className="bg-gold px-7 py-3.5 text-body font-medium text-navy transition-colors hover:bg-sky"
               >
                 Book a consultation
               </button>
               <Link
                 to="/interior-design/consultation"
-                className="border border-sky px-7 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
+                className="border border-sky px-7 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
               >
                 See how consultations run
               </Link>
@@ -277,8 +277,8 @@ function FilterChip({
       aria-pressed={active}
       className={
         active
-          ? "border border-navy bg-navy px-4 py-2 text-xs tracking-[0.12em] text-primary-foreground uppercase"
-          : "border border-border bg-card px-4 py-2 text-xs tracking-[0.12em] text-navy uppercase transition-colors hover:border-teal"
+          ? "border border-navy bg-navy px-4 py-2 text-caption tracking-[0.12em] text-primary-foreground uppercase"
+          : "border border-border bg-card px-4 py-2 text-caption tracking-[0.12em] text-navy uppercase transition-colors hover:border-teal"
       }
     >
       {label}

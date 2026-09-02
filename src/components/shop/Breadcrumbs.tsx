@@ -6,7 +6,7 @@ export type Crumb = { label: string; to?: string };
 export function Breadcrumbs({ items }: { items: Crumb[] }) {
   return (
     <nav aria-label="Breadcrumb" className="py-5">
-      <ol className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+      <ol className="flex flex-wrap items-center gap-2 text-caption text-muted-foreground">
         {items.map((item, index) => (
           <li key={item.label} className="flex items-center gap-2">
             {item.to ? (

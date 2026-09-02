@@ -23,16 +23,15 @@ export function BeforeAfterSlider({
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
-          className="absolute inset-y-0 left-0 overflow-hidden"
-          style={{ width: `${position}%` }}
+          className="absolute inset-0 overflow-hidden"
+          style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
           aria-hidden="true"
         >
           <img
             src={before}
             alt=""
             loading="lazy"
-            className="h-full w-full object-cover"
-            style={{ width: "100vw", maxWidth: "none" }}
+            className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
         <span
@@ -40,10 +39,10 @@ export function BeforeAfterSlider({
           style={{ left: `${position}%` }}
           aria-hidden="true"
         />
-        <span className="absolute left-4 top-4 bg-navy/80 px-3 py-1 text-[0.65rem] tracking-[0.18em] text-primary-foreground">
+        <span className="absolute left-4 top-4 bg-navy/80 px-3 py-1 text-micro tracking-[0.18em] text-primary-foreground">
           BEFORE
         </span>
-        <span className="absolute right-4 top-4 bg-navy/80 px-3 py-1 text-[0.65rem] tracking-[0.18em] text-primary-foreground">
+        <span className="absolute right-4 top-4 bg-navy/80 px-3 py-1 text-micro tracking-[0.18em] text-primary-foreground">
           AFTER
         </span>
       </div>
@@ -58,7 +57,7 @@ export function BeforeAfterSlider({
           className="w-full accent-[var(--color-teal)]"
         />
       </label>
-      <figcaption className="text-xs text-muted-foreground">
+      <figcaption className="text-caption text-muted-foreground">
         Drag to compare the room before and after the fit-out.
       </figcaption>
     </figure>

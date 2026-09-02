@@ -50,9 +50,28 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Typography */
+  /* Typography — 2 font families */
   --font-display: "Fraunces", "Bodoni Moda", Georgia, serif;
   --font-sans: "Inter", "Karla", ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale — 4 core sizes.
+     text-caption: 14px   — labels, captions, metadata, secondary/supporting text
+     text-body:    16px   — body copy, navigation, buttons, product info, normal UI
+     text-heading: 20→24px (fluid) — product/card titles, smaller section headings
+     text-display: 40→48px (fluid) — hero and major editorial section headings
+     Hierarchy is built from family (Fraunces/Inter), weight, line-height and
+     spacing — not from a long ladder of font sizes.
+     text-micro is a single deliberate exception for eyebrows and numeric badges. */
+  --text-micro: 0.6875rem;
+  --text-micro--line-height: 1;
+  --text-caption: 0.875rem;
+  --text-caption--line-height: 1.45;
+  --text-body: 1rem;
+  --text-body--line-height: 1.6;
+  --text-heading: clamp(1.25rem, 1rem + 1vw, 1.5rem);
+  --text-heading--line-height: 1.25;
+  --text-display: clamp(2.5rem, 2rem + 2vw, 3rem);
+  --text-display--line-height: 1.1;
 
   /* Radii */
   --radius-sm: calc(var(--radius) - 2px);
@@ -120,11 +139,14 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Fraunces is reserved for hero and major editorial/display headings and is
+     applied selectively via the font-display utility. All other headings
+     (including all h1–h4 in product, account, support, admin and B2B contexts)
+     inherit Inter from the body by default. */
   h1,
   h2,
   h3,
   h4 {
-    font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.01em;
   }
@@ -135,10 +157,12 @@
   }
 }
 
-/* Wide-tracked uppercase label used for eyebrows and small UI labels */
+/* Wide-tracked uppercase label used for eyebrows and small UI labels.
+   Deliberate micro size (text-micro) — an eyebrow that set at 14px would read
+   as a button rather than a label. Not part of the core 4-size scale. */
 @utility label-eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: var(--text-micro);
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -177,6 +201,10 @@
   &:hover::after {
     transform: scaleX(1);
   }
+}
+
+html {
+  scrollbar-gutter: stable;
 }
 
 @media (prefers-reduced-motion: reduce) {
