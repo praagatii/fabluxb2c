@@ -3,25 +3,20 @@ import { Search, Menu, X } from "lucide-react";
 import { BrandMark } from "./BrandMark";
 import { HeaderIcons } from "./HeaderIcons";
 import { SmartLink } from "@/components/common/SmartLink";
+import { divisions } from "@/data/divisions";
 import { categories } from "@/data/categories";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
-const navLinks = [
-  { label: "Collections", to: "/collections" },
-  { label: "Brands", to: "/brands" },
-  { label: "Inspiration", to: "/interior-design" },
-];
-
+/** Single-line navigation. Everything lives in one row so the header stays calm
+ * and the catalogue is understandable at a glance. */
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -38,14 +33,14 @@ export function SiteHeader() {
       className={cn(
         "sticky top-0 z-50 transition-colors duration-300 [padding-top:env(safe-area-inset-top)] [&_a]:no-underline",
         scrolled
-          ? "border-b border-border bg-background/95 backdrop-blur-md"
-          : "border-b-0 bg-linear-to-b from-navy/40 via-navy/15 to-transparent",
+          ? "border-b border-border bg-background backdrop-blur-md"
+          : "border-b-0 bg-background/60 backdrop-blur-md",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-[80rem] items-center gap-4 px-4 sm:h-[4.5rem] sm:px-6">
+      <div className="mx-auto flex h-14 max-w-[80rem] items-center gap-3 px-4 sm:h-16 sm:px-6">
         <BrandMark className="shrink-0" />
 
-        {/* Desktop navigation */}
+        {/* Single-line desktop navigation */}
         <div className="hidden lg:block">
           <NavigationMenu
             className={cn(
@@ -65,70 +60,135 @@ export function SiteHeader() {
                   Shop
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="!w-full">
-                  <div className="mx-auto grid max-w-[80rem] gap-8 px-6 py-10 sm:px-8 lg:grid-cols-4">
-                    {categories.map((category) => (
-                      <div key={category.id} className="min-w-0">
-                        <div className="rule-gold mb-3" aria-hidden="true" />
-                        {category.status === "live" ? (
-                          <SmartLink
-                            to={`/shop/${category.slug}`}
-                            className="link-gold text-heading text-[#15202b]"
-                          >
-                            {category.name}
-                          </SmartLink>
-                        ) : (
-                          <span className="text-heading text-muted-foreground">
-                            {category.name}
-                            <span className="label-eyebrow ml-2 text-teal">Coming soon</span>
-                          </span>
-                        )}
-                        <ul className="mt-3 space-y-2">
-                          {category.subcategories.map((sub) => (
-                            <li key={sub.slug}>
+                  <div className="mx-auto grid max-w-[80rem] gap-8 px-6 py-10 sm:px-8 lg:grid-cols-6">
+                    {/* Departments (divisions) */}
+                    <div className="lg:col-span-1">
+                      <p className="label-eyebrow text-teal">Departments</p>
+                      <ul className="mt-4 space-y-1">
+                        {divisions.map((division) => (
+                          <li key={division.id}>
+                            <SmartLink
+                              to={division.to}
+                              className="block py-2 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                            >
+                              {division.shortName}
+                            </SmartLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Categories */}
+                    <div className="lg:col-span-4">
+                      <p className="label-eyebrow text-teal">Categories</p>
+                      <div className="mt-4 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                        {categories.map((category) => (
+                          <div key={category.id} className="min-w-0">
+                            <div className="rule-gold mb-3" aria-hidden="true" />
+                            {category.status === "live" ? (
                               <SmartLink
-                                to={`/shop/${category.slug}/${sub.slug}`}
-                                className="text-caption text-muted-foreground transition-colors hover:text-teal"
+                                to={`/shop/${category.slug}`}
+                                className="link-gold text-heading text-[#15202b]"
                               >
-                                {sub.name}
+                                {category.name}
                               </SmartLink>
-                            </li>
-                          ))}
-                        </ul>
+                            ) : (
+                              <span className="text-heading text-muted-foreground">
+                                {category.name}
+                                <span className="label-eyebrow ml-2 text-teal">Coming soon</span>
+                              </span>
+                            )}
+                            <ul className="mt-3 space-y-2">
+                              {category.subcategories.map((sub) => (
+                                <li key={sub.slug}>
+                                  <SmartLink
+                                    to={`/shop/${category.slug}/${sub.slug}`}
+                                    className="text-caption text-muted-foreground transition-colors hover:text-teal"
+                                  >
+                                    {sub.name}
+                                  </SmartLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Editorial rail */}
+                    <div className="hidden lg:col-span-1 lg:block">
+                      <p className="label-eyebrow text-teal">Explore</p>
+                      <ul className="mt-4 space-y-1">
+                        <li>
+                          <SmartLink
+                            to="/collections"
+                            className="block py-2 text-body text-[#15202b] transition-colors hover:text-teal"
+                          >
+                            Collections
+                          </SmartLink>
+                        </li>
+                        <li>
+                          <SmartLink
+                            to="/brands"
+                            className="block py-2 text-body text-[#15202b] transition-colors hover:text-teal"
+                          >
+                            Brands
+                          </SmartLink>
+                        </li>
+                        <li>
+                          <SmartLink
+                            to="/interior-design"
+                            className="block py-2 text-body text-[#15202b] transition-colors hover:text-teal"
+                          >
+                            Interior Design
+                          </SmartLink>
+                        </li>
+                        <li>
+                          <SmartLink
+                            to="/b2b"
+                            className="block py-2 text-body text-[#15202b] transition-colors hover:text-teal"
+                          >
+                            B2B store
+                          </SmartLink>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              {navLinks.map((link) => (
-                <NavigationMenuItem key={link.to}>
-                  <NavigationMenuLink
-                    className={cn(
-                      navigationMenuTriggerStyle(),
-                      "h-9 rounded-md bg-transparent px-3 text-body font-medium text-[#15202b] transition-colors hover:bg-navy/5 hover:text-teal focus:bg-navy/5 focus:text-teal",
-                    )}
-                  >
-                    <SmartLink to={link.to}>{link.label}</SmartLink>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
+              <NavigationMenuItem>
+                <SmartLink
+                  to="/interior-design"
+                  className="h-9 rounded-md bg-transparent px-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                >
+                  Interior Design
+                </SmartLink>
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <SmartLink
+                  to="/b2b"
+                  className="h-9 rounded-md bg-transparent px-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                >
+                  B2B
+                </SmartLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
 
         {/* Desktop search */}
-        <div className="hidden flex-1 justify-center px-6 lg:flex">
-          <div className="relative w-full max-w-md">
-            <Search
-              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-teal"
-              aria-hidden="true"
-            />
-            <input
-              type="search"
-              placeholder="Search products…"
-              className="h-10 w-full rounded-md border border-border bg-card pl-9 pr-3 text-body text-[#15202b] placeholder:text-muted-foreground"
-            />
-          </div>
+        <div className="hidden flex-1 justify-center px-4 lg:flex">
+          <Search
+            className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 text-teal"
+            aria-hidden="true"
+          />
+          <input
+            type="search"
+            placeholder="Search products…"
+            className="h-10 w-full max-w-xs rounded-md border border-border bg-card pl-3 pr-3 text-body text-[#15202b] placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-teal"
+          />
         </div>
 
         {/* Right actions */}
@@ -158,6 +218,20 @@ export function SiteHeader() {
                     >
                       <X className="h-5 w-5" aria-hidden="true" />
                     </button>
+                  </div>
+
+                  {/* Departments at the top of the mobile menu */}
+                  <div className="mb-6 grid grid-cols-3 overflow-hidden border border-border">
+                    {divisions.map((division) => (
+                      <SmartLink
+                        key={division.id}
+                        to={division.to}
+                        onClick={() => setMobileOpen(false)}
+                        className="border-border py-3 text-center text-caption font-semibold uppercase tracking-[0.12em] text-[#15202b] [&:not(:last-child)]:border-r"
+                      >
+                        {division.shortName}
+                      </SmartLink>
+                    ))}
                   </div>
 
                   <div className="relative mb-6">
@@ -192,16 +266,34 @@ export function SiteHeader() {
                       </ul>
                     </div>
 
-                    {navLinks.map((link) => (
-                      <SmartLink
-                        key={link.to}
-                        to={link.to}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
-                      >
-                        {link.label}
-                      </SmartLink>
-                    ))}
+                    <SmartLink
+                      to="/interior-design"
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                    >
+                      Interior Design
+                    </SmartLink>
+                    <SmartLink
+                      to="/b2b"
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                    >
+                      B2B store
+                    </SmartLink>
+                    <SmartLink
+                      to="/collections"
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                    >
+                      Collections
+                    </SmartLink>
+                    <SmartLink
+                      to="/brands"
+                      onClick={() => setMobileOpen(false)}
+                      className="block py-3 text-body font-medium text-[#15202b] transition-colors hover:text-teal"
+                    >
+                      Brands
+                    </SmartLink>
                   </nav>
                 </div>
               </SheetContent>

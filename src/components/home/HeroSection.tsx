@@ -42,7 +42,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative -mt-16 min-h-dvh w-full overflow-hidden bg-navy sm:-mt-[4.5rem]">
+    <section className="relative -mt-14 min-h-dvh w-full overflow-hidden bg-navy sm:-mt-16">
       {/* Crossfading imagery */}
       {slides.map((slide, i) => (
         <div
@@ -73,7 +73,7 @@ export function HeroSection() {
               <div
                 key={`text-${slide.id}`}
                 className={cn(
-                  "col-start-1 row-start-1 transition-opacity duration-700 ease-[var(--ease-editorial)]",
+                  "col-start-1 row-start-1 flex flex-col justify-end transition-opacity duration-700 ease-[var(--ease-editorial)]",
                   i === index ? "opacity-100" : "pointer-events-none opacity-0",
                 )}
               >

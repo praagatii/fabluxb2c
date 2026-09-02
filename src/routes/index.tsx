@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroSection } from "@/components/home/HeroSection";
-import { ShopByCategory } from "@/components/home/ShopByCategory";
-import { InspirationSpaces } from "@/components/home/InspirationSpaces";
+import { DivisionShowcase } from "@/components/home/DivisionShowcase";
+import { FeaturedStory } from "@/components/home/FeaturedStory";
 import { ProductRail } from "@/components/home/ProductRail";
+import { InspirationSpaces } from "@/components/home/InspirationSpaces";
 import { BrandStrip } from "@/components/home/BrandStrip";
 import { TrustRow } from "@/components/home/TrustRow";
+import { ReviewHighlights } from "@/components/home/ReviewHighlights";
 import { NewsletterCapture } from "@/components/home/NewsletterCapture";
-import { SmartLink } from "@/components/common/SmartLink";
-import interiorsHero from "@/assets/interiors-hero.jpg";
-import { bestSellers } from "@/data/products";
+import { InteriorDesignBand, B2BBand } from "@/components/home/PromoBands";
+import { newArrivals, bestSellers } from "@/data/products";
 
 const title = "Fabluxe — Premium Home Electronics, Interiors & Trade Fittings";
 const description =
@@ -31,50 +32,51 @@ export const Route = createFileRoute("/")({
 function HomePage() {
   return (
     <>
+      {/* 1. Full-screen hero */}
       <HeroSection />
 
+      {/* 2. Way into the departments */}
+      <DivisionShowcase />
+
+      {/* 3. Featured product story */}
+      <FeaturedStory />
+
+      {/* 4. Best sellers — horizontal rail */}
       <ProductRail
         eyebrow="Best sellers"
         title="What India is buying this month"
+        copy="The pieces that ship fastest, installed by a Fabluxe engineer."
         products={bestSellers}
       />
 
-      <ShopByCategory />
+      {/* 5. New this season */}
+      <ProductRail
+        eyebrow="New this season"
+        title="Fresh to the floor"
+        copy="Newly added and worth a close look before the next batch lands."
+        products={newArrivals}
+        className="border-t border-border bg-beige/40"
+      />
 
-      <section className="relative overflow-hidden bg-navy">
-        <img
-          src={interiorsHero}
-          alt=""
-          loading="lazy"
-          width={1600}
-          height={900}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy/60" />
-        <div className="relative mx-auto max-w-[80rem] px-5 py-14 text-center sm:px-8 sm:py-20">
-          <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
-          <p className="label-eyebrow text-gold">Fabluxora Interiors</p>
-          <h2 className="mx-auto mt-3 max-w-2xl font-display text-display text-beige">
-            Bring the edit into your own rooms
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-body leading-relaxed text-sky">
-            A consultation with a senior designer, from floor plan to material palette.
-          </p>
-          <div className="mt-6">
-            <SmartLink
-              to="/interior-design/consultation"
-              className="inline-block bg-beige px-8 py-3.5 text-body font-medium text-navy transition-colors hover:bg-gold"
-            >
-              Book a consultation
-            </SmartLink>
-          </div>
-        </div>
-      </section>
+      {/* 6. Interior design */}
+      <InteriorDesignBand />
 
+      {/* 7. Inspiration spaces */}
       <InspirationSpaces />
 
+      {/* 8. B2B store */}
+      <B2BBand />
+
+      {/* 9. Brands */}
       <BrandStrip />
+
+      {/* 10. Service promises */}
       <TrustRow />
+
+      {/* 11. Testimonials */}
+      <ReviewHighlights />
+
+      {/* 12. Newsletter */}
       <NewsletterCapture />
     </>
   );

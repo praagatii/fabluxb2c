@@ -17,7 +17,9 @@ import { Route as CartRouteImport } from './routes/cart'
 import { Route as CheckoutRouteImport } from './routes/checkout'
 import { Route as CollectionsRouteImport } from './routes/collections'
 import { Route as CompareRouteImport } from './routes/compare'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as InteriorDesignRouteImport } from './routes/interior-design'
+import { Route as InteriorsRouteImport } from './routes/interiors'
 import { Route as WishlistRouteImport } from './routes/wishlist'
 import { Route as AccountIndexRouteImport } from './routes/account.index'
 import { Route as AccountAddressesRouteImport } from './routes/account.addresses'
@@ -102,9 +104,19 @@ const CompareRoute = CompareRouteImport.update({
   path: '/compare',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InteriorDesignRoute = InteriorDesignRouteImport.update({
   id: '/interior-design',
   path: '/interior-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InteriorsRoute = InteriorsRouteImport.update({
+  id: '/interiors',
+  path: '/interiors',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WishlistRoute = WishlistRouteImport.update({
@@ -336,7 +348,9 @@ export interface FileRoutesByFullPath {
   '/checkout': typeof CheckoutRoute
   '/collections': typeof CollectionsRoute
   '/compare': typeof CompareRoute
+  '/home': typeof HomeRoute
   '/interior-design': typeof InteriorDesignRouteWithChildren
+  '/interiors': typeof InteriorsRoute
   '/wishlist': typeof WishlistRoute
   '/account/addresses': typeof AccountAddressesRoute
   '/account/login': typeof AccountLoginRoute
@@ -388,6 +402,8 @@ export interface FileRoutesByTo {
   '/checkout': typeof CheckoutRoute
   '/collections': typeof CollectionsRoute
   '/compare': typeof CompareRoute
+  '/home': typeof HomeRoute
+  '/interiors': typeof InteriorsRoute
   '/wishlist': typeof WishlistRoute
   '/account/addresses': typeof AccountAddressesRoute
   '/account/login': typeof AccountLoginRoute
@@ -442,7 +458,9 @@ export interface FileRoutesById {
   '/checkout': typeof CheckoutRoute
   '/collections': typeof CollectionsRoute
   '/compare': typeof CompareRoute
+  '/home': typeof HomeRoute
   '/interior-design': typeof InteriorDesignRouteWithChildren
+  '/interiors': typeof InteriorsRoute
   '/wishlist': typeof WishlistRoute
   '/account/addresses': typeof AccountAddressesRoute
   '/account/login': typeof AccountLoginRoute
@@ -498,7 +516,9 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/collections'
     | '/compare'
+    | '/home'
     | '/interior-design'
+    | '/interiors'
     | '/wishlist'
     | '/account/addresses'
     | '/account/login'
@@ -550,6 +570,8 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/collections'
     | '/compare'
+    | '/home'
+    | '/interiors'
     | '/wishlist'
     | '/account/addresses'
     | '/account/login'
@@ -603,7 +625,9 @@ export interface FileRouteTypes {
     | '/checkout'
     | '/collections'
     | '/compare'
+    | '/home'
     | '/interior-design'
+    | '/interiors'
     | '/wishlist'
     | '/account/addresses'
     | '/account/login'
@@ -658,7 +682,9 @@ export interface RootRouteChildren {
   CheckoutRoute: typeof CheckoutRoute
   CollectionsRoute: typeof CollectionsRoute
   CompareRoute: typeof CompareRoute
+  HomeRoute: typeof HomeRoute
   InteriorDesignRoute: typeof InteriorDesignRouteWithChildren
+  InteriorsRoute: typeof InteriorsRoute
   WishlistRoute: typeof WishlistRoute
   AccountAddressesRoute: typeof AccountAddressesRoute
   AccountLoginRoute: typeof AccountLoginRoute
@@ -739,11 +765,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/interior-design': {
       id: '/interior-design'
       path: '/interior-design'
       fullPath: '/interior-design'
       preLoaderRoute: typeof InteriorDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interiors': {
+      id: '/interiors'
+      path: '/interiors'
+      fullPath: '/interiors'
+      preLoaderRoute: typeof InteriorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/wishlist': {
@@ -1141,7 +1181,9 @@ const rootRouteChildren: RootRouteChildren = {
   CheckoutRoute: CheckoutRoute,
   CollectionsRoute: CollectionsRoute,
   CompareRoute: CompareRoute,
+  HomeRoute: HomeRoute,
   InteriorDesignRoute: InteriorDesignRouteWithChildren,
+  InteriorsRoute: InteriorsRoute,
   WishlistRoute: WishlistRoute,
   AccountAddressesRoute: AccountAddressesRoute,
   AccountLoginRoute: AccountLoginRoute,
