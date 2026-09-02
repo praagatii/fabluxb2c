@@ -1,0 +1,26 @@
+import { Headset, Truck, Wrench } from "lucide-react";
+import { trustPoints } from "@/data/site";
+import { Section } from "@/components/common/Section";
+
+const icons = { truck: Truck, wrench: Wrench, headset: Headset } as const;
+
+export function TrustRow() {
+  return (
+    <Section className="bg-sky/40">
+      <ul className="grid gap-8 sm:grid-cols-3">
+        {trustPoints.map((point) => {
+          const Icon = icons[point.icon as keyof typeof icons];
+          return (
+            <li key={point.id} className="flex gap-4">
+              <Icon className="mt-1 h-6 w-6 shrink-0 text-teal" aria-hidden="true" />
+              <div className="min-w-0">
+                <h3 className="font-display text-lg text-navy">{point.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{point.copy}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </Section>
+  );
+}

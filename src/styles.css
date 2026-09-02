@@ -1,0 +1,191 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * FABLUXE DESIGN SYSTEM
+ * ---------------------------------------------------------------
+ * Every colour, radius, type size and spacing rhythm used across the
+ * prototype is declared here. Components never hardcode a hex value.
+ * A designer can restyle the entire storefront from this file.
+ */
+
+@theme inline {
+  /* Brand palette */
+  --color-navy: var(--brand-navy);
+  --color-teal: var(--brand-teal);
+  --color-sky: var(--brand-sky);
+  --color-beige: var(--brand-beige);
+  --color-gold: var(--brand-gold);
+
+  /* Semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Typography */
+  --font-display: "Fraunces", "Bodoni Moda", Georgia, serif;
+  --font-sans: "Inter", "Karla", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  /* Layout rhythm */
+  --spacing-section: 4.5rem;
+  --spacing-gutter: 1.25rem;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root {
+  /* Brand palette — fixed by the group's corporate identity */
+  --brand-navy: #2f4156;
+  --brand-teal: #567c8d;
+  --brand-sky: #c8d9e6;
+  --brand-beige: #f5efeb;
+  --brand-gold: #c8a45c;
+
+  --radius: 0.25rem;
+
+  --background: var(--brand-beige);
+  --foreground: var(--brand-navy);
+  --card: #ffffff;
+  --card-foreground: var(--brand-navy);
+  --popover: #ffffff;
+  --popover-foreground: var(--brand-navy);
+  --primary: var(--brand-navy);
+  --primary-foreground: #ffffff;
+  --secondary: var(--brand-sky);
+  --secondary-foreground: var(--brand-navy);
+  --muted: #ece5e0;
+  --muted-foreground: #6b7b8a;
+  --accent: var(--brand-teal);
+  --accent-foreground: #ffffff;
+  --destructive: #a4443a;
+  --destructive-foreground: #ffffff;
+  --border: #dfd8d2;
+  --input: #dfd8d2;
+  --ring: var(--brand-teal);
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--brand-navy);
+  --sidebar-primary: var(--brand-navy);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--brand-sky);
+  --sidebar-accent-foreground: var(--brand-navy);
+  --sidebar-border: #dfd8d2;
+  --sidebar-ring: var(--brand-teal);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-gold);
+    outline-offset: 3px;
+  }
+}
+
+/* Wide-tracked uppercase label used for eyebrows and small UI labels */
+@utility label-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Thin gold rule that sits above section headings */
+@utility rule-gold {
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--brand-gold);
+}
+
+/* Tabular figures for prices and specs */
+@utility numeric {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+}
+
+/* Editorial gold hover underline */
+@utility link-gold {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 1px;
+    background-color: var(--brand-gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-editorial);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
