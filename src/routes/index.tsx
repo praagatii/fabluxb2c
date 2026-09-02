@@ -1,15 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroSection } from "@/components/home/HeroSection";
-import { EditorialFeature } from "@/components/home/EditorialFeature";
 import { ShopByCategory } from "@/components/home/ShopByCategory";
 import { InspirationSpaces } from "@/components/home/InspirationSpaces";
 import { ProductRail } from "@/components/home/ProductRail";
 import { BrandStrip } from "@/components/home/BrandStrip";
 import { TrustRow } from "@/components/home/TrustRow";
 import { NewsletterCapture } from "@/components/home/NewsletterCapture";
-import hero2 from "@/assets/hero-2.jpg";
-import bandInteriors from "@/assets/band-interiors.jpg";
-import { featuredProducts, bestSellers } from "@/data/products";
+import { SmartLink } from "@/components/common/SmartLink";
+import interiorsHero from "@/assets/interiors-hero.jpg";
+import { bestSellers } from "@/data/products";
 
 const title = "Fabluxe — Premium Home Electronics, Interiors & Trade Fittings";
 const description =
@@ -35,39 +34,42 @@ function HomePage() {
       <HeroSection />
 
       <ProductRail
-        eyebrow="Featured"
-        title="New this season"
-        copy="A short list of appliances and pieces our buying team chose for this season."
-        products={featuredProducts}
-      />
-
-      <EditorialFeature
-        image={hero2}
-        alt="A Lumen OLED television in a calm living room"
-        eyebrow="The Lumen Edit"
-        title="A picture that behaves like a painting"
-        copy="The Lumen OLED Evo series, calibrated in Filmmaker mode and wall-mounted by our own installation team."
-        cta={{ label: "Explore televisions", to: "/shop/televisions" }}
+        eyebrow="Best sellers"
+        title="What India is buying this month"
+        products={bestSellers}
       />
 
       <ShopByCategory />
 
-      <ProductRail
-        eyebrow="Best sellers"
-        title="What India is buying this month"
-        products={bestSellers}
-        className="bg-card"
-      />
-
-      <EditorialFeature
-        image={bandInteriors}
-        alt="A Fabluxora Interiors living room in navy velvet, brass and linen"
-        eyebrow="Fabluxora Interiors"
-        title="Rooms designed around how you live"
-        copy="Room styles, completed projects and a consultation with a senior designer. Share your floor plan and we will return with a direction and material palette."
-        cta={{ label: "Explore interior design", to: "/interior-design" }}
-        align="right"
-      />
+      <section className="relative overflow-hidden bg-navy">
+        <img
+          src={interiorsHero}
+          alt=""
+          loading="lazy"
+          width={1600}
+          height={900}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-navy/60" />
+        <div className="relative mx-auto max-w-[80rem] px-5 py-14 text-center sm:px-8 sm:py-20">
+          <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
+          <p className="label-eyebrow text-gold">Fabluxora Interiors</p>
+          <h2 className="mx-auto mt-3 max-w-2xl font-display text-display text-beige">
+            Bring the edit into your own rooms
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-body leading-relaxed text-sky">
+            A consultation with a senior designer, from floor plan to material palette.
+          </p>
+          <div className="mt-6">
+            <SmartLink
+              to="/interior-design/consultation"
+              className="inline-block bg-beige px-8 py-3.5 text-body font-medium text-navy transition-colors hover:bg-gold"
+            >
+              Book a consultation
+            </SmartLink>
+          </div>
+        </div>
+      </section>
 
       <InspirationSpaces />
 

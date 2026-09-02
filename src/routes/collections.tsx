@@ -78,7 +78,7 @@ function CollectionsPage() {
           />
           <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {collection.products.map((product) => (
-              <li key={product.id}>
+              <li key={product.id} className="h-full">
                 <ProductCard product={product} />
               </li>
             ))}

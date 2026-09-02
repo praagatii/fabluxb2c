@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search, Menu, X } from "lucide-react";
 import { BrandMark } from "./BrandMark";
 import { HeaderIcons } from "./HeaderIcons";
@@ -24,9 +24,24 @@ const navLinks = [
 
 export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight - 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b-0 bg-beige/10 backdrop-blur-md [padding-top:env(safe-area-inset-top)] [&_a]:no-underline">
+    <header
+      className={cn(
+        "sticky top-0 z-50 transition-colors duration-300 [padding-top:env(safe-area-inset-top)] [&_a]:no-underline",
+        scrolled
+          ? "border-b border-border bg-background/95 backdrop-blur-md"
+          : "border-b-0 bg-linear-to-b from-navy/40 via-navy/15 to-transparent",
+      )}
+    >
       <div className="mx-auto flex h-16 max-w-[80rem] items-center gap-4 px-4 sm:h-[4.5rem] sm:px-6">
         <BrandMark className="shrink-0" />
 

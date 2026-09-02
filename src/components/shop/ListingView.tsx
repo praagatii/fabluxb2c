@@ -14,6 +14,7 @@ import {
 import { ProductCard } from "@/components/shop/ProductCard";
 import { Breadcrumbs, type Crumb } from "@/components/shop/Breadcrumbs";
 import { FilterPanel } from "@/components/shop/FilterPanel";
+import { SmartLink } from "@/components/common/SmartLink";
 import { Container } from "@/components/common/Section";
 import { cn } from "@/lib/utils";
 
@@ -25,9 +26,10 @@ type ListingViewProps = {
   copy: string;
   crumbs: Crumb[];
   items: Product[];
+  subNav?: { label: string; to: string; active?: boolean }[];
 };
 
-export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingViewProps) {
+export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: ListingViewProps) {
   const facets = useMemo(() => buildFacets(items), [items]);
   const [filters, setFilters] = useState<FilterState>(() => emptyFilters(facets.priceMax));
   const [sort, setSort] = useState<SortKey>("relevance");
@@ -70,6 +72,30 @@ export function ListingView({ eyebrow, title, copy, crumbs, items }: ListingView
           <p className="mt-3 max-w-2xl text-body leading-relaxed text-sky">{copy}</p>
         </Container>
       </header>
+
+      {subNav && subNav.length > 0 ? (
+        <div className="border-b border-border">
+          <Container className="overflow-x-auto">
+            <ul className="flex items-center gap-1 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {subNav.map((item) => (
+                <li key={`${item.label}-${item.to}`} className="shrink-0">
+                  <SmartLink
+                    to={item.to}
+                    className={cn(
+                      "inline-block whitespace-nowrap border px-3 py-1.5 text-caption transition-colors",
+                      item.active
+                        ? "border-navy bg-navy text-primary-foreground"
+                        : "border-border text-navy hover:border-gold",
+                    )}
+                  >
+                    {item.label}
+                  </SmartLink>
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </div>
+      ) : null}
 
       <Container>
         <div className="flex flex-col gap-8 py-10 lg:flex-row">

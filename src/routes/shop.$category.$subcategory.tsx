@@ -38,6 +38,15 @@ function SubcategoryPage() {
     (p) => p.categorySlug === category.slug && p.subcategorySlug === subcategory.slug,
   );
 
+  const subNav = [
+    { label: "All", to: `/shop/${category.slug}` },
+    ...category.subcategories.map((sub) => ({
+      label: sub.name,
+      to: `/shop/${category.slug}/${sub.slug}`,
+      active: sub.slug === subcategory.slug,
+    })),
+  ];
+
   return (
     <ListingView
       eyebrow={category.name}
@@ -50,6 +59,7 @@ function SubcategoryPage() {
         { label: subcategory.name },
       ]}
       items={items}
+      subNav={subNav}
     />
   );
 }

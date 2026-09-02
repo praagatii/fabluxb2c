@@ -82,7 +82,7 @@ function BrandsPage() {
             </div>
             <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {group.items.map((product) => (
-                <li key={product.id}>
+                <li key={product.id} className="h-full">
                   <ProductCard product={product} />
                 </li>
               ))}

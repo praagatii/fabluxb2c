@@ -33,6 +33,14 @@ function CategoryPage() {
   const { category } = Route.useLoaderData();
   const items = products.filter((p) => p.categorySlug === category.slug);
 
+  const subNav = [
+    { label: "All", to: `/shop/${category.slug}`, active: true },
+    ...category.subcategories.map((sub) => ({
+      label: sub.name,
+      to: `/shop/${category.slug}/${sub.slug}`,
+    })),
+  ];
+
   return (
     <ListingView
       eyebrow={category.fulfilledBy}
@@ -40,6 +48,7 @@ function CategoryPage() {
       copy={category.tagline}
       crumbs={[{ label: "Home", to: "/" }, { label: "Shop", to: "/shop" }, { label: category.name }]}
       items={items}
+      subNav={subNav}
     />
   );
 }
