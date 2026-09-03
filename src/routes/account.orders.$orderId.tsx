@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Order detail — Fabluxe Account";
 const description =
-  "Follow an order from placed to delivered, with items grouped by fulfilling company and one invoice row per company.";
+  "Follow an order from placed to delivered, with your items and invoice together in one view.";
 
 export const Route = createFileRoute("/account/orders/$orderId")({
   head: () => ({

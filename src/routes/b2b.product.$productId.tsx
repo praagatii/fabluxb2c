@@ -122,7 +122,7 @@ function B2BProductPage() {
               <Link
                 to="/b2b/enquiry"
                 search={{ product: product.id }}
-                className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+                className="inline-flex items-center gap-2 bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
               >
                 Enquire about this product
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -132,7 +132,7 @@ function B2BProductPage() {
                 type="button"
                 disabled
                 title="Spec sheet PDF to be supplied by the client"
-                className="inline-flex cursor-not-allowed items-center gap-2 border border-border px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-muted-foreground"
+                className="inline-flex cursor-not-allowed items-center gap-2 border border-border px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-muted-foreground"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
                 Download spec sheet (PDF)
@@ -208,7 +208,7 @@ function B2BProductPage() {
           <Link
             to="/b2b/enquiry"
             search={{ product: product.id }}
-            className="inline-flex shrink-0 items-center gap-2 bg-beige px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+            className="inline-flex shrink-0 items-center gap-2 bg-beige px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
           >
             Raise a bulk enquiry
           </Link>

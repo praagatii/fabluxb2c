@@ -19,8 +19,12 @@ const registered = [
   "/account",
   "/order",
   "/interior-design",
-"/b2b",
+  "/b2b",
   "/support",
+  "/brands",
+  "/collections",
+  "/home",
+  "/interiors",
 ];
 
 const isRegistered = (to: string) =>

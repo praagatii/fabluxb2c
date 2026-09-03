@@ -61,13 +61,13 @@ function ConsultationPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#booking"
-                className="bg-navy px-7 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
               >
                 Book a consultation
               </a>
               <a
                 href="/support"
-                className="border border-navy px-7 py-3.5 text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
+                className="border border-navy px-7 py-2.5 text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
               >
                 Contact customer support
               </a>

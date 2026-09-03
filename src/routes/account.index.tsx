@@ -6,7 +6,7 @@ import { AccountLayout, StatusChip } from "@/components/account/AccountLayout";
 import { SmartLink } from "@/components/common/SmartLink";
 
 const title = "Your Orders — Fabluxe Account";
-const description = "Track Fabluxe orders, view invoices per fulfilling company and manage your account.";
+const description = "Track Fabluxe orders, view invoices and manage your account.";
 
 export const Route = createFileRoute("/account/")({
   head: () => ({
@@ -40,7 +40,7 @@ function OrdersPage() {
                 </p>
                 {invoices > 1 ? (
                   <span className="mt-2 inline-block bg-beige px-2 py-0.5 text-caption text-teal">
-                    2 invoices
+                    {invoices} invoices
                   </span>
                 ) : null}
               </div>

@@ -23,8 +23,8 @@ const slides: Slide[] = [
   {
     id: "hero-interiors",
     eyebrow: "Fabluxora Interiors",
-    title: "Rooms designed around you",
-    copy: "Interior design consultation, from floor plan to palette.",
+    title: "Rooms designed\naround you",
+    copy: "Interior design consultation, from floor plan to palette — a room composed entirely around the way you live.",
     primaryCta: { label: "Explore", to: "/interior-design" },
     image: bandInteriors,
   },
@@ -42,7 +42,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative -mt-14 min-h-dvh w-full overflow-hidden bg-navy sm:-mt-16">
+    <section className="relative -mt-[calc(3.5rem+1px)] min-h-dvh w-full overflow-hidden bg-navy sm:-mt-[calc(4rem+1px)]">
       {/* Crossfading imagery */}
       {slides.map((slide, i) => (
         <div
@@ -59,36 +59,39 @@ export function HeroSection() {
             width={1600}
             height={900}
             loading={i === 0 ? "eager" : "lazy"}
-            className="h-full w-full object-cover"
+            className="h-full w-full scale-[1.12] object-cover"
           />
         </div>
       ))}
       <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/25 to-navy/10" />
 
-      {/* Shared, fixed text box — every slide aligns here */}
-      <div className="absolute inset-x-0 bottom-0">
-        <div className="mx-auto max-w-[80rem] px-5 pb-16 sm:px-8 sm:pb-24">
-          <div className="grid">
+      {/* Shared, fixed text box — heading centered on screen, content below */}
+      <div className="absolute inset-0">
+        <div className="mx-auto flex h-full max-w-[80rem] flex-col justify-center px-5 sm:px-8">
+          <div className="grid translate-y-[4rem]">
             {slides.map((slide, i) => (
               <div
                 key={`text-${slide.id}`}
                 className={cn(
-                  "col-start-1 row-start-1 flex flex-col justify-end transition-opacity duration-700 ease-[var(--ease-editorial)]",
+                  "col-start-1 row-start-1 flex flex-col justify-center transition-opacity duration-700 ease-[var(--ease-editorial)]",
                   i === index ? "opacity-100" : "pointer-events-none opacity-0",
                 )}
               >
-                <span className="rule-gold mb-5 block" aria-hidden="true" />
-                <p className="label-eyebrow text-gold">{slide.eyebrow}</p>
-                <h1 className="mt-4 line-clamp-2 max-w-2xl font-display text-display text-beige">
-                  {slide.title}
+                <h1 className="max-w-3xl pb-2 font-display text-hero text-beige">
+                  {slide.title.split("\n").map((line, li) => (
+                    <span key={li}>
+                      {line}
+                      {li < slide.title.split("\n").length - 1 ? <br /> : null}
+                    </span>
+                  ))}
                 </h1>
-                <p className="mt-4 line-clamp-2 max-w-md text-body leading-relaxed text-sky">
+                <p className="mt-5 line-clamp-2 max-w-xl text-lg leading-relaxed text-sky">
                   {slide.copy}
                 </p>
-                <div className="mt-6">
+                <div className="mt-8">
                   <SmartLink
                     to={slide.primaryCta.to}
-                    className="inline-block bg-beige px-8 py-4 text-body font-medium text-navy transition-colors hover:bg-gold"
+                    className="hero-cta inline-block px-8 py-3 text-center text-body font-medium"
                   >
                     {slide.primaryCta.label}
                   </SmartLink>

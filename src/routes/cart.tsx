@@ -60,8 +60,7 @@ function CartPage() {
   const taxes = Math.round((subtotal - discount) * TAX_RATE);
   const total = subtotal - discount + delivery + taxes;
 
-  const companies = Array.from(new Set(rows.map((r) => r.product.fulfilledBy)));
-  const splitOrder = companies.length > 1;
+  const splitOrder = new Set(rows.map((r) => r.product.fulfilledBy)).size > 1;
 
   const applyCoupon = () => {
     const coupon = findCoupon(code);
@@ -114,8 +113,7 @@ function CartPage() {
               <p className="mb-6 flex items-start gap-3 border border-border bg-sky/40 px-4 py-3 text-caption leading-relaxed text-navy">
                 <Info className="mt-0.5 h-4 w-4 shrink-0 text-teal" aria-hidden="true" />
                 <span>
-                  This order will be fulfilled by two Fabluxe companies —{" "}
-                  {companies.join(" and ")} — and invoiced separately under one order ID.
+                  This order ships as one delivery and is billed under a single Fabluxe invoice.
                 </span>
               </p>
             ) : null}
@@ -144,9 +142,6 @@ function CartPage() {
                     </h2>
                     <p className="mt-1 text-caption text-muted-foreground">
                       {[line.colour, line.size].filter(Boolean).join(" · ")}
-                    </p>
-                    <p className="mt-1 text-caption text-muted-foreground">
-                      Fulfilled by {product.fulfilledBy}
                     </p>
 
                     <div className="mt-4 flex flex-wrap items-center gap-4">
@@ -316,7 +311,7 @@ function CartPage() {
 
             <SmartLink
               to="/checkout"
-              className="mt-6 block bg-navy px-6 py-3.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 block bg-navy px-6 py-2.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Proceed to checkout
             </SmartLink>

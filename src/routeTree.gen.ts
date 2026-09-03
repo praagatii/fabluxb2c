@@ -40,6 +40,7 @@ import { Route as AdminReviewsRouteImport } from './routes/admin.reviews'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as B2bIndexRouteImport } from './routes/b2b.index'
 import { Route as B2bEnquiryRouteImport } from './routes/b2b.enquiry'
+import { Route as CategoriesGroupSlugRouteImport } from './routes/categories.$groupSlug'
 import { Route as InteriorDesignIndexRouteImport } from './routes/interior-design.index'
 import { Route as InteriorDesignConsultationRouteImport } from './routes/interior-design.consultation'
 import { Route as OrderOrderIdRouteImport } from './routes/order.$orderId'
@@ -219,6 +220,11 @@ const B2bEnquiryRoute = B2bEnquiryRouteImport.update({
   path: '/enquiry',
   getParentRoute: () => B2bRoute,
 } as any)
+const CategoriesGroupSlugRoute = CategoriesGroupSlugRouteImport.update({
+  id: '/categories/$groupSlug',
+  path: '/categories/$groupSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InteriorDesignIndexRoute = InteriorDesignIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -368,6 +374,7 @@ export interface FileRoutesByFullPath {
   '/admin/reviews': typeof AdminReviewsRoute
   '/admin/users': typeof AdminUsersRoute
   '/b2b/enquiry': typeof B2bEnquiryRoute
+  '/categories/$groupSlug': typeof CategoriesGroupSlugRoute
   '/interior-design/consultation': typeof InteriorDesignConsultationRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/shop/$category': typeof ShopCategoryRouteWithChildren
@@ -421,6 +428,7 @@ export interface FileRoutesByTo {
   '/admin/reviews': typeof AdminReviewsRoute
   '/admin/users': typeof AdminUsersRoute
   '/b2b/enquiry': typeof B2bEnquiryRoute
+  '/categories/$groupSlug': typeof CategoriesGroupSlugRoute
   '/interior-design/consultation': typeof InteriorDesignConsultationRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/shop/$category': typeof ShopCategoryRouteWithChildren
@@ -478,6 +486,7 @@ export interface FileRoutesById {
   '/admin/reviews': typeof AdminReviewsRoute
   '/admin/users': typeof AdminUsersRoute
   '/b2b/enquiry': typeof B2bEnquiryRoute
+  '/categories/$groupSlug': typeof CategoriesGroupSlugRoute
   '/interior-design/consultation': typeof InteriorDesignConsultationRoute
   '/order/$orderId': typeof OrderOrderIdRoute
   '/shop/$category': typeof ShopCategoryRouteWithChildren
@@ -536,6 +545,7 @@ export interface FileRouteTypes {
     | '/admin/reviews'
     | '/admin/users'
     | '/b2b/enquiry'
+    | '/categories/$groupSlug'
     | '/interior-design/consultation'
     | '/order/$orderId'
     | '/shop/$category'
@@ -589,6 +599,7 @@ export interface FileRouteTypes {
     | '/admin/reviews'
     | '/admin/users'
     | '/b2b/enquiry'
+    | '/categories/$groupSlug'
     | '/interior-design/consultation'
     | '/order/$orderId'
     | '/shop/$category'
@@ -645,6 +656,7 @@ export interface FileRouteTypes {
     | '/admin/reviews'
     | '/admin/users'
     | '/b2b/enquiry'
+    | '/categories/$groupSlug'
     | '/interior-design/consultation'
     | '/order/$orderId'
     | '/shop/$category'
@@ -692,6 +704,7 @@ export interface RootRouteChildren {
   AccountReviewsRoute: typeof AccountReviewsRoute
   AccountSupportRoute: typeof AccountSupportRoute
   AccountWishlistRoute: typeof AccountWishlistRoute
+  CategoriesGroupSlugRoute: typeof CategoriesGroupSlugRoute
   OrderOrderIdRoute: typeof OrderOrderIdRoute
   ShopCategoryRoute: typeof ShopCategoryRouteWithChildren
   SupportAboutRoute: typeof SupportAboutRoute
@@ -925,6 +938,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/b2b/enquiry'
       preLoaderRoute: typeof B2bEnquiryRouteImport
       parentRoute: typeof B2bRoute
+    }
+    '/categories/$groupSlug': {
+      id: '/categories/$groupSlug'
+      path: '/categories/$groupSlug'
+      fullPath: '/categories/$groupSlug'
+      preLoaderRoute: typeof CategoriesGroupSlugRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/interior-design/': {
       id: '/interior-design/'
@@ -1191,6 +1211,7 @@ const rootRouteChildren: RootRouteChildren = {
   AccountReviewsRoute: AccountReviewsRoute,
   AccountSupportRoute: AccountSupportRoute,
   AccountWishlistRoute: AccountWishlistRoute,
+  CategoriesGroupSlugRoute: CategoriesGroupSlugRoute,
   OrderOrderIdRoute: OrderOrderIdRoute,
   ShopCategoryRoute: ShopCategoryRouteWithChildren,
   SupportAboutRoute: SupportAboutRoute,

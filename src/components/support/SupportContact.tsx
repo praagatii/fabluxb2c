@@ -133,7 +133,7 @@ export function SupportContactForm() {
 
         <button
           type="submit"
-          className="mt-5 w-full bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+          className="mt-5 w-full bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
         >
           Send enquiry
         </button>

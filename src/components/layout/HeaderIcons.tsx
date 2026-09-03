@@ -7,12 +7,14 @@ function IconLink({
   to,
   label,
   count,
+  light,
   className,
   children,
 }: {
   to: string;
   label: string;
   count?: number;
+  light?: boolean | undefined;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -20,8 +22,9 @@ function IconLink({
     <SmartLink
       to={to}
       aria-label={count ? `${label}, ${count} items` : label}
-      className={cn(
-        "relative grid h-9 w-9 shrink-0 place-items-center rounded-sm text-navy transition-colors hover:text-teal sm:h-10 sm:w-10",
+className={cn(
+        "header-icon relative grid h-9 w-9 shrink-0 place-items-center rounded-sm sm:h-10 sm:w-10",
+        light ? "header-icon--light text-beige" : "header-icon--dark text-navy",
         className,
       )}
     >
@@ -35,25 +38,43 @@ function IconLink({
   );
 }
 
-export function HeaderIcons() {
+export function HeaderIcons({ light }: { light?: boolean | undefined }) {
   const { cartCount, wishlistCount, compareCount, openCart } = useStore();
   return (
     <div className="flex items-center gap-0.5">
-      <IconLink to="/account" label="Account">
+      <IconLink
+        to="/account"
+        label="Account"
+        light={light}
+      >
         <User className="h-5 w-5" aria-hidden="true" />
       </IconLink>
-      <IconLink to="/wishlist" label="Wishlist" count={wishlistCount}>
+      <IconLink
+        to="/wishlist"
+        label="Wishlist"
+        count={wishlistCount}
+        light={light}
+      >
         <Heart className="h-5 w-5" aria-hidden="true" />
       </IconLink>
       {/* Compare is reachable on mobile from the persistent compare bar */}
-      <IconLink to="/compare" label="Compare" count={compareCount} className="hidden sm:grid">
+      <IconLink
+        to="/compare"
+        label="Compare"
+        count={compareCount}
+        light={light}
+        className="hidden sm:grid"
+      >
         <Scale className="h-5 w-5" aria-hidden="true" />
       </IconLink>
       <button
         type="button"
         onClick={openCart}
         aria-label={cartCount ? `Cart, ${cartCount} items` : "Cart"}
-        className="relative grid h-9 w-9 shrink-0 place-items-center rounded-sm text-navy transition-colors hover:text-teal sm:h-10 sm:w-10"
+className={cn(
+        "header-icon relative grid h-9 w-9 shrink-0 place-items-center rounded-sm sm:h-10 sm:w-10",
+          light ? "header-icon--light text-beige" : "header-icon--dark text-navy",
+        )}
       >
         <ShoppingBag className="h-5 w-5" aria-hidden="true" />
         {cartCount > 0 ? (

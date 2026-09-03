@@ -6,8 +6,8 @@ const icons = { truck: Truck, wrench: Wrench, headset: Headset } as const;
 
 export function TrustRow() {
   return (
-    <Section className="bg-sky/40">
-      <ul className="grid gap-8 sm:grid-cols-3">
+    <Section>
+      <ul className="grid gap-8 border-t border-border pt-10 sm:grid-cols-3">
         {trustPoints.map((point) => {
           const Icon = icons[point.icon as keyof typeof icons];
           return (

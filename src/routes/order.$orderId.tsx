@@ -10,7 +10,7 @@ import { SmartLink } from "@/components/common/SmartLink";
 
 const title = "Order confirmed — Fabluxe";
 const description =
-  "Your Fabluxe order is confirmed. See the delivery estimate, items and invoice blocks per fulfilling company.";
+  "Your Fabluxe order is confirmed. See the delivery estimate, your items and your invoice.";
 
 export const Route = createFileRoute("/order/$orderId")({
   head: () => ({
@@ -67,13 +67,13 @@ function OrderConfirmationPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <SmartLink
               to={`/account/orders/${order.id}`}
-              className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
             >
               Track order
             </SmartLink>
             <SmartLink
               to="/shop"
-              className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
+              className="border border-border px-6 py-2.5 text-body text-navy transition-colors hover:text-teal"
             >
               Continue shopping
             </SmartLink>

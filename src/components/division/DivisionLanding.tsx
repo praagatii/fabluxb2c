@@ -43,13 +43,13 @@ export function DivisionLanding({ division }: { division: Division }) {
             <div className="mt-8 flex flex-wrap gap-3">
               <SmartLink
                 to={division.to}
-                className="bg-beige px-8 py-4 text-body font-medium text-navy transition-colors hover:bg-gold"
+                className="bg-beige px-6 py-2.5 text-body font-medium text-navy transition-colors hover:bg-gold"
               >
                 Explore {division.shortName}
               </SmartLink>
               <SmartLink
                 to={`/shop`}
-                className="border border-beige/70 px-8 py-4 text-body font-medium text-beige transition-colors hover:border-gold hover:text-gold"
+                className="border border-beige/70 px-6 py-2.5 text-body font-medium text-beige transition-colors hover:border-gold hover:text-gold"
               >
                 Shop the catalogue
               </SmartLink>

@@ -1,10 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { products } from "@/data/products";
 import { ListingView } from "@/components/shop/ListingView";
+import { categories } from "@/data/categories";
+import { products } from "@/data/products";
 
-const title = "Shop All Appliances — Fabluxe";
+const title = "Shop — Fabluxe";
 const description =
-  "Browse the full Fabluxe catalogue of refrigerators, televisions, air conditioners, laundry and kitchen appliances, with filters for brand, price, rating and specification.";
+  "Shop home electronics, kitchen, furniture and interiors at Fabluxe, with delivery and installation included.";
 
 export const Route = createFileRoute("/shop/")({
   head: () => ({
@@ -21,13 +22,18 @@ export const Route = createFileRoute("/shop/")({
 });
 
 function ShopIndex() {
+  const subNav = categories
+    .filter((c) => c.status === "live")
+    .map((c) => ({ label: c.name, to: `/shop/${c.slug}` }));
+
   return (
     <ListingView
-      eyebrow="The catalogue"
-      title="Every appliance we carry, in one place"
-      copy="Filter by brand, price, rating, availability and specification. Every product is delivered, installed and demonstrated by Fabluxe Home Solutions."
-      crumbs={[{ label: "Home", to: "/" }, { label: "Shop" }]}
+      eyebrow="Fabluxe"
+      title="Shop"
+      copy="Every product we carry, in one place. Choose a category, refine with filters, and start building your home."
+      crumbs={[{ label: "Home" }, { label: "Shop" }]}
       items={products}
+      subNav={subNav}
     />
   );
 }

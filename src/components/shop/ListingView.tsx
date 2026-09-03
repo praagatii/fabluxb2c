@@ -64,12 +64,15 @@ export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: Lis
         </Container>
       </div>
 
-      <header className="border-b border-border bg-navy py-12">
+      <header className="py-10">
         <Container>
-          <span className="rule-gold mb-4" aria-hidden="true" />
-          <p className="label-eyebrow text-gold">{eyebrow}</p>
-          <h1 className="mt-3 max-w-2xl font-display text-display text-beige">{title}</h1>
-          <p className="mt-3 max-w-2xl text-body leading-relaxed text-sky">{copy}</p>
+          <p className="label-eyebrow text-teal">{eyebrow}</p>
+          <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{title}</h1>
+          {copy ? (
+            <p className="mt-3 max-w-2xl text-body leading-relaxed text-muted-foreground">
+              {copy}
+            </p>
+          ) : null}
         </Container>
       </header>
 
@@ -175,8 +178,8 @@ export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: Lis
             ) : (
               <ul
                 className={cn(
-                  "mt-8 grid gap-5",
-                  view === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1",
+                  "mt-8 grid gap-x-5 gap-y-10",
+                  view === "grid" ? "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1",
                 )}
               >
                 {visible.map((product) => (

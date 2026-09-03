@@ -278,7 +278,7 @@ function CheckoutPage() {
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="w-full bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto"
+                    className="w-full bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto"
                   >
                     {mode === "create" ? "Create account & continue" : "Sign in & continue"}
                   </button>
@@ -356,14 +356,14 @@ function CheckoutPage() {
                 <div className="mt-6 flex flex-wrap gap-3">
                   <button
                     type="submit"
-                    className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                    className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
                   >
                     Continue to payment
                   </button>
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
+                    className="border border-border px-6 py-2.5 text-body text-navy transition-colors hover:text-teal"
                   >
                     Back
                   </button>
@@ -461,14 +461,14 @@ function CheckoutPage() {
                 <button
                   type="button"
                   onClick={() => setStep(4)}
-className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
                   >
                     Continue to review
                   </button>
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
+                    className="border border-border px-6 py-2.5 text-body text-navy transition-colors hover:text-teal"
                   >
                   Back
                 </button>
@@ -521,9 +521,6 @@ className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground tra
                       <p className="text-caption text-muted-foreground">
                         {[line.colour, line.size].filter(Boolean).join(" · ")} · Qty {line.quantity}
                       </p>
-                      <p className="text-caption text-muted-foreground">
-                        Fulfilled by {product.fulfilledBy}
-                      </p>
                     </div>
                     <p className="numeric mt-1 basis-full text-right text-body text-navy sm:ml-auto sm:basis-auto">
                       {formatPrice(unitPrice * line.quantity)}
@@ -548,14 +545,14 @@ className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground tra
                   type="button"
                   disabled={!terms}
                   onClick={submitOrder}
-className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
+className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Place order
                   </button>
                   <button
                     type="button"
                     onClick={() => setStep(3)}
-                    className="border border-border px-6 py-3.5 text-body text-navy transition-colors hover:text-teal"
+                    className="border border-border px-6 py-2.5 text-body text-navy transition-colors hover:text-teal"
                   >
                   Back
                 </button>

@@ -132,14 +132,14 @@ export function CartDrawer() {
                 <SmartLink
                   to="/checkout"
                   onClick={closeCart}
-                  className="w-full bg-navy px-6 py-3.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                  className="w-full bg-navy px-6 py-2.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
                 >
                   Checkout
                 </SmartLink>
                 <SmartLink
                   to="/cart"
                   onClick={closeCart}
-                  className="w-full border border-navy px-6 py-3.5 text-center text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
+                  className="w-full border border-navy px-6 py-2.5 text-center text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
                 >
                   View cart
                 </SmartLink>

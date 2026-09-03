@@ -46,7 +46,7 @@ export function PolicyStubPage({ policy }: { policy: PolicyPage }) {
           </div>
           <SmartLink
             to="/support"
-            className="block w-full bg-navy px-6 py-3.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="block w-full bg-navy px-6 py-2.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Contact customer support
           </SmartLink>
@@ -100,7 +100,7 @@ export function FaqPage() {
           </div>
           <SmartLink
             to="/support"
-            className="block w-full bg-navy px-6 py-3.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="block w-full bg-navy px-6 py-2.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Contact customer support
           </SmartLink>
@@ -159,7 +159,7 @@ export function AboutPage() {
           <p className="mt-1 text-body text-navy">{supportChannels[1]?.value}</p>
           <SmartLink
             to="/support"
-            className="mt-5 inline-block bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-5 inline-block bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Contact us
           </SmartLink>

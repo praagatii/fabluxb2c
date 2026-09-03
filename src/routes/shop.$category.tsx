@@ -43,7 +43,7 @@ function CategoryPage() {
 
   return (
     <ListingView
-      eyebrow={category.fulfilledBy}
+      eyebrow="Fabluxe"
       title={category.name}
       copy={category.tagline}
       crumbs={[{ label: "Home", to: "/" }, { label: "Shop", to: "/shop" }, { label: category.name }]}

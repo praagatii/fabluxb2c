@@ -158,7 +158,7 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
 
       <button
         type="submit"
-        className="w-full bg-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal sm:w-auto"
+        className="w-full bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal sm:w-auto"
       >
         Submit enquiry
       </button>

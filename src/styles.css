@@ -72,6 +72,8 @@
   --text-heading--line-height: 1.25;
   --text-display: clamp(2.5rem, 2rem + 2vw, 3rem);
   --text-display--line-height: 1.1;
+  --text-hero: clamp(3.5rem, 2.5rem + 3vw, 5rem);
+  --text-hero--line-height: 1.15;
 
   /* Radii */
   --radius-sm: calc(var(--radius) - 2px);
@@ -184,8 +186,7 @@
 }
 
 /* Editorial gold hover underline */
-@utility link-gold {
-  position: relative;
+@utility link-gold {  position: relative;
   &::after {
     content: "";
     position: absolute;
@@ -203,8 +204,76 @@
   }
 }
 
+/* Hero call-to-action — explicit :hover so the state never depends on
+ * Tailwind's hover variant generation. Beige base, navy on hover. */
+.hero-cta {
+  background-color: var(--brand-beige);
+  color: var(--brand-navy);
+  border: 1px solid color-mix(in srgb, var(--brand-navy) 10%, transparent);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.hero-cta:hover {
+  background-color: var(--brand-navy);
+  color: var(--brand-beige);
+}
+
+/* Header icons — explicit hover so the fill + scale never depend on
+ * Tailwind's hover variant generation. Icon turns gold + scales up. */
+.header-icon {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.header-icon:hover,
+.header-icon--dark:hover,
+.header-icon--light:hover {
+  transform: scale(1.15);
+  color: var(--brand-gold);
+}
+
+/* Category card — explicit hover so the zoom never depends on Tailwind's
+ * group-hover variant generation. */
+.category-card {
+  overflow: hidden;
+}
+.category-card img {
+  transition: transform 0.5s var(--ease-editorial);
+}
+.category-card:hover img {
+  transform: scale(1.08);
+}
+
 html {
   scrollbar-gutter: stable;
+}
+
+/* Hide the native scrollbar on the page — smooth scroll is driven by GSAP */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* Infinite horizontal logo/brand marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

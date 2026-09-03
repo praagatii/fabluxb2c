@@ -122,3 +122,75 @@ export const categories: Category[] = [
 ];
 
 export const liveCategories = categories.filter((c) => c.status === "live");
+
+/**
+ * Broad, customer-facing category groups. The granular categories above are the
+ * backend content structure; these are what a first-time visitor sees in the
+ * Shop navigation, on the homepage and in the menu. Each group gathers one or
+ * more granular categories under an obvious, wide name.
+ */
+export type CategoryGroup = {
+  id: string;
+  name: string;
+  slug: string;
+  tagline: string;
+  /** Granular categories gathered under this group. */
+  memberCategorySlugs: string[];
+  status: "live" | "coming-soon";
+  /** Optional override — e.g. Interiors points at the design destination. */
+  to?: string;
+};
+
+export const categoryGroups: CategoryGroup[] = [
+  {
+    id: "grp-appliances",
+    name: "Appliances",
+    slug: "appliances",
+    tagline: "Refrigerators, laundry and air conditioning",
+    memberCategorySlugs: ["refrigerators", "washing-machines", "air-conditioners"],
+    status: "live",
+  },
+  {
+    id: "grp-kitchen",
+    name: "Kitchen",
+    slug: "kitchen",
+    tagline: "Chimneys, hobs, dishwashers and countertop essentials",
+    memberCategorySlugs: ["kitchen-appliances", "small-appliances"],
+    status: "live",
+  },
+  {
+    id: "grp-gadgets",
+    name: "Gadgets",
+    slug: "gadgets",
+    tagline: "Televisions, sound and everyday electronics",
+    memberCategorySlugs: ["televisions", "small-appliances"],
+    status: "live",
+  },
+  {
+    id: "grp-furniture",
+    name: "Furniture",
+    slug: "furniture",
+    tagline: "Seating, storage and pieces for considered homes",
+    memberCategorySlugs: ["furniture"],
+    status: "live",
+  },
+  {
+    id: "grp-interiors",
+    name: "Interiors",
+    slug: "interiors",
+    tagline: "Rooms designed around how you live",
+    memberCategorySlugs: ["furniture"],
+    status: "live",
+    to: "/interior-design",
+  },
+  {
+    id: "grp-lighting",
+    name: "Lighting",
+    slug: "lighting",
+    tagline: "Pendants, floor lamps and architectural light",
+    memberCategorySlugs: [],
+    status: "coming-soon",
+  },
+];
+
+export const getCategoryGroup = (slug: string) => categoryGroups.find((g) => g.slug === slug);

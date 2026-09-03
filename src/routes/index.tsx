@@ -1,15 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HeroSection } from "@/components/home/HeroSection";
-import { DivisionShowcase } from "@/components/home/DivisionShowcase";
+import { ShopByCategory } from "@/components/home/ShopByCategory";
 import { FeaturedStory } from "@/components/home/FeaturedStory";
 import { ProductRail } from "@/components/home/ProductRail";
-import { InspirationSpaces } from "@/components/home/InspirationSpaces";
 import { BrandStrip } from "@/components/home/BrandStrip";
 import { TrustRow } from "@/components/home/TrustRow";
 import { ReviewHighlights } from "@/components/home/ReviewHighlights";
 import { NewsletterCapture } from "@/components/home/NewsletterCapture";
 import { InteriorDesignBand, B2BBand } from "@/components/home/PromoBands";
-import { newArrivals, bestSellers } from "@/data/products";
+import { bestSellers } from "@/data/products";
 
 const title = "Fabluxe — Premium Home Electronics, Interiors & Trade Fittings";
 const description =
@@ -35,8 +34,8 @@ function HomePage() {
       {/* 1. Full-screen hero */}
       <HeroSection />
 
-      {/* 2. Way into the departments */}
-      <DivisionShowcase />
+      {/* 2. Shop categories — obvious first step */}
+      <ShopByCategory />
 
       {/* 3. Featured product story */}
       <FeaturedStory />
@@ -49,34 +48,22 @@ function HomePage() {
         products={bestSellers}
       />
 
-      {/* 5. New this season */}
-      <ProductRail
-        eyebrow="New this season"
-        title="Fresh to the floor"
-        copy="Newly added and worth a close look before the next batch lands."
-        products={newArrivals}
-        className="border-t border-border bg-beige/40"
-      />
-
-      {/* 6. Interior design */}
+      {/* 5. Interior design */}
       <InteriorDesignBand />
 
-      {/* 7. Inspiration spaces */}
-      <InspirationSpaces />
-
-      {/* 8. B2B store */}
+      {/* 6. B2B store */}
       <B2BBand />
 
-      {/* 9. Brands */}
+      {/* 7. Brands — logo loop */}
       <BrandStrip />
 
-      {/* 10. Service promises */}
+      {/* 8. Service promises */}
       <TrustRow />
 
-      {/* 11. Testimonials */}
+      {/* 9. Testimonials */}
       <ReviewHighlights />
 
-      {/* 12. Newsletter */}
+      {/* 10. Newsletter */}
       <NewsletterCapture />
     </>
   );

@@ -53,14 +53,14 @@ function B2BLanding() {
             <div className="mt-8 flex flex-wrap gap-3">
               <SmartLink
                 to="/b2b/catalogue"
-                className="inline-flex items-center gap-2 bg-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+                className="inline-flex items-center gap-2 bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
               >
                 Browse the catalogue
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </SmartLink>
               <SmartLink
                 to="/b2b/enquiry"
-                className="border border-navy px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-beige"
+                className="border border-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-navy transition-colors hover:bg-navy hover:text-beige"
               >
                 Raise a bulk enquiry
               </SmartLink>
@@ -154,7 +154,7 @@ function B2BLanding() {
           <Link
             to="/b2b/enquiry"
             search={{ product: "" }}
-            className="inline-flex shrink-0 items-center gap-2 bg-gold px-6 py-3.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+            className="inline-flex shrink-0 items-center gap-2 bg-gold px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
           >
             Start an enquiry
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

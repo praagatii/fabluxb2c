@@ -5,7 +5,7 @@ import { SmartLink } from "@/components/common/SmartLink";
 
 export function InteriorDesignBand() {
   return (
-    <section className="bg-beige py-14 sm:py-[var(--spacing-section)]">
+    <section className="py-14 sm:py-[var(--spacing-section)]">
       <Container>
         <div className="grid items-stretch gap-0 border border-border bg-card lg:grid-cols-2">
           <img
@@ -31,13 +31,13 @@ export function InteriorDesignBand() {
             <div className="mt-6 flex flex-wrap gap-3">
               <SmartLink
                 to="/interior-design"
-                className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
               >
                 Explore interior design
               </SmartLink>
               <SmartLink
                 to="/interior-design/consultation"
-                className="border border-navy px-6 py-3.5 text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
+                className="border border-navy px-6 py-2.5 text-body font-medium text-navy transition-colors hover:border-gold hover:text-teal"
               >
                 Book a consultation
               </SmartLink>
@@ -71,7 +71,7 @@ export function B2BBand() {
             <div className="mt-6">
               <SmartLink
                 to="/b2b"
-                className="inline-block bg-beige px-6 py-3.5 text-body font-medium text-navy transition-colors hover:bg-gold"
+                className="inline-block bg-beige px-6 py-2.5 text-body font-medium text-navy transition-colors hover:bg-gold"
               >
                 Browse the range
               </SmartLink>

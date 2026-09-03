@@ -19,6 +19,7 @@ import { StoreProvider, useStore } from "@/context/StoreContext";
 import { AccountProvider } from "@/context/AccountContext";
 import { CompareBar } from "@/components/shop/CompareBar";
 import { CartDrawer } from "@/components/shop/CartDrawer";
+import { SmoothScroll } from "@/components/common/SmoothScroll";
 
 function NotFoundComponent() {
   return (
@@ -141,11 +142,13 @@ function RootComponent() {
         <AccountProvider>
         <div className="flex min-h-dvh flex-col bg-background">
           {isAdmin ? null : <SiteHeader />}
-          <main className="flex-1">
-            {/* Required: nested routes render here. */}
-            <Outlet />
-          </main>
-          {isAdmin ? null : <SiteFooter />}
+          <SmoothScroll>
+            <main className="flex-1">
+              {/* Required: nested routes render here. */}
+              <Outlet />
+            </main>
+            {isAdmin ? null : <SiteFooter />}
+          </SmoothScroll>
           {isAdmin ? null : <CartDrawer />}
           {isAdmin ? null : <CompareBar />}
           {isAdmin ? null : <CompareSpacer />}

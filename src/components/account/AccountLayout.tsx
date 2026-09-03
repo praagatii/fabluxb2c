@@ -57,7 +57,7 @@ export function AccountLayout({
               <li key={item.to}>
                 <SmartLink
                   to={item.to}
-                  className="block px-5 py-3.5 text-body text-navy transition-colors hover:bg-sky/40 hover:text-teal"
+                  className="block px-5 py-2.5 text-body text-navy transition-colors hover:bg-sky/40 hover:text-teal"
                 >
                   {item.label}
                 </SmartLink>
@@ -70,7 +70,7 @@ export function AccountLayout({
                   signOut();
                   void router.navigate({ to: "/account/login" });
                 }}
-                className="block w-full px-5 py-3.5 text-left text-body text-muted-foreground transition-colors hover:bg-sky/40 hover:text-teal"
+                className="block w-full px-5 py-2.5 text-left text-body text-muted-foreground transition-colors hover:bg-sky/40 hover:text-teal"
               >
                 Sign out
               </button>

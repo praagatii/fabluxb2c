@@ -77,13 +77,13 @@ function InteriorDesignLanding() {
                 <button
                   type="button"
                   onClick={() => setDialogOpen(true)}
-                className="bg-gold px-7 py-3.5 text-body font-medium text-navy transition-colors hover:bg-sky"
+                className="bg-gold px-7 py-2.5 text-body font-medium text-navy transition-colors hover:bg-sky"
                 >
                   Book a consultation
                 </button>
                 <Link
                   to="/interior-design/portfolio"
-                className="border border-sky px-7 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
+                className="border border-sky px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
                 >
                   See completed projects
                 </Link>
@@ -241,13 +241,13 @@ function InteriorDesignLanding() {
               <button
                 type="button"
                 onClick={() => setDialogOpen(true)}
-                className="bg-gold px-7 py-3.5 text-body font-medium text-navy transition-colors hover:bg-sky"
+                className="bg-gold px-7 py-2.5 text-body font-medium text-navy transition-colors hover:bg-sky"
               >
                 Book a consultation
               </button>
               <Link
                 to="/interior-design/consultation"
-                className="border border-sky px-7 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
+                className="border border-sky px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
               >
                 See how consultations run
               </Link>

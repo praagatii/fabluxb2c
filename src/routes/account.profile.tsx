@@ -59,7 +59,7 @@ function ProfilePage() {
         <div className="sm:col-span-2">
           <button
             type="submit"
-            className="bg-navy px-6 py-3.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
           >
             Save changes
           </button>

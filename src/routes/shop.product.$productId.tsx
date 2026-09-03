@@ -154,9 +154,7 @@ function ProductDetailPage() {
                 Coupon hint: apply <span className="numeric text-navy">FABLUXE5</span> at checkout
                 for an additional bank discount.
               </p>
-              <p className="mt-2 text-caption text-navy">
-                {product.availability} · Fulfilled by {product.fulfilledBy}
-              </p>
+              <p className="mt-2 text-caption text-navy">{product.availability}</p>
             </div>
 
             <fieldset className="mt-6">
