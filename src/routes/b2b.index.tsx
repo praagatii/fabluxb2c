@@ -53,7 +53,7 @@ function B2BLanding() {
             <div className="mt-8 flex flex-wrap gap-3">
               <SmartLink
                 to="/b2b/catalogue"
-                className="inline-flex items-center gap-2 bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+                className="inline-flex items-center gap-2 bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
               >
                 Browse the catalogue
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

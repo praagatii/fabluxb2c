@@ -31,7 +31,7 @@ export function InteriorDesignBand() {
             <div className="mt-6 flex flex-wrap gap-3">
               <SmartLink
                 to="/interior-design"
-                className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
               >
                 Explore interior design
               </SmartLink>

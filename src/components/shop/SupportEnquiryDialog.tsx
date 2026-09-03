@@ -68,7 +68,7 @@ export function SupportEnquiryDialog({
             />
             <button
               type="submit"
-              className="w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+              className="w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Send enquiry
             </button>

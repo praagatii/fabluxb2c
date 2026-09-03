@@ -42,7 +42,7 @@ export function DeliveryCheck() {
         />
         <button
           type="submit"
-          className="bg-navy px-4 py-2 text-body text-primary-foreground transition-colors hover:bg-teal"
+          className="bg-navy px-4 py-2 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
         >
           Check
         </button>

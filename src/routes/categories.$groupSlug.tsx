@@ -61,7 +61,7 @@ function CategoryGroupPage() {
             </p>
             <SmartLink
               to="/shop"
-              className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Browse the catalogue
             </SmartLink>

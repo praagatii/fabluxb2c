@@ -122,7 +122,7 @@ function B2BProductPage() {
               <Link
                 to="/b2b/enquiry"
                 search={{ product: product.id }}
-                className="inline-flex items-center gap-2 bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+                className="inline-flex items-center gap-2 bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
               >
                 Enquire about this product
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />

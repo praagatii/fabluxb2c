@@ -81,7 +81,7 @@ export function CompareBar() {
             </button>
             <SmartLink
               to="/compare"
-              className="bg-navy px-5 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="bg-navy px-5 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Compare {compare.length}
             </SmartLink>

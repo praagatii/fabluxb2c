@@ -61,7 +61,7 @@ function ConsultationPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#booking"
-                className="bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
               >
                 Book a consultation
               </a>

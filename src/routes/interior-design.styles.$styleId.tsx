@@ -202,7 +202,7 @@ function StyleNotFound() {
       </p>
       <Link
         to="/interior-design"
-        className="mt-6 inline-block bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+        className="mt-6 inline-block bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
       >
         Back to interior design
       </Link>

@@ -47,7 +47,7 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
           <Link
             to="/b2b/enquiry"
             search={{ product: product.id }}
-            className="inline-flex items-center gap-2 bg-navy px-4 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+            className="inline-flex items-center gap-2 bg-navy px-4 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
           >
             Enquire
           </Link>

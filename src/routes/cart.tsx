@@ -100,7 +100,7 @@ function CartPage() {
             </p>
             <SmartLink
               to="/shop"
-              className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Browse the catalogue
             </SmartLink>
@@ -218,7 +218,7 @@ function CartPage() {
                 <button
                   type="button"
                   onClick={applyCoupon}
-                  className="bg-navy px-4 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                  className="bg-navy px-4 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
                 >
                   Apply
                 </button>
@@ -311,7 +311,7 @@ function CartPage() {
 
             <SmartLink
               to="/checkout"
-              className="mt-6 block bg-navy px-6 py-2.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 block bg-navy px-6 py-2.5 text-center text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Proceed to checkout
             </SmartLink>

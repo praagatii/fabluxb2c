@@ -221,7 +221,7 @@ function ProductDetailPage() {
               <button
                 type="button"
                 onClick={() => addToCart(product.id, { quantity, colour, size })}
-                className="flex-1 bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+                className="flex-1 bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
               >
                 Add to cart
               </button>
@@ -361,7 +361,7 @@ function ProductDetailPage() {
             <button
               type="button"
               onClick={() => setSupportOpen(true)}
-              className="mt-6 bg-navy px-5 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-6 bg-navy px-5 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Contact customer support for terms
             </button>
@@ -449,7 +449,7 @@ function ProductDetailPage() {
             <button
               type="button"
               onClick={() => bundle.forEach((item) => addToCart(item.id))}
-              className="mt-4 w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+              className="mt-4 w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
             >
               Add all three to cart
             </button>

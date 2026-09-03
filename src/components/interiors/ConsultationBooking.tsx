@@ -105,7 +105,7 @@ export function ConsultationBooking() {
           </a>
           <Link
             to="/interior-design/portfolio"
-            className="bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
           >
             Browse completed projects
           </Link>
@@ -330,7 +330,7 @@ export function ConsultationBooking() {
       <div>
         <button
           type="submit"
-          className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+          className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
         >
           Request this consultation
         </button>

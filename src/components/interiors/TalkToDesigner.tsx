@@ -26,7 +26,7 @@ export function TalkToDesigner() {
           <Link
             to="/interior-design/consultation"
             onClick={() => setOpen(false)}
-            className="mt-3 flex items-center gap-3 bg-navy px-3 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-3 flex items-center gap-3 bg-navy px-3 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
           >
             <CalendarDays className="h-4 w-4" aria-hidden="true" />
             Book a consultation
@@ -41,7 +41,7 @@ export function TalkToDesigner() {
         type="button"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
-        className="flex items-center gap-2 bg-navy px-5 py-2.5 text-body font-medium text-primary-foreground shadow-lg transition-colors hover:bg-teal"
+        className="flex items-center gap-2 bg-navy px-5 py-2.5 text-body font-medium text-primary-foreground shadow-lg transition-colors hover:bg-beige hover:text-navy"
       >
         {open ? (
           <X className="h-4 w-4" aria-hidden="true" />

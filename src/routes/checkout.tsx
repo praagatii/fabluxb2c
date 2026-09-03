@@ -202,7 +202,7 @@ function CheckoutPage() {
           </p>
           <SmartLink
             to="/shop"
-            className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
           >
             Browse the catalogue
           </SmartLink>
@@ -278,7 +278,7 @@ function CheckoutPage() {
                 <div className="sm:col-span-2">
                   <button
                     type="submit"
-                    className="w-full bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal sm:w-auto"
+                    className="w-full bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy sm:w-auto"
                   >
                     {mode === "create" ? "Create account & continue" : "Sign in & continue"}
                   </button>
@@ -356,7 +356,7 @@ function CheckoutPage() {
                 <div className="mt-6 flex flex-wrap gap-3">
                   <button
                     type="submit"
-                    className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                    className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
                   >
                     Continue to payment
                   </button>
@@ -461,7 +461,7 @@ function CheckoutPage() {
                 <button
                   type="button"
                   onClick={() => setStep(4)}
-className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
                   >
                     Continue to review
                   </button>
@@ -545,7 +545,7 @@ className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground tra
                   type="button"
                   disabled={!terms}
                   onClick={submitOrder}
-className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal disabled:cursor-not-allowed disabled:opacity-50"
+className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Place order
                   </button>
@@ -579,7 +579,7 @@ className="bg-navy px-6 py-2.5 text-body font-medium text-primary-foreground tra
               <button
                 type="button"
                 onClick={applyCoupon}
-                className="bg-navy px-4 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="bg-navy px-4 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
               >
                 Apply
               </button>

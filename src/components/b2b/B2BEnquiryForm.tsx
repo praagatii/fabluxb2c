@@ -38,7 +38,7 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
         <div className="mt-8 flex flex-wrap gap-3">
           <SmartLink
             to="/b2b"
-            className="bg-navy px-5 py-3 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal"
+            className="bg-navy px-5 py-3 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
           >
             Back to the catalogue
           </SmartLink>
@@ -158,7 +158,7 @@ export function B2BEnquiryForm({ initialProductId }: { initialProductId?: string
 
       <button
         type="submit"
-        className="w-full bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-teal sm:w-auto"
+        className="w-full bg-navy px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy sm:w-auto"
       >
         Submit enquiry
       </button>

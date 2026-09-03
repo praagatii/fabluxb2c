@@ -25,23 +25,22 @@ export function FeaturedStory() {
           </SmartLink>
 
           <div className="max-w-xl">
-            <span className="rule-gold mb-5 block" aria-hidden="true" />
             <p className="label-eyebrow text-teal">The Festive Edit · Featured</p>
-            <h2 className="font-display mt-4 text-display text-navy">Cold storage, quietly considered</h2>
-            <p className="mt-5 max-w-lg text-body leading-relaxed text-muted-foreground">
+            <h2 className="font-display text-display text-navy">Cold storage, quietly considered</h2>
+            <p className="mt-5 line-clamp-2 max-w-lg text-body leading-relaxed text-muted-foreground">
               {product.description}
             </p>
 
             <dl className="mt-8 grid gap-x-8 gap-y-4 border-t border-border pt-7 sm:grid-cols-2">
               {product.specs.slice(0, 4).map((spec) => (
                 <div key={spec} className="flex items-start gap-3">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                  <dd className="text-caption leading-relaxed text-muted-foreground">{spec}</dd>
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                  <dd className="label-eyebrow text-muted-foreground">{spec}</dd>
                 </div>
               ))}
             </dl>
 
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <div className="mt-8 flex flex-wrap items-center justify-between gap-5">
               <p className="text-heading text-navy">
                 {formatPrice(product.price)}
                 <span className="numeric ml-3 text-caption text-muted-foreground line-through">
@@ -50,7 +49,7 @@ export function FeaturedStory() {
               </p>
               <SmartLink
                 to={`/shop/product/${product.id}`}
-                className="bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+                className="ml-auto bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
               >
                 View {product.brand} {product.name.split(" ")[0]}
               </SmartLink>

@@ -71,7 +71,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
           onClick={() => addToCart(product.id)}
           aria-label={`Add to cart: ${product.name}`}
           className={cn(
-            "absolute bottom-3 left-1/2 grid -translate-x-1/2 items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-caption font-medium text-white transition-all duration-300 ease-[var(--ease-editorial)] hover:bg-teal",
+            "absolute bottom-3 left-1/2 grid -translate-x-1/2 items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-caption font-medium text-white transition-all duration-300 ease-[var(--ease-editorial)] hover:bg-beige hover:text-navy",
             list ? "sm:left-3 sm:translate-x-0" : "",
           )}
         >

@@ -116,7 +116,7 @@ export function ReviewsBlock({ productId, rating }: { productId: string; rating:
               </label>
               <button
                 type="submit"
-                className="w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+                className="w-full bg-navy px-4 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
               >
                 Submit review
               </button>

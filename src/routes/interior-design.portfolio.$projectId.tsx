@@ -200,7 +200,7 @@ function ProjectNotFound() {
       <p className="mt-3 text-caption text-muted-foreground">Browse the full portfolio instead.</p>
       <Link
         to="/interior-design/portfolio"
-        className="mt-6 inline-block bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-teal"
+        className="mt-6 inline-block bg-navy px-6 py-3 text-body text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
       >
         View the portfolio
       </Link>

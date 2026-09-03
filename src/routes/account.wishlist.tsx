@@ -39,7 +39,7 @@ function AccountWishlistPage() {
           </p>
           <SmartLink
             to="/shop"
-            className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-teal"
+            className="mt-6 inline-block bg-navy px-6 py-3 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
           >
             Browse the catalogue
           </SmartLink>
@@ -66,7 +66,7 @@ function AccountWishlistPage() {
                   <button
                     type="button"
                     onClick={() => addToCart(product.id)}
-                    className="bg-navy px-3 py-2 font-medium text-primary-foreground transition-colors hover:bg-teal"
+                    className="bg-navy px-3 py-2 font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
                   >
                     Move to cart
                   </button>
