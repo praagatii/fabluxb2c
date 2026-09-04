@@ -44,7 +44,6 @@ function HomePage() {
       <ProductRail
         eyebrow="Best sellers"
         title="What India is buying this month"
-        copy="The pieces that ship fastest, installed by a Fabluxe engineer."
         products={bestSellers}
       />
 

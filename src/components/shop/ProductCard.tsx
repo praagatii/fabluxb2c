@@ -55,28 +55,15 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
 
         <button
           type="button"
+          onClick={() => toggleWishlist(product.id)}
           aria-pressed={wished}
           aria-label={`${wished ? "Remove from" : "Add to"} wishlist: ${product.name}`}
-          onClick={() => toggleWishlist(product.id)}
           className={cn(
             "absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-white/85 text-navy transition-colors hover:text-teal",
             wished && "text-gold",
           )}
         >
           <Heart className="h-4 w-4" aria-hidden="true" fill={wished ? "currentColor" : "none"} />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => addToCart(product.id)}
-          aria-label={`Add to cart: ${product.name}`}
-          className={cn(
-            "absolute bottom-3 left-1/2 grid -translate-x-1/2 items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-caption font-medium text-white transition-all duration-300 ease-[var(--ease-editorial)] hover:bg-beige hover:text-navy",
-            list ? "sm:left-3 sm:translate-x-0" : "",
-          )}
-        >
-          <span className="hidden sm:inline">Add to cart</span>
-          <Plus className="h-4 w-4 sm:hidden" aria-hidden="true" />
         </button>
       </div>
 
@@ -89,7 +76,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
             {product.name}
           </SmartLink>
         </h3>
-        <div className="mt-1.5 flex flex-wrap items-baseline gap-2">
+        <div className="mt-auto flex flex-wrap items-center gap-x-2 gap-y-2 pt-2.5">
           <span className="numeric text-base font-semibold text-navy">
             {formatPrice(product.price)}
           </span>
@@ -101,6 +88,18 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
               <span className="numeric text-caption font-medium text-teal">{discount}% off</span>
             </>
           ) : null}
+          <button
+            type="button"
+            onClick={() => addToCart(product.id)}
+            aria-label={`Add to cart: ${product.name}`}
+            className={cn(
+              "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-sm bg-navy px-3.5 text-caption font-medium leading-none text-white transition-colors hover:bg-beige hover:text-navy",
+              list ? "" : "sm:ml-auto",
+            )}
+          >
+            <Plus className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>Add</span>
+          </button>
         </div>
       </div>
     </article>

@@ -25,6 +25,7 @@ export function FeaturedStory() {
           </SmartLink>
 
           <div className="max-w-xl">
+            <span className="rule-gold mb-5 block" aria-hidden="true" />
             <p className="label-eyebrow text-teal">The Festive Edit · Featured</p>
             <h2 className="font-display text-display text-navy">Cold storage, quietly considered</h2>
             <p className="mt-5 line-clamp-2 max-w-lg text-body leading-relaxed text-muted-foreground">
@@ -40,19 +41,19 @@ export function FeaturedStory() {
               ))}
             </dl>
 
-            <div className="mt-8 flex flex-wrap items-center justify-between gap-5">
+            <div className="mt-8 flex flex-wrap items-center gap-5">
+              <SmartLink
+                to={`/shop/product/${product.id}`}
+                className="bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
+              >
+                View {product.brand} {product.name.split(" ")[0]}
+              </SmartLink>
               <p className="text-heading text-navy">
                 {formatPrice(product.price)}
                 <span className="numeric ml-3 text-caption text-muted-foreground line-through">
                   {formatPrice(product.mrp)}
                 </span>
               </p>
-              <SmartLink
-                to={`/shop/product/${product.id}`}
-                className="ml-auto bg-navy px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:bg-beige hover:text-navy"
-              >
-                View {product.brand} {product.name.split(" ")[0]}
-              </SmartLink>
             </div>
           </div>
         </div>
