@@ -39,7 +39,7 @@ export function B2BHeaderBand() {
                 hash="b2b-categories"
                 className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
               >
-                Category
+                Categories
               </SmartLink>
             </li>
             <li>

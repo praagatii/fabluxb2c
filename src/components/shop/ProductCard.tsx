@@ -51,11 +51,6 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
           <span className="uppercase bg-navy px-2.5 py-1 text-micro font-semibold leading-none tracking-wide text-white">
             {categoryLabel ?? product.categorySlug}
           </span>
-          {product.badge ? (
-            <span className="uppercase bg-white/85 px-2.5 py-1 text-micro font-medium leading-none tracking-wide text-navy">
-              {product.badge}
-            </span>
-          ) : null}
         </div>
 
         <button
@@ -73,9 +68,6 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-4">
-        <p className="uppercase text-micro font-medium leading-relaxed tracking-wide text-muted-foreground">
-          {product.brand}
-        </p>
         <h3 className="mt-0.5 line-clamp-2 text-heading leading-snug text-navy">
           <SmartLink to={`/shop/product/${product.id}`} className="transition-colors hover:text-teal">
             {product.name}

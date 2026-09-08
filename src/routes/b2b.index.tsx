@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useLocation } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Section, Container } from "@/components/common/Section";
 import { SectionHeading } from "@/components/common/SectionHeading";
@@ -32,11 +32,17 @@ export const Route = createFileRoute("/b2b/")({
 });
 
 function B2BLanding() {
+  const { hash } = useLocation();
+
   useEffect(() => {
-    if (window.location.hash === "#b2b-categories") {
-      document.getElementById("b2b-categories")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }, []);
+    if (hash !== "b2b-categories") return;
+    const timer = window.setTimeout(() => {
+      document
+        .getElementById("b2b-categories")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 300);
+    return () => window.clearTimeout(timer);
+  }, [hash]);
 
   return (
     <>
@@ -90,11 +96,16 @@ function B2BLanding() {
           eyebrow="Who it is for"
           title="Built around project buying"
         />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {b2bAudience.map((item) => (
-            <div key={item.title} className="border-t border-border pt-5">
-              <h3 className="text-heading text-navy">{item.title}</h3>
-              <p className="mt-2 text-caption leading-relaxed text-muted-foreground">{item.copy}</p>
+            <div
+              key={item.title}
+              className="flex flex-col rounded-[12px] border border-border bg-background p-5"
+            >
+              <h3 className="text-heading leading-snug text-navy">{item.title}</h3>
+              <p className="mt-auto pt-2 text-caption leading-relaxed text-muted-foreground">
+                {item.copy}
+              </p>
             </div>
           ))}
         </div>
@@ -113,14 +124,14 @@ function B2BLanding() {
             </SmartLink>
           }
         />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {b2bCategories.map((category) => (
             <SmartLink
               key={category.id}
               to={`/b2b/catalogue/${category.slug}`}
               className="group block overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]"
             >
-              <div className="overflow-hidden bg-[#ececec]">
+              <div className="relative overflow-hidden bg-[#ececec]">
                 <img
                   src={b2bImage(category.image)}
                   alt={category.name}
@@ -129,18 +140,12 @@ function B2BLanding() {
                   height={900}
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                <B2BLabel className="absolute left-3 top-3" />
               </div>
               <div className="p-4">
-                <div className="flex items-center justify-between gap-3">
-                  <p className="label-eyebrow text-teal">{category.tagline}</p>
-                  <B2BLabel />
-                </div>
-                <h3 className="mt-3 text-heading text-navy">{category.name}</h3>
+                <h3 className="text-heading text-navy">{category.name}</h3>
                 <p className="mt-2 text-caption leading-relaxed text-muted-foreground">
                   {category.description}
-                </p>
-                <p className="numeric mt-4 text-caption uppercase tracking-[0.18em] text-muted-foreground">
-                  {category.itemCount} lines listed
                 </p>
               </div>
             </SmartLink>

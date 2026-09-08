@@ -1,4 +1,3 @@
-import { FileText } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SmartLink } from "@/components/common/SmartLink";
 import { B2BLabel } from "./B2BChrome";
@@ -25,7 +24,6 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
             {product.name}
           </SmartLink>
         </h3>
-        <p className="line-clamp-2 text-caption leading-relaxed text-muted-foreground">{product.summary}</p>
         <dl className="mt-1 grid grid-cols-3 gap-2 border-t border-border pt-2.5 text-caption">
           <div>
             <dt className="block text-muted-foreground">SKU</dt>
@@ -48,13 +46,6 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
           >
             Enquire
           </Link>
-          <SmartLink
-            to={`/b2b/product/${product.id}`}
-            className="inline-flex items-center gap-1.5 text-caption uppercase tracking-[0.18em] text-teal transition-colors hover:text-gold"
-          >
-            <FileText className="h-3.5 w-3.5" aria-hidden="true" />
-            Specification
-          </SmartLink>
         </div>
       </div>
     </article>
