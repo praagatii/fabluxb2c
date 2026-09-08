@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Section, Container } from "@/components/common/Section";
@@ -31,6 +32,12 @@ export const Route = createFileRoute("/b2b/")({
 });
 
 function B2BLanding() {
+  useEffect(() => {
+    if (window.location.hash === "#b2b-categories") {
+      document.getElementById("b2b-categories")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
   return (
     <>
       <Container>
@@ -93,7 +100,7 @@ function B2BLanding() {
         </div>
       </Section>
 
-      <Section>
+      <Section id="b2b-categories">
         <SectionHeading
           eyebrow="Categories"
           title="Five supply lines"

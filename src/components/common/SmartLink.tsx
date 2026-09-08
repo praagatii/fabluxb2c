@@ -3,6 +3,8 @@ import type { AnchorHTMLAttributes } from "react";
 
 type SmartLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   to: string;
+  /** Fragment identifier for the target route, e.g. "b2b-categories". */
+  hash?: string;
   /** Restrict TanStack Link's active matching to an exact route match. */
   exactActive?: boolean;
 };
