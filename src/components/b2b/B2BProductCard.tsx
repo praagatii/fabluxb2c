@@ -6,8 +6,11 @@ import type { B2BProduct } from "@/data/b2b";
 
 export function B2BProductCard({ product }: { product: B2BProduct }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
-      <SmartLink to={`/b2b/product/${product.id}`} className="relative block overflow-hidden bg-[#ececec]">
+    <article className="group flex h-full flex-col">
+      <SmartLink
+        to={`/b2b/product/${product.id}`}
+        className="relative block overflow-hidden rounded-[12px] bg-[#ececec]"
+      >
         <img
           src={b2bImage(product.image)}
           alt={product.name}
@@ -18,27 +21,27 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
         />
         <B2BLabel className="absolute left-3 top-3" />
       </SmartLink>
-      <div className="flex flex-1 flex-col gap-2.5 p-4">
-        <h3 className="line-clamp-2 text-heading leading-snug text-navy">
+      <div className="flex flex-1 flex-col pt-3">
+        <h3 className="line-clamp-2 text-sm leading-snug text-navy">
           <SmartLink to={`/b2b/product/${product.id}`} className="transition-colors hover:text-teal">
             {product.name}
           </SmartLink>
         </h3>
-        <dl className="mt-1 grid grid-cols-3 gap-2 border-t border-border pt-2.5 text-caption">
-          <div>
-            <dt className="block text-muted-foreground">SKU</dt>
-            <dd className="numeric mt-0.5 text-navy">{product.sku}</dd>
-          </div>
-          <div>
-            <dt className="block text-muted-foreground">MOQ</dt>
-            <dd className="numeric mt-0.5 text-navy">{product.moq}</dd>
-          </div>
-          <div>
-            <dt className="block text-muted-foreground">Lead</dt>
-            <dd className="numeric mt-0.5 text-navy">{product.leadTime}</dd>
-          </div>
-        </dl>
-        <div className="mt-auto flex flex-wrap items-center gap-3 pt-2.5">
+        <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2.5 pt-2.5">
+          <dl className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <div className="flex items-center gap-1.5">
+              <dt className="text-caption text-muted-foreground">SKU</dt>
+              <dd className="numeric text-caption text-navy">{product.sku}</dd>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <dt className="text-caption text-muted-foreground">MOQ</dt>
+              <dd className="numeric text-caption text-navy">{product.moq}</dd>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <dt className="text-caption text-muted-foreground">Lead</dt>
+              <dd className="numeric text-caption text-navy">{product.leadTime}</dd>
+            </div>
+          </dl>
           <Link
             to="/b2b/enquiry"
             search={{ product: product.id }}
