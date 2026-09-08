@@ -5,6 +5,7 @@ import { SmartLink } from "@/components/common/SmartLink";
 import { B2BPageMark } from "@/components/b2b/B2BChrome";
 import { B2BCatalogueView } from "@/components/b2b/B2BCatalogueView";
 import { getB2BCategory, b2bProductsIn } from "@/data/b2b";
+import { b2bImage } from "@/lib/b2b-images";
 
 export const Route = createFileRoute("/b2b/catalogue/$category")({
   loader: ({ params }) => {
@@ -67,12 +68,24 @@ function B2BCategoryPage() {
         </Container>
       </div>
 
-      <header className="py-14 sm:py-[var(--spacing-section)]">
-        <Container>
-          <B2BPageMark>{category.tagline}</B2BPageMark>
-          <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{category.name}</h1>
-        </Container>
-      </header>
+      <Container>
+        <div className="relative overflow-hidden">
+          <img
+            src={b2bImage(category.image)}
+            alt={category.name}
+            width={1200}
+            height={900}
+            loading="lazy"
+            decoding="async"
+            className="h-56 w-full object-cover sm:h-72"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/45 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
+            <B2BPageMark inverse>{category.tagline}</B2BPageMark>
+            <h1 className="mt-3 font-display text-display text-beige">{category.name}</h1>
+          </div>
+        </div>
+      </Container>
 
       <Section className="pt-0">
         <B2BCatalogueView products={products} />
