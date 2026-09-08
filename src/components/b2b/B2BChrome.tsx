@@ -9,7 +9,7 @@ export function B2BLabel({ className }: { className?: string | undefined }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full bg-teal px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-beige",
+        "inline-flex items-center rounded-sm bg-teal px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-beige",
         className,
       )}
     >
@@ -18,17 +18,19 @@ export function B2BLabel({ className }: { className?: string | undefined }) {
   );
 }
 
-/** Teal accented band that visually separates the B2B store from the shop. */
+/** Navy accented band that visually separates the B2B store from the shop. */
 export function B2BHeaderBand() {
   return (
-    <div className="bg-teal text-beige">
+    <div className="bg-navy text-beige">
       <Container>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 py-3">
           <SmartLink to="/b2b" className="flex items-center gap-3">
-            <span className="inline-flex items-center rounded-full bg-beige px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-teal">
+            <span className="inline-flex items-center rounded-sm bg-teal px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-beige">
               B2B
             </span>
-            <span className="font-display text-heading leading-none">Fabluxe B2B Store</span>
+            <span className="font-display text-heading leading-none text-beige">
+              Fabluxe B2B Store
+            </span>
           </SmartLink>
           <nav aria-label="B2B catalogue" className="ml-auto">
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -36,7 +38,7 @@ export function B2BHeaderBand() {
                 <li key={category.id}>
                   <SmartLink
                     to={`/b2b/catalogue/${category.slug}`}
-                    className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-beige"
+                    className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
                   >
                     {category.name}
                   </SmartLink>
@@ -45,7 +47,7 @@ export function B2BHeaderBand() {
               <li>
                 <SmartLink
                   to="/b2b/enquiry"
-                  className="rounded-full border border-beige/60 px-3 py-1.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-teal"
+                  className="rounded-sm border border-beige/60 px-3 py-1.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
                 >
                   Raise an enquiry
                 </SmartLink>

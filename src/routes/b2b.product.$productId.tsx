@@ -195,10 +195,10 @@ function B2BProductPage() {
       </Section>
 
       {/* Bulk enquiry banner */}
-      <Section className="bg-teal">
+      <Section className="bg-navy">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="label-eyebrow text-beige">Buying at volume?</p>
+            <p className="label-eyebrow text-gold">Buying at volume?</p>
             <h2 className="mt-2 font-display text-display text-beige">
               Bulk and project pricing is quoted by the trade desk
             </h2>
@@ -210,7 +210,7 @@ function B2BProductPage() {
           <Link
             to="/b2b/enquiry"
             search={{ product: product.id }}
-            className="inline-flex shrink-0 items-center gap-2 bg-beige px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-navy transition-opacity hover:opacity-90"
+            className="inline-flex shrink-0 items-center gap-2 bg-beige px-6 py-2.5 text-caption uppercase tracking-[0.18em] text-navy transition-colors hover:bg-gold"
           >
             Raise a bulk enquiry
           </Link>

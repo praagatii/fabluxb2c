@@ -7,7 +7,7 @@ import type { B2BProduct } from "@/data/b2b";
 
 export function B2BProductCard({ product }: { product: B2BProduct }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
       <SmartLink to={`/b2b/product/${product.id}`} className="block overflow-hidden bg-beige">
         <img
           src={b2bImage(product.image)}
@@ -28,19 +28,19 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
             {product.name}
           </SmartLink>
         </h3>
-        <p className="text-body leading-relaxed text-muted-foreground">{product.summary}</p>
-        <dl className="mt-1 grid grid-cols-2 gap-x-4 gap-y-1.5 text-caption text-muted-foreground">
+        <p className="text-caption leading-relaxed text-muted-foreground">{product.summary}</p>
+        <dl className="mt-1 grid grid-cols-3 gap-2 border-t border-border pt-3 text-caption">
           <div>
-            <dt className="inline">SKU </dt>
-            <dd className="numeric inline text-navy">{product.sku}</dd>
+            <dt className="block text-muted-foreground">SKU</dt>
+            <dd className="numeric mt-0.5 text-navy">{product.sku}</dd>
           </div>
           <div>
-            <dt className="inline">MOQ </dt>
-            <dd className="numeric inline text-navy">{product.moq}</dd>
+            <dt className="block text-muted-foreground">MOQ</dt>
+            <dd className="numeric mt-0.5 text-navy">{product.moq}</dd>
           </div>
-          <div className="col-span-2">
-            <dt className="inline">Lead time </dt>
-            <dd className="numeric inline text-navy">{product.leadTime}</dd>
+          <div>
+            <dt className="block text-muted-foreground">Lead</dt>
+            <dd className="numeric mt-0.5 text-navy">{product.leadTime}</dd>
           </div>
         </dl>
         <div className="mt-auto flex flex-wrap items-center gap-3 pt-3">
@@ -53,7 +53,7 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
           </Link>
           <SmartLink
             to={`/b2b/product/${product.id}`}
-            className="inline-flex items-center gap-1.5 text-caption uppercase tracking-[0.18em] text-teal link-gold"
+            className="link-gold inline-flex items-center gap-1.5 text-caption uppercase tracking-[0.18em] text-teal"
           >
             <FileText className="h-3.5 w-3.5" aria-hidden="true" />
             Specification
