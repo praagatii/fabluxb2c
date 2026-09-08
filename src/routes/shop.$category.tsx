@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { categories } from "@/data/categories";
 import { products } from "@/data/products";
 import { ListingView } from "@/components/shop/ListingView";
+import { categoryBanner } from "@/lib/category-banners";
 
 export const Route = createFileRoute("/shop/$category")({
   loader: ({ params }) => {
@@ -48,6 +49,7 @@ function CategoryPage() {
       crumbs={[{ label: "Home", to: "/" }, { label: "Shop", to: "/shop" }, { label: category.name }]}
       items={items}
       subNav={subNav}
+      banner={categoryBanner(category.slug)}
     />
   );
 }

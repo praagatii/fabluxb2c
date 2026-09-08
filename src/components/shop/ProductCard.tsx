@@ -27,8 +27,8 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
     >
       <div
         className={cn(
-          "relative aspect-[4/3] overflow-hidden bg-[#ececec]",
-          list && "sm:aspect-4/3 sm:w-52 sm:shrink-0",
+          "relative aspect-square overflow-hidden bg-[#ececec]",
+          list && "sm:w-52 sm:shrink-0",
         )}
       >
         <img

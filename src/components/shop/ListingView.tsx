@@ -26,9 +26,10 @@ type ListingViewProps = {
   crumbs: Crumb[];
   items: Product[];
   subNav?: { label: string; to: string; active?: boolean }[];
+  banner?: string;
 };
 
-export function ListingView({ eyebrow, title, crumbs, items, subNav }: ListingViewProps) {
+export function ListingView({ eyebrow, title, crumbs, items, subNav, banner }: ListingViewProps) {
   const facets = useMemo(() => buildFacets(items), [items]);
   const [filters, setFilters] = useState<FilterState>(() => emptyFilters(facets.priceMax));
   const [sort, setSort] = useState<SortKey>("relevance");
@@ -61,10 +62,29 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav }: ListingVi
         <Breadcrumbs items={crumbs} />
       </Container>
 
-      <header className="py-14 sm:py-[var(--spacing-section)]">
+      <header className="pt-0">
         <Container>
-          <p className="label-eyebrow text-teal">{eyebrow}</p>
-          <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{title}</h1>
+          {banner ? (
+            <div className="relative overflow-hidden rounded-[12px]">
+              <img
+                src={banner}
+                alt=""
+                width={1600}
+                height={900}
+                className="h-56 w-full object-cover sm:h-72"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-navy/90 via-navy/40 to-navy/5" />
+              <div className="absolute inset-0 flex flex-col items-start justify-end p-6 sm:p-10">
+                <p className="label-eyebrow text-beige">{eyebrow}</p>
+                <h1 className="mt-3 font-display text-display text-beige">{title}</h1>
+              </div>
+            </div>
+          ) : (
+            <div className="py-14 sm:py-[var(--spacing-section)]">
+              <p className="label-eyebrow text-teal">{eyebrow}</p>
+              <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{title}</h1>
+            </div>
+          )}
         </Container>
       </header>
 
