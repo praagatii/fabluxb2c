@@ -262,17 +262,17 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav, banner }: L
         </div>
       ) : null}
 
-      <section className="border-t border-border bg-card py-14 sm:py-[var(--spacing-section)]">
+      <section className="py-14 sm:py-[var(--spacing-section)]">
         <Container>
-          <ul className="grid gap-6 lg:grid-cols-3">
+          <ul className="scrollbar-hide flex snap-x gap-6 overflow-x-auto pb-2">
             {reviewHighlights.map((review) => (
-              <li key={review.id} className="h-full">
+              <li key={review.id} className="w-[20rem] shrink-0 snap-start sm:w-[22rem]">
                 <TestimonialCard
                   quote={review.quote}
                   name={review.author}
                   detail={review.location}
                   rating={review.rating}
-                  surface="background"
+                  surface="navy"
                 />
               </li>
             ))}

@@ -5,8 +5,8 @@ type TestimonialCardProps = {
   name: string;
   detail: string;
   rating?: number | undefined;
-  /** Card surface: white ("card") on beige bands, beige ("background") on white bands. */
-  surface?: "card" | "background" | undefined;
+  /** Card surface: white ("card"), beige ("background") or navy ("navy"). */
+  surface?: "card" | "background" | "navy" | undefined;
   className?: string | undefined;
 };
 
@@ -18,10 +18,15 @@ export function TestimonialCard({
   surface = "card",
   className,
 }: TestimonialCardProps) {
+  const naval = surface === "navy";
   return (
     <div
-      className={`flex h-full flex-col rounded-[12px] border border-border p-4 ${
-        surface === "card" ? "bg-card" : "bg-background"
+      className={`flex h-full flex-col rounded-[12px] p-4 ${
+        naval
+          ? "border border-teal/40 bg-navy"
+          : surface === "card"
+            ? "border border-border bg-card"
+            : "border border-border bg-background"
       } ${className ?? ""}`}
     >
       {rating ? (
@@ -38,7 +43,9 @@ export function TestimonialCard({
       ) : (
         <span className="rule-gold" aria-hidden="true" />
       )}
-      <blockquote className="mt-3 flex-1 text-caption leading-relaxed text-navy">
+      <blockquote
+        className={`mt-3 flex-1 text-caption leading-relaxed ${naval ? "text-beige" : "text-navy"}`}
+      >
         &ldquo;{quote}&rdquo;
       </blockquote>
       <div className="mt-4 flex items-center gap-2.5 border-t border-border pt-3">
@@ -48,9 +55,11 @@ export function TestimonialCard({
         >
           {name.charAt(0)}
         </span>
-        <p className="text-micro font-medium leading-tight text-navy">
+        <p className={`text-micro font-medium leading-tight ${naval ? "text-beige" : "text-navy"}`}>
           {name}
-          <span className="block font-normal text-muted-foreground">{detail}</span>
+          <span className={`block font-normal ${naval ? "text-sky" : "text-muted-foreground"}`}>
+            {detail}
+          </span>
         </p>
       </div>
     </div>
