@@ -20,7 +20,7 @@ export function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div
-      className={`flex h-full flex-col rounded-[12px] border border-border p-5 ${
+      className={`flex h-full flex-col rounded-[12px] border border-border p-4 ${
         surface === "card" ? "bg-card" : "bg-background"
       } ${className ?? ""}`}
     >
@@ -38,17 +38,17 @@ export function TestimonialCard({
       ) : (
         <span className="rule-gold" aria-hidden="true" />
       )}
-      <blockquote className="mt-4 flex-1 text-body leading-relaxed text-navy">
+      <blockquote className="mt-3 flex-1 text-caption leading-relaxed text-navy">
         &ldquo;{quote}&rdquo;
       </blockquote>
-      <div className="mt-5 flex items-center gap-3 border-t border-border pt-4">
+      <div className="mt-4 flex items-center gap-2.5 border-t border-border pt-3">
         <span
-          className="grid h-8 w-8 shrink-0 place-items-center text-body font-medium text-gold"
+          className="grid h-6 w-6 shrink-0 place-items-center text-micro font-medium text-gold"
           aria-hidden="true"
         >
           {name.charAt(0)}
         </span>
-        <p className="text-caption font-medium text-navy">
+        <p className="text-micro font-medium leading-tight text-navy">
           {name}
           <span className="block font-normal text-muted-foreground">{detail}</span>
         </p>

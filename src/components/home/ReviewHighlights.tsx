@@ -5,7 +5,7 @@ import { TestimonialCard } from "@/components/common/TestimonialCard";
 
 function ReviewCard({ review }: { review: (typeof reviewHighlights)[number] }) {
   return (
-    <div className="pb-4">
+    <div className="pb-3">
       <TestimonialCard
         quote={review.quote}
         name={review.author}
@@ -26,13 +26,13 @@ export function ReviewHighlights() {
           title="Judged on delivery, not on discounts"
           align="left"
         />
-        <div className="relative h-[24rem] overflow-hidden sm:h-[26rem]">
+        <div className="relative h-[19rem] overflow-hidden sm:h-[21rem]">
           <div
-            className="pointer-events-none absolute inset-x-0 top-0 z-10 h-12 bg-linear-to-b from-card to-transparent"
+            className="pointer-events-none absolute inset-x-0 top-0 z-10 h-8 bg-linear-to-b from-card to-transparent"
             aria-hidden="true"
           />
           <div
-            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-12 bg-linear-to-t from-card to-transparent"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-8 bg-linear-to-t from-card to-transparent"
             aria-hidden="true"
           />
           <div className="animate-testimonials flex flex-col">
