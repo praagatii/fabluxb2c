@@ -38,7 +38,7 @@ export function B2BHeaderBand() {
                 to="/b2b"
                 className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
               >
-                Catalogue
+                Category
               </SmartLink>
             </li>
             <li>
