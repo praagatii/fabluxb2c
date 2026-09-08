@@ -35,7 +35,7 @@ export function B2BHeaderBand() {
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <li>
               <SmartLink
-                to="/b2b/catalogue"
+                to="/b2b"
                 className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
               >
                 Catalogue
