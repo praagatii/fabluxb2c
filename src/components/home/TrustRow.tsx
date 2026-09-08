@@ -1,13 +1,14 @@
 import { Headset, Truck, Wrench } from "lucide-react";
 import { trustPoints } from "@/data/site";
-import { Section } from "@/components/common/Section";
+import { Container } from "@/components/common/Section";
 
 const icons = { truck: Truck, wrench: Wrench, headset: Headset } as const;
 
 export function TrustRow() {
   return (
-    <Section>
-      <ul className="grid gap-8 border-t border-border pt-10 sm:grid-cols-3">
+    <section className="py-10 sm:py-12">
+      <Container>
+        <ul className="grid gap-8 border-t border-border pt-8 sm:grid-cols-3">
         {trustPoints.map((point) => {
           const Icon = icons[point.icon as keyof typeof icons];
           return (
@@ -20,7 +21,8 @@ export function TrustRow() {
             </li>
           );
         })}
-      </ul>
-    </Section>
+        </ul>
+      </Container>
+    </section>
   );
 }

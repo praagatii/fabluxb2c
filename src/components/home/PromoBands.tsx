@@ -7,16 +7,16 @@ export function InteriorDesignBand() {
   return (
     <section className="py-14 sm:py-[var(--spacing-section)]">
       <Container>
-        <div className="grid items-stretch gap-0 border border-border bg-card lg:grid-cols-2">
+        <div className="grid items-stretch gap-0 border border-border bg-card md:grid-cols-2">
           <img
             src={interiorsImage}
             alt="A Fabluxora Interiors living room in navy velvet, brass and linen"
             loading="lazy"
             width={1200}
             height={900}
-            className="h-64 w-full object-cover lg:h-full"
+            className="h-56 w-full object-cover sm:h-72 md:h-full"
           />
-          <div className="flex flex-col justify-center p-8 sm:p-12">
+          <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-teal">Fabluxora Interiors</p>
             <h2 className="font-display mt-3 text-display text-navy">
@@ -53,8 +53,8 @@ export function B2BBand() {
   return (
     <section className="bg-navy py-14 sm:py-[var(--spacing-section)]">
       <Container>
-        <div className="grid items-stretch gap-0 border border-teal/50 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
-          <div className="flex flex-col justify-center bg-teal/15 p-8 sm:p-12">
+        <div className="grid items-stretch gap-0 border border-teal/50 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
+          <div className="flex flex-col justify-center bg-teal/15 p-7 sm:p-10 lg:p-12">
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-gold">B2B Store — trade only</p>
             <h2 className="font-display mt-3 text-display text-beige">
@@ -83,7 +83,7 @@ export function B2BBand() {
             loading="lazy"
             width={1200}
             height={900}
-            className="h-64 w-full object-cover lg:h-full"
+            className="h-56 w-full object-cover sm:h-72 md:h-full"
           />
         </div>
       </Container>

@@ -50,7 +50,7 @@ export function NewsletterCapture() {
                 />
                 <button
                   type="submit"
-                  className="h-9 bg-beige px-4 text-body font-medium text-navy transition-colors hover:bg-gold"
+                  className="h-12 bg-beige px-6 text-body font-medium text-navy transition-colors hover:bg-gold"
                 >
                   Subscribe
                 </button>

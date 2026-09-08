@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 
 export function ReviewHighlights() {
   return (
-    <Section>
+    <Section className="bg-card">
       <SectionHeading
         eyebrow="What customers say"
         title="Judged on delivery, not on discounts"
@@ -16,14 +16,8 @@ export function ReviewHighlights() {
         {reviewHighlights.map((review) => (
           <li
             key={review.id}
-            className="relative flex flex-col border border-border bg-card p-7 pt-8"
+            className="flex flex-col border border-border bg-background p-7"
           >
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute right-5 top-2 font-display text-[4.5rem] leading-none text-navy/10"
-            >
-              “
-            </span>
             <div className="flex items-center gap-0.5" aria-label={`${review.rating} out of 5`}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star
@@ -34,12 +28,12 @@ export function ReviewHighlights() {
                 />
               ))}
             </div>
-            <blockquote className="mt-5 flex-1 font-display text-heading leading-snug text-navy">
-              “{review.quote}”
+            <blockquote className="mt-5 flex-1 text-body leading-relaxed text-navy">
+              &ldquo;{review.quote}&rdquo;
             </blockquote>
             <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
               <span
-                className="grid h-9 w-9 shrink-0 place-items-center font-display text-body text-gold"
+                className="grid h-9 w-9 shrink-0 place-items-center text-body font-medium text-gold"
                 aria-hidden="true"
               >
                 {review.author.charAt(0)}
