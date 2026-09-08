@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { B2BProductCard } from "./B2BProductCard";
 import type { B2BProduct } from "@/data/b2b";
+import { Check, Group } from "@/components/shop/FilterPanel";
 
 type Facet = { key: string; values: { value: string; count: number }[] };
 
@@ -85,49 +86,29 @@ export function B2BCatalogueView({
         </button>
       </div>
 
-      <div className="border-t border-border pt-5">
-        <p className="label-eyebrow text-teal">{brandsLabel}</p>
-        <div className="mt-3 space-y-2">
-          {brands.map((brand) => (
-            <label
-              key={brand}
-              className="flex cursor-pointer items-center gap-2 text-body text-navy"
-            >
-              <input
-                type="checkbox"
-                checked={(selected["__brand"] ?? []).includes(brand)}
-                onChange={() => toggle("__brand", brand)}
-                className="h-4 w-4 accent-[var(--color-teal)]"
-              />
-              {brand}
-            </label>
-          ))}
-        </div>
-      </div>
+      <Group title={brandsLabel}>
+        {brands.map((brand) => (
+          <Check
+            key={brand}
+            label={brand}
+            checked={(selected["__brand"] ?? []).includes(brand)}
+            onToggle={() => toggle("__brand", brand)}
+          />
+        ))}
+      </Group>
 
       {facets.map((facet) => (
-        <div key={facet.key} className="border-t border-border pt-5">
-          <p className="label-eyebrow text-teal">{facet.key}</p>
-          <div className="mt-3 space-y-2">
-            {facet.values.map((entry) => (
-              <label
-                key={entry.value}
-                className="flex cursor-pointer items-center justify-between gap-3 text-body text-navy"
-              >
-                <span className="flex items-center gap-2">
-                  <input
-                    type="checkbox"
-                    checked={(selected[facet.key] ?? []).includes(entry.value)}
-                    onChange={() => toggle(facet.key, entry.value)}
-                    className="h-4 w-4 accent-[var(--color-teal)]"
-                  />
-                  {entry.value}
-                </span>
-                <span className="numeric text-caption text-muted-foreground">{entry.count}</span>
-              </label>
-            ))}
-          </div>
-        </div>
+        <Group key={facet.key} title={facet.key}>
+          {facet.values.map((entry) => (
+            <Check
+              key={entry.value}
+              label={entry.value}
+              count={entry.count}
+              checked={(selected[facet.key] ?? []).includes(entry.value)}
+              onToggle={() => toggle(facet.key, entry.value)}
+            />
+          ))}
+        </Group>
       ))}
     </div>
   );

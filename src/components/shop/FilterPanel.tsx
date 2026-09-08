@@ -10,7 +10,7 @@ type FilterPanelProps = {
   onReset: () => void;
 };
 
-function Group({ title, children }: { title: string; children: React.ReactNode }) {
+export function Group({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="border-t border-border pt-5">
       <p className="label-eyebrow text-teal">{title}</p>
@@ -19,7 +19,7 @@ function Group({ title, children }: { title: string; children: React.ReactNode }
   );
 }
 
-function Check({
+export function Check({
   label,
   count,
   checked,
