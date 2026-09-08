@@ -25,7 +25,7 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-dvh items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-display font-bold text-foreground">404</h1>
+        <h1 className="text-display text-foreground">404</h1>
         <h2 className="mt-4 text-heading font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-body text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
