@@ -1,7 +1,7 @@
 import { Info } from "lucide-react";
 import { SmartLink } from "@/components/common/SmartLink";
 import { Container } from "@/components/common/Section";
-import { b2bBrowseOnlyLine, b2bCategories } from "@/data/b2b";
+import { b2bBrowseOnlyLine } from "@/data/b2b";
 import { cn } from "@/lib/utils";
 
 /** Small "B2B" chip used on every page in this section. */
@@ -34,16 +34,14 @@ export function B2BHeaderBand() {
           </SmartLink>
           <nav aria-label="B2B catalogue" className="ml-auto">
             <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {b2bCategories.map((category) => (
-                <li key={category.id}>
-                  <SmartLink
-                    to={`/b2b/catalogue/${category.slug}`}
-                    className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
-                  >
-                    {category.name}
-                  </SmartLink>
-                </li>
-              ))}
+              <li>
+                <SmartLink
+                  to="/b2b/catalogue"
+                  className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
+                >
+                  Catalogue
+                </SmartLink>
+              </li>
               <li>
                 <SmartLink
                   to="/b2b/enquiry"

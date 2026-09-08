@@ -6,9 +6,9 @@ const icons = { truck: Truck, wrench: Wrench, headset: Headset } as const;
 
 export function TrustRow() {
   return (
-    <section className="py-10 sm:py-12">
+    <section className="pb-10 pt-0 sm:pb-12">
       <Container>
-        <ul className="grid gap-8 border-t border-border pt-8 sm:grid-cols-3">
+        <ul className="grid gap-8 pt-0 sm:grid-cols-3">
         {trustPoints.map((point) => {
           const Icon = icons[point.icon as keyof typeof icons];
           return (

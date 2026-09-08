@@ -25,7 +25,7 @@ const slides: Slide[] = [
     eyebrow: "Fabluxora Interiors",
     title: "Rooms designed\naround you",
     copy: "Interior design consultation, from floor plan to palette — a room composed entirely around the way you live.",
-    primaryCta: { label: "Explore", to: "/interior-design" },
+    primaryCta: { label: "Explore rooms", to: "/interior-design" },
     image: bandInteriors,
   },
 ];

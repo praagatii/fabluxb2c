@@ -15,21 +15,18 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
           loading="lazy"
           width={1200}
           height={900}
-          className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </SmartLink>
-      <div className="flex flex-1 flex-col gap-3 p-4">
-        <div className="flex items-center justify-between gap-3">
-          <p className="label-eyebrow text-teal">{product.brand}</p>
-          <B2BLabel />
-        </div>
-        <h3 className="text-heading leading-snug text-navy">
+      <div className="flex flex-1 flex-col gap-2.5 p-4">
+        <B2BLabel className="self-start" />
+        <h3 className="line-clamp-2 text-heading leading-snug text-navy">
           <SmartLink to={`/b2b/product/${product.id}`} className="link-gold">
             {product.name}
           </SmartLink>
         </h3>
-        <p className="text-caption leading-relaxed text-muted-foreground">{product.summary}</p>
-        <dl className="mt-1 grid grid-cols-3 gap-2 border-t border-border pt-3 text-caption">
+        <p className="line-clamp-2 text-caption leading-relaxed text-muted-foreground">{product.summary}</p>
+        <dl className="mt-1 grid grid-cols-3 gap-2 border-t border-border pt-2.5 text-caption">
           <div>
             <dt className="block text-muted-foreground">SKU</dt>
             <dd className="numeric mt-0.5 text-navy">{product.sku}</dd>
@@ -43,7 +40,7 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
             <dd className="numeric mt-0.5 text-navy">{product.leadTime}</dd>
           </div>
         </dl>
-        <div className="mt-auto flex flex-wrap items-center gap-3 pt-3">
+        <div className="mt-auto flex flex-wrap items-center gap-3 pt-2.5">
           <Link
             to="/b2b/enquiry"
             search={{ product: product.id }}
