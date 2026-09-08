@@ -19,15 +19,10 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
   )?.name;
 
   return (
-    <article
-      className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]",
-        list && "sm:flex-row",
-      )}
-    >
+    <article className={cn("group flex h-full flex-col", list && "sm:flex-row")}>
       <div
         className={cn(
-          "relative aspect-square overflow-hidden bg-[#ececec]",
+          "relative aspect-square overflow-hidden rounded-[12px] bg-[#ececec]",
           list && "sm:aspect-4/3 sm:w-52 sm:shrink-0",
         )}
       >
@@ -72,11 +67,11 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
         </button>
       </div>
 
-      <div className="flex flex-1 flex-col p-4">
-        <p className="uppercase text-micro font-medium leading-relaxed tracking-wide text-muted-foreground">
+      <div className={cn("flex flex-1 flex-col", list ? "sm:px-5" : "pt-3")}>
+        <p className="uppercase text-[11px] font-medium leading-relaxed tracking-wide text-muted-foreground">
           {product.brand}
         </p>
-        <h3 className="mt-0.5 line-clamp-2 text-base leading-snug text-navy">
+        <h3 className="mt-0.5 line-clamp-2 text-sm leading-snug text-navy">
           <SmartLink to={`/shop/product/${product.id}`} className="transition-colors hover:text-teal">
             {product.name}
           </SmartLink>
@@ -97,10 +92,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
             type="button"
             onClick={() => addToCart(product.id)}
             aria-label={`Add to cart: ${product.name}`}
-            className={cn(
-              "inline-flex h-8 shrink-0 items-center gap-1.5 rounded-sm bg-navy px-3.5 text-caption font-medium leading-none text-white transition-colors hover:bg-beige hover:text-navy",
-              list ? "" : "sm:ml-auto",
-            )}
+            className="inline-flex h-8 shrink-0 items-center gap-1.5 rounded-sm bg-navy px-3.5 text-caption font-medium leading-none text-white transition-colors hover:bg-beige hover:text-navy"
           >
             <Plus className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Add</span>
