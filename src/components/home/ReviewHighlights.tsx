@@ -1,16 +1,14 @@
 import { reviewHighlights } from "@/data/site";
 import { Section } from "@/components/common/Section";
-import { SectionHeading } from "@/components/common/SectionHeading";
 import { TestimonialCard } from "@/components/common/TestimonialCard";
 
 export function ReviewHighlights() {
   return (
     <Section>
-      <SectionHeading
-        eyebrow="What customers say"
-        title="Judged on delivery, not on discounts"
-        align="center"
-      />
+      <div className="text-center">
+        <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
+        <p className="label-eyebrow text-teal">What customers say</p>
+      </div>
       <ul className="mt-10 grid gap-6 lg:grid-cols-3">
         {reviewHighlights.map((review) => (
           <li key={review.id} className="h-full">

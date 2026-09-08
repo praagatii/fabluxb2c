@@ -6,7 +6,7 @@ const icons = { truck: Truck, wrench: Wrench, headset: Headset } as const;
 
 export function TrustRow() {
   return (
-    <section className="pb-10 pt-0 sm:pb-12">
+    <section className="pb-10 pt-6 sm:pb-12 sm:pt-8">
       <Container>
         <ul className="grid gap-8 pt-0 sm:grid-cols-3">
         {trustPoints.map((point) => {
