@@ -39,7 +39,7 @@ function B2BLanding() {
     const timer = window.setTimeout(() => {
       document
         .getElementById("b2b-categories")
-        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 300);
     return () => window.clearTimeout(timer);
   }, [hash]);
