@@ -135,7 +135,7 @@ export function B2BCatalogueView({
   return (
     <div className="grid gap-8 lg:grid-cols-[16rem_1fr]">
       <aside className="hidden lg:block">
-        <div className="sticky top-40">{filters}</div>
+        <div className="sticky top-24 max-h-[calc(100dvh-7.5rem)] overflow-y-auto pr-1.5">{filters}</div>
       </aside>
 
       <div>

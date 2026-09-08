@@ -94,7 +94,11 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav }: ListingVi
 
       <Container>
         <div className="flex flex-col gap-8 py-14 sm:py-[var(--spacing-section)] lg:flex-row">
-          <aside className="hidden w-64 shrink-0 lg:block">{filterPanel}</aside>
+          <aside className="hidden w-64 shrink-0 lg:block">
+          <div className="sticky top-24 max-h-[calc(100dvh-7.5rem)] overflow-y-auto pr-1.5">
+            {filterPanel}
+          </div>
+        </aside>
 
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
