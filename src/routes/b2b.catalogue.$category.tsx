@@ -69,7 +69,7 @@ function B2BCategoryPage() {
       </div>
 
       <Container>
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden rounded-[12px]">
           <img
             src={b2bImage(category.image)}
             alt={category.name}
@@ -79,7 +79,7 @@ function B2BCategoryPage() {
             decoding="async"
             className="h-56 w-full object-cover sm:h-72"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/45 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-navy/90 via-navy/40 to-navy/5" />
           <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
             <B2BPageMark inverse>{category.tagline}</B2BPageMark>
             <h1 className="mt-3 font-display text-display text-beige">{category.name}</h1>
