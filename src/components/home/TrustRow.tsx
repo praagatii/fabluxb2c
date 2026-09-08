@@ -15,7 +15,7 @@ export function TrustRow() {
             <li key={point.id} className="flex gap-4">
               <Icon className="mt-1 h-6 w-6 shrink-0 text-teal" aria-hidden="true" />
               <div className="min-w-0">
-                <h3 className="text-heading text-navy">{point.title}</h3>
+                <h3 className="font-display text-heading tracking-tight text-navy">{point.title}</h3>
                 <p className="mt-1.5 text-caption text-muted-foreground">{point.copy}</p>
               </div>
             </li>

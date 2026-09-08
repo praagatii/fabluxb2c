@@ -5,7 +5,6 @@ import { FeaturedStory } from "@/components/home/FeaturedStory";
 import { ProductRail } from "@/components/home/ProductRail";
 import { BrandStrip } from "@/components/home/BrandStrip";
 import { TrustRow } from "@/components/home/TrustRow";
-import { ReviewHighlights } from "@/components/home/ReviewHighlights";
 import { NewsletterCapture } from "@/components/home/NewsletterCapture";
 import { InteriorDesignBand, B2BBand } from "@/components/home/PromoBands";
 import { bestSellers } from "@/data/products";
@@ -59,10 +58,7 @@ function HomePage() {
       {/* 8. Service promises */}
       <TrustRow />
 
-      {/* 9. Testimonials */}
-      <ReviewHighlights />
-
-      {/* 10. Newsletter */}
+      {/* 9. Newsletter */}
       <NewsletterCapture />
     </>
   );
