@@ -6,7 +6,7 @@ import type { B2BProduct } from "@/data/b2b";
 
 export function B2BProductCard({ product }: { product: B2BProduct }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[12px] bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
       <SmartLink to={`/b2b/product/${product.id}`} className="relative block overflow-hidden bg-[#ececec]">
         <img
           src={b2bImage(product.image)}
@@ -14,7 +14,7 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
           loading="lazy"
           width={1200}
           height={900}
-          className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <B2BLabel className="absolute left-3 top-3" />
       </SmartLink>
