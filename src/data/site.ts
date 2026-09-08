@@ -99,6 +99,22 @@ export const reviewHighlights = [
     location: "Gurugram",
     rating: 4,
   },
+  {
+    id: "rev-4",
+    quote:
+      "We were nervous about ordering a chimney online, but the installation crew turned up right on time and left the kitchen spotless.",
+    author: "Aditya Nair",
+    location: "Hyderabad",
+    rating: 5,
+  },
+  {
+    id: "rev-5",
+    quote:
+      "The living room Fabluxora designed feels twice as big without moving a single wall — that's what good design does.",
+    author: "Meera Iyer",
+    location: "Chennai",
+    rating: 5,
+  },
 ];
 
 export const primaryNav = [

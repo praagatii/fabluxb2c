@@ -264,9 +264,12 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav, banner }: L
 
       <section className="py-14 sm:py-[var(--spacing-section)]">
         <Container>
-          <ul className="scrollbar-hide flex snap-x gap-6 overflow-x-auto pb-2">
-            {reviewHighlights.map((review) => (
-              <li key={review.id} className="w-[20rem] shrink-0 snap-start sm:w-[22rem]">
+          <ul
+            className="animate-marquee flex w-max gap-6"
+            style={{ animationDuration: "50s" }}
+          >
+            {[...reviewHighlights, ...reviewHighlights].map((review, index) => (
+              <li key={`${review.id}-${index}`} className="w-[20rem] shrink-0 sm:w-[22rem]">
                 <TestimonialCard
                   quote={review.quote}
                   name={review.author}
