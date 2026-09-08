@@ -75,11 +75,19 @@ export function B2BBrowseOnlyLine() {
 }
 
 /** Page-level heading used on every B2B page so the section is always labelled. */
-export function B2BPageMark({ children }: { children: React.ReactNode }) {
+export function B2BPageMark({
+  children,
+  inverse,
+}: {
+  children: React.ReactNode;
+  inverse?: boolean;
+}) {
   return (
     <div className="flex items-center gap-3">
       <B2BLabel />
-      <span className="label-eyebrow text-teal">{children}</span>
+      <span className={cn("label-eyebrow", inverse ? "text-beige" : "text-teal")}>
+        {children}
+      </span>
     </div>
   );
 }

@@ -79,7 +79,7 @@ function B2BCategoryPage() {
           />
           <div className="absolute inset-0 bg-navy/60" />
           <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
-            <B2BPageMark>{category.tagline}</B2BPageMark>
+            <B2BPageMark inverse>{category.tagline}</B2BPageMark>
             <h1 className="mt-3 font-display text-display text-beige">{category.name}</h1>
             <p className="mt-2 max-w-2xl text-caption leading-relaxed text-sky">
               {category.description}
