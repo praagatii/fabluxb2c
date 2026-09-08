@@ -69,7 +69,6 @@ function CollectionsPage() {
           <SectionHeading
             eyebrow={collection.eyebrow}
             title={collection.title}
-            copy={collection.copy}
             action={
               <SmartLink to="/shop" className="link-gold text-body text-teal">
                 View all

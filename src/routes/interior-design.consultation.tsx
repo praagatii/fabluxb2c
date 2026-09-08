@@ -90,7 +90,6 @@ function ConsultationPage() {
         <SectionHeading
           eyebrow="Consultation booking"
           title="Choose a mode, a date and a time"
-          copy="Tell us about the property and pick a slot. A coordinator confirms it within one working day."
         />
         <div className="mt-8">
           <ConsultationBooking />
@@ -102,7 +101,6 @@ function ConsultationPage() {
         <SectionHeading
           eyebrow="Before you book"
           title="Where to start"
-          copy="Shortlisting a style or a completed project makes the first conversation much faster."
         />
         <div className="mt-8 flex flex-wrap gap-3">
           <Link

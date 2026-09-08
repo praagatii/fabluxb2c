@@ -88,6 +88,9 @@
 
   /* Motion */
   --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Surfaces */
+  --shadow-soft: 0 10px 30px -12px rgb(16 34 61 / 0.16);
 }
 
 :root {
@@ -273,6 +276,24 @@ body::-webkit-scrollbar {
 }
 
 .animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Infinite vertical review rail (testimonials-4 style) */
+@keyframes testimonials-rail {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-testimonials {
+  animation: testimonials-rail 38s linear infinite;
+}
+
+.animate-testimonials:hover {
   animation-play-state: paused;
 }
 

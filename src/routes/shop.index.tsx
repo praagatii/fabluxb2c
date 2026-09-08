@@ -30,7 +30,6 @@ function ShopIndex() {
     <ListingView
       eyebrow="Fabluxe"
       title="Shop"
-      copy="Every product we carry, in one place. Choose a category, refine with filters, and start building your home."
       crumbs={[{ label: "Home" }, { label: "Shop" }]}
       items={products}
       subNav={subNav}

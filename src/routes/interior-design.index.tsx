@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { Section, Container } from "@/components/common/Section";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { TestimonialCard } from "@/components/common/TestimonialCard";
 import { Breadcrumbs } from "@/components/shop/Breadcrumbs";
 import { ConsultationDialog } from "@/components/interiors/ConsultationDialog";
 import { interiorImage } from "@/lib/interior-images";
@@ -100,11 +101,10 @@ function InteriorDesignLanding() {
         <SectionHeading
           eyebrow="How it works"
           title="Four steps, one designer"
-          copy="From the first shortlist to the final snag list, the same person carries your project."
         />
         <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {howItWorks.map((step) => (
-            <li key={step.id} className="border border-border bg-card p-6">
+            <li key={step.id} className="rounded-[12px] border border-border bg-card p-6">
               <p className="font-display text-heading text-gold">{step.step}</p>
               <h3 className="mt-3 text-heading text-navy">{step.title}</h3>
               <p className="mt-2 text-caption leading-relaxed text-muted-foreground">{step.copy}</p>
@@ -117,7 +117,6 @@ function InteriorDesignLanding() {
         <SectionHeading
           eyebrow="Room styles"
           title="Six directions to start from"
-          copy="Filter by the room you are working on, then open a style to see its materials and completed projects."
         />
         <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter styles by room type">
           <FilterChip active={room === "all"} onClick={() => setRoom("all")} label="All rooms" />
@@ -173,7 +172,6 @@ function InteriorDesignLanding() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Recently completed"
-          copy="Twelve homes across India, from a single bedroom to a full-home fit-out."
           action={
             <Link
               to="/interior-design/portfolio"
@@ -189,7 +187,7 @@ function InteriorDesignLanding() {
               <Link
                 to="/interior-design/portfolio/$projectId"
                 params={{ projectId: project.id }}
-                className="group block border border-border bg-card"
+                className="group block overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]"
               >
                 <img
                   src={interiorImage(project.image)}
@@ -217,11 +215,8 @@ function InteriorDesignLanding() {
         <SectionHeading eyebrow="In their words" title="What clients say" align="center" />
         <ul className="mt-10 grid gap-6 lg:grid-cols-3">
           {testimonials.map((item) => (
-            <li key={item.id} className="border border-border bg-card p-6">
-              <span className="rule-gold mb-4" aria-hidden="true" />
-              <blockquote className="text-body leading-relaxed text-navy">"{item.quote}"</blockquote>
-              <p className="mt-5 text-body text-navy">{item.name}</p>
-              <p className="text-caption text-muted-foreground">{item.place}</p>
+            <li key={item.id} className="h-full">
+              <TestimonialCard quote={item.quote} name={item.name} detail={item.place} />
             </li>
           ))}
         </ul>

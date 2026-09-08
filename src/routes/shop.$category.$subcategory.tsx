@@ -51,7 +51,6 @@ function SubcategoryPage() {
     <ListingView
       eyebrow={category.name}
       title={subcategory.name}
-      copy={`${subcategory.name} within ${category.name.toLowerCase()} — ${category.tagline.toLowerCase()}.`}
       crumbs={[
         { label: "Home", to: "/" },
         { label: "Shop", to: "/shop" },

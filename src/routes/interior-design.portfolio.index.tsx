@@ -64,7 +64,6 @@ function PortfolioIndex() {
           as="h1"
           eyebrow="Portfolio"
           title="Twelve homes, finished and lived in"
-          copy="Filter by room type, style or city. Every project was designed and executed by Fabluxora Interiors."
         />
 
         <div className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -113,7 +112,7 @@ function PortfolioIndex() {
               <Link
                 to="/interior-design/portfolio/$projectId"
                 params={{ projectId: project.id }}
-                className="group flex h-full flex-col border border-border bg-card"
+                className="group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]"
               >
                 <img
                   src={interiorImage(project.image)}

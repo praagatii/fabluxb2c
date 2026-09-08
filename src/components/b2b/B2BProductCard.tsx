@@ -18,7 +18,7 @@ export function B2BProductCard({ product }: { product: B2BProduct }) {
           className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </SmartLink>
-      <div className="flex flex-1 flex-col gap-3 p-5">
+      <div className="flex flex-1 flex-col gap-3 p-4">
         <div className="flex items-center justify-between gap-3">
           <p className="label-eyebrow text-teal">{product.brand}</p>
           <B2BLabel />

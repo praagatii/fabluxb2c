@@ -19,10 +19,15 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
   )?.name;
 
   return (
-    <article className={cn("group flex h-full flex-col", list && "sm:flex-row")}>
+    <article
+      className={cn(
+        "group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]",
+        list && "sm:flex-row",
+      )}
+    >
       <div
         className={cn(
-          "relative aspect-square overflow-hidden rounded-[12px] bg-[#ececec]",
+          "relative aspect-square overflow-hidden bg-[#ececec]",
           list && "sm:aspect-4/3 sm:w-52 sm:shrink-0",
         )}
       >
@@ -67,7 +72,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
         </button>
       </div>
 
-      <div className={cn("flex flex-1 flex-col", list ? "sm:px-5" : "pt-3")}>
+      <div className="flex flex-1 flex-col p-4">
         <p className="uppercase text-[11px] font-medium leading-relaxed tracking-wide text-muted-foreground">
           {product.brand}
         </p>

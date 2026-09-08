@@ -23,13 +23,12 @@ const PAGE_SIZE = 9;
 type ListingViewProps = {
   eyebrow: string;
   title: string;
-  copy: string;
   crumbs: Crumb[];
   items: Product[];
   subNav?: { label: string; to: string; active?: boolean }[];
 };
 
-export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: ListingViewProps) {
+export function ListingView({ eyebrow, title, crumbs, items, subNav }: ListingViewProps) {
   const facets = useMemo(() => buildFacets(items), [items]);
   const [filters, setFilters] = useState<FilterState>(() => emptyFilters(facets.priceMax));
   const [sort, setSort] = useState<SortKey>("relevance");
@@ -68,11 +67,6 @@ export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: Lis
         <Container>
           <p className="label-eyebrow text-teal">{eyebrow}</p>
           <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{title}</h1>
-          {copy ? (
-            <p className="mt-3 max-w-2xl text-body leading-relaxed text-muted-foreground">
-              {copy}
-            </p>
-          ) : null}
         </Container>
       </header>
 

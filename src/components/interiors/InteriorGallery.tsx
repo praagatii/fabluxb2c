@@ -22,7 +22,7 @@ export function InteriorGallery({
             <button
               type="button"
               onClick={() => setOpenIndex(index)}
-              className="group block w-full overflow-hidden border border-border"
+              className="group block w-full overflow-hidden rounded-[12px] border border-border transition-shadow hover:shadow-[var(--shadow-soft)]"
               aria-label={`Open image ${index + 1} of ${images.length}`}
             >
               <img

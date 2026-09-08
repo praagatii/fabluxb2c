@@ -82,7 +82,6 @@ function B2BLanding() {
         <SectionHeading
           eyebrow="Who it is for"
           title="Built around project buying"
-          copy="Trade accounts get a named account manager, batch-matched supply and delivery phased against the site programme."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {b2bAudience.map((item) => (
@@ -98,7 +97,6 @@ function B2BLanding() {
         <SectionHeading
           eyebrow="Categories"
           title="Five supply lines"
-          copy={`${b2bProducts.length} representative items are shown in this prototype catalogue.`}
           action={
             <SmartLink
               to="/b2b/catalogue"
@@ -125,7 +123,7 @@ function B2BLanding() {
                   className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="p-5">
+              <div className="p-4">
                 <div className="flex items-center justify-between gap-3">
                   <p className="label-eyebrow text-teal">{category.tagline}</p>
                   <B2BLabel />
@@ -149,7 +147,6 @@ function B2BLanding() {
             <SectionHeading
               eyebrow="Bulk enquiry"
               title="Send us the schedule, we will price it"
-              copy="Share a bill of quantities, a finish schedule or a simple list. The trade desk replies within one working day."
               tone="inverse"
             />
           </div>
