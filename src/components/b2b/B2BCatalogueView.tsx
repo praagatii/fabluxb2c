@@ -189,7 +189,7 @@ export function B2BCatalogueView({
             will source it.
           </p>
         ) : (
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-6 grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {results.map((product) => (
               <B2BProductCard key={product.id} product={product} />
             ))}

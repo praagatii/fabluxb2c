@@ -6,7 +6,7 @@ import type { B2BProduct } from "@/data/b2b";
 
 export function B2BProductCard({ product }: { product: B2BProduct }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[12px] bg-card transition-shadow hover:shadow-[var(--shadow-soft)]">
       <SmartLink to={`/b2b/product/${product.id}`} className="relative block overflow-hidden bg-[#ececec]">
         <img
           src={b2bImage(product.image)}
