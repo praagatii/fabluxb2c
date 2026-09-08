@@ -21,7 +21,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
   return (
     <article
       className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[12px] bg-card transition-shadow hover:shadow-[var(--shadow-soft)]",
+        "group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]",
         list && "sm:flex-row",
       )}
     >
@@ -51,6 +51,11 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
           <span className="uppercase bg-navy px-2.5 py-1 text-micro font-semibold leading-none tracking-wide text-white">
             {categoryLabel ?? product.categorySlug}
           </span>
+          {product.badge ? (
+            <span className="uppercase bg-white/85 px-2.5 py-1 text-micro font-medium leading-none tracking-wide text-navy">
+              {product.badge}
+            </span>
+          ) : null}
         </div>
 
         <button
