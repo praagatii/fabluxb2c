@@ -59,6 +59,8 @@ export function InteriorGallery({
           <img
             src={interiorImage(images[openIndex] as InteriorImageKey)}
             alt={`${alt} — view ${openIndex + 1}`}
+            loading="lazy"
+            decoding="async"
             className="max-h-[80vh] w-auto max-w-full object-contain"
           />
           <button

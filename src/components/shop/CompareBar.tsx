@@ -54,6 +54,8 @@ export function CompareBar() {
                       src={productImage(product.image)}
                       alt=""
                       aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
                       className="h-8 w-10 object-cover"
                     />
                     <span className="max-w-[9rem] truncate text-caption text-navy">{product.name}</span>

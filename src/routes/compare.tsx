@@ -79,7 +79,7 @@ function ComparePage() {
           </div>
         </Container>
       ) : (
-        <Container className="py-10">
+        <Container className="py-14 sm:py-[var(--spacing-section)]">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
             <p className="text-caption text-muted-foreground">
               {items.length} of 4 products · differing rows are highlighted
@@ -110,6 +110,8 @@ function ComparePage() {
                         <img
                           src={productImage(product.image)}
                           alt={product.name}
+                          loading="lazy"
+                          decoding="async"
                           className="h-24 w-full max-w-36 object-cover"
                         />
                         <button

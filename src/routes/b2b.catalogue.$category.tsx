@@ -73,6 +73,8 @@ function B2BCategoryPage() {
             alt={category.name}
             width={1200}
             height={900}
+            loading="lazy"
+            decoding="async"
             className="h-56 w-full object-cover sm:h-72"
           />
           <div className="absolute inset-0 bg-navy/60" />

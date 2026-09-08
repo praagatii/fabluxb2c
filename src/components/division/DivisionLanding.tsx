@@ -29,6 +29,8 @@ export function DivisionLanding({ division }: { division: Division }) {
           alt=""
           width={1600}
           height={900}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-linear-to-t from-navy/85 via-navy/30 to-navy/10" />

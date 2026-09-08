@@ -57,6 +57,8 @@ function InteriorDesignLanding() {
           alt="A Fabluxora Interiors living room in navy velvet, brass and linen"
           width={1920}
           height={1080}
+          loading="lazy"
+          decoding="async"
           className="h-[70vh] min-h-[26rem] w-full object-cover"
         />
         <div className="absolute inset-0 bg-navy/60" aria-hidden="true" />

@@ -41,7 +41,7 @@ function CategoryGroupPage() {
   return (
     <div>
       <Container>
-        <div className="py-10 sm:py-14">
+        <div className="py-14 sm:py-[var(--spacing-section)]">
           <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Shop", to: "/shop" }, { label: group.name }]} />
           <span className="rule-gold mb-4 mt-8 block" aria-hidden="true" />
           <p className="label-eyebrow text-teal">{group.name}</p>

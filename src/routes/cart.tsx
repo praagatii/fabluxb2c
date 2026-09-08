@@ -107,7 +107,7 @@ function CartPage() {
           </div>
         </Container>
       ) : (
-        <Container className="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
+        <Container className="grid gap-10 py-14 sm:py-[var(--spacing-section)] lg:grid-cols-[minmax(0,1fr)_22rem]">
           <div>
             {splitOrder ? (
               <p className="mb-6 flex items-start gap-3 border border-border bg-sky/40 px-4 py-3 text-caption leading-relaxed text-navy">

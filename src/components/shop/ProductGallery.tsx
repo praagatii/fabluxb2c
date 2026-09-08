@@ -32,6 +32,8 @@ export function ProductGallery({ product }: { product: Product }) {
           alt={product.name}
           width={1600}
           height={900}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-cover transition-transform duration-300 ease-[var(--ease-editorial)]"
           style={{ transformOrigin: origin, transform: zoomed ? "scale(1.8)" : "scale(1)" }}
         />
@@ -62,6 +64,8 @@ export function ProductGallery({ product }: { product: Product }) {
                 src={productImage(image)}
                 alt=""
                 aria-hidden="true"
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </button>
@@ -82,6 +86,8 @@ export function ProductGallery({ product }: { product: Product }) {
           <img
             src={productImage(key)}
             alt={product.name}
+            loading="lazy"
+            decoding="async"
             className="max-h-[80vh] w-auto max-w-full object-contain"
           />
         </div>

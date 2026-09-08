@@ -17,7 +17,7 @@ import {
 /** Reusable layout for the static policy stub pages. */
 export function PolicyStubPage({ policy }: { policy: PolicyPage }) {
   return (
-    <div className="py-14">
+    <div className="py-14 sm:py-[var(--spacing-section)]">
       <Container className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <article className="max-w-3xl">
           <span className="rule-gold mb-4" aria-hidden="true" />
@@ -67,7 +67,7 @@ export function PolicyStubPage({ policy }: { policy: PolicyPage }) {
 /** FAQ page with accordion. */
 export function FaqPage() {
   return (
-    <div className="py-14">
+    <div className="py-14 sm:py-[var(--spacing-section)]">
       <Container className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_20rem]">
         <div className="max-w-3xl">
           <span className="rule-gold mb-4" aria-hidden="true" />
@@ -113,7 +113,7 @@ export function FaqPage() {
 /** About Fabluxe page. */
 export function AboutPage() {
   return (
-    <div className="py-14">
+    <div className="py-14 sm:py-[var(--spacing-section)]">
       <Container className="max-w-3xl">
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">About Fabluxe</p>

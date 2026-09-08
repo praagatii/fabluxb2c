@@ -71,6 +71,8 @@ function B2BLanding() {
             alt="Brushed brass door levers and rosettes from the Fabluxe trade catalogue"
             width={1200}
             height={900}
+            loading="lazy"
+            decoding="async"
             className="aspect-[4/3] w-full object-cover"
           />
         </div>

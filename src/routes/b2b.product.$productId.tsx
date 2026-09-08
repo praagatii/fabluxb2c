@@ -80,6 +80,8 @@ function B2BProductPage() {
             alt={product.name}
             width={1200}
             height={900}
+            loading="lazy"
+            decoding="async"
             className="aspect-[4/3] w-full object-cover"
           />
 
@@ -193,7 +195,7 @@ function B2BProductPage() {
       </Section>
 
       {/* Bulk enquiry banner */}
-      <Section className="bg-teal py-10 sm:py-12">
+      <Section className="bg-teal">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="label-eyebrow text-beige">Buying at volume?</p>

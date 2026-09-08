@@ -50,7 +50,7 @@ export function AccountLayout({
         )}
       </Container>
 
-      <Container className="grid gap-10 py-10 lg:grid-cols-[16rem_minmax(0,1fr)]">
+      <Container className="grid gap-10 py-14 sm:py-[var(--spacing-section)] lg:grid-cols-[16rem_minmax(0,1fr)]">
         <nav aria-label="Account sections" className="h-fit border border-border bg-card">
           <ul className="divide-y divide-border">
             {navItems.map((item) => (

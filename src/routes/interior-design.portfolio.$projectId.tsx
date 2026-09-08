@@ -75,6 +75,8 @@ function ProjectDetail() {
           alt={project.title}
           width={1200}
           height={900}
+          loading="lazy"
+          decoding="async"
           className="h-[60vh] min-h-[22rem] w-full object-cover"
         />
         <div className="absolute inset-0 bg-navy/55" aria-hidden="true" />

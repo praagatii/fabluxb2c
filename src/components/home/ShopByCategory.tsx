@@ -9,7 +9,7 @@ export function ShopByCategory() {
   const shown = categoryGroups.filter((g) => g.status === "live");
 
   return (
-    <Section className="py-12 sm:py-16">
+    <Section className="bg-transparent">
       <p className="label-eyebrow text-teal">Categories</p>
       <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((group) => (

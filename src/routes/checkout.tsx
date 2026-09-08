@@ -256,7 +256,7 @@ function CheckoutPage() {
         </ol>
       </Container>
 
-      <Container className="grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_22rem]">
+      <Container className="grid gap-10 py-14 sm:py-[var(--spacing-section)] lg:grid-cols-[minmax(0,1fr)_22rem]">
         <div className="border border-border bg-card p-6 sm:p-8">
           {step === 1 ? (
             <section aria-labelledby="step-account">

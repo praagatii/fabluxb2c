@@ -161,7 +161,7 @@ function ProductsScreen() {
             </Td>
             <Td>
               <div className="flex items-center gap-3">
-                <img src={productImage(row.image)} alt="" className="h-9 w-9 rounded-sm object-cover" />
+                <img src={productImage(row.image)} alt="" loading="lazy" decoding="async" className="h-9 w-9 rounded-sm object-cover" />
                 <div>
                   <p className="text-navy">{row.name}</p>
                   <p className="text-caption text-muted-foreground">{row.brand}</p>
@@ -314,7 +314,7 @@ function ProductForm({
           <label className="sm:col-span-2">
             <span className="mb-1 block text-caption font-medium text-navy">Images</span>
             <div className="flex items-center gap-3">
-              <img src={productImage(draft.image)} alt="" className="h-16 w-16 rounded-sm object-cover" />
+              <img src={productImage(draft.image)} alt="" loading="lazy" decoding="async" className="h-16 w-16 rounded-sm object-cover" />
               <select disabled={readOnly} className={field} value={draft.image} onChange={(e) => setDraft({ ...draft, image: e.target.value as AdminProductRow["image"] })}>
                 <option value="fridge">Primary image A</option>
                 <option value="tv">Primary image B</option>

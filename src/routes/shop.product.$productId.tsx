@@ -113,7 +113,7 @@ function ProductDetailPage() {
       </div>
 
       <Container>
-        <div className="grid gap-10 py-10 lg:grid-cols-2">
+        <div className="grid gap-10 py-14 sm:py-[var(--spacing-section)] lg:grid-cols-2">
           <ProductGallery product={product} />
 
           <div>

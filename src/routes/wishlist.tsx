@@ -61,7 +61,7 @@ function WishlistPage() {
         ) : null}
       </Container>
 
-      <Container className="py-10">
+      <Container className="py-14 sm:py-[var(--spacing-section)]">
         {items.length === 0 ? (
           <div className="border border-border bg-card p-12 text-center">
             <h2 className="font-display text-heading text-navy">Your wishlist is empty</h2>

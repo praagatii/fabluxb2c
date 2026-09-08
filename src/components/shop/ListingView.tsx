@@ -64,7 +64,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: Lis
         </Container>
       </div>
 
-      <header className="py-10">
+      <header className="py-14 sm:py-[var(--spacing-section)]">
         <Container>
           <p className="label-eyebrow text-teal">{eyebrow}</p>
           <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{title}</h1>
@@ -101,7 +101,7 @@ export function ListingView({ eyebrow, title, copy, crumbs, items, subNav }: Lis
       ) : null}
 
       <Container>
-        <div className="flex flex-col gap-8 py-10 lg:flex-row">
+        <div className="flex flex-col gap-8 py-14 sm:py-[var(--spacing-section)] lg:flex-row">
           <aside className="hidden w-64 shrink-0 lg:block">{filterPanel}</aside>
 
           <div className="min-w-0 flex-1">

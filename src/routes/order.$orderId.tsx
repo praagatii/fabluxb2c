@@ -81,7 +81,7 @@ function OrderConfirmationPage() {
         </div>
       </Container>
 
-      <Container className="py-10">
+      <Container className="py-14 sm:py-[var(--spacing-section)]">
         <p className="label-eyebrow text-teal">Items in this order</p>
         <ul className="mt-4 divide-y divide-border border border-border bg-card">
           {order.items.map((item, index) => {
