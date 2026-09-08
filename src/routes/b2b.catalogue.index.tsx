@@ -40,10 +40,7 @@ function CataloguePage() {
       </Container>
       <Section className="pt-0">
         <B2BPageMark>Catalogue</B2BPageMark>
-        <h1 className="mt-4 text-heading text-navy">Every line we supply</h1>
-        <p className="mt-3 max-w-xl text-body leading-relaxed text-muted-foreground">
-          Filter by material, finish, application or certification. Every item is enquiry only.
-        </p>
+        <h1 className="mt-4 font-display text-display text-navy">Every line we supply</h1>
         <div className="mt-10">
           <B2BCatalogueView products={b2bProducts} />
         </div>

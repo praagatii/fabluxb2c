@@ -42,7 +42,7 @@ function LoginPage() {
       <div className="mx-auto max-w-md border border-border bg-card p-8">
         <span className="rule-gold" aria-hidden="true" />
         <p className="label-eyebrow mt-4 text-teal">Fabluxe account</p>
-        <h1 className="mt-3 text-heading text-navy">Sign in</h1>
+        <h1 className="mt-3 font-display text-display text-navy">Sign in</h1>
         <p className="mt-3 text-caption text-muted-foreground">
           Any email and password will work in this prototype.
         </p>

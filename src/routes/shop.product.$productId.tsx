@@ -118,7 +118,7 @@ function ProductDetailPage() {
 
           <div>
             <p className="label-eyebrow text-teal">{product.brand}</p>
-            <h1 className="mt-3 text-heading leading-tight text-navy">
+            <h1 className="mt-3 font-display text-display leading-tight text-navy">
               {product.name}
             </h1>
 

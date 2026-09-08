@@ -55,7 +55,7 @@ function OrderConfirmationPage() {
           <CheckCircle2 className="mx-auto h-10 w-10 text-teal" aria-hidden="true" />
           <span className="rule-gold mx-auto mt-6" aria-hidden="true" />
           <p className="label-eyebrow mt-4 text-teal">Thank you</p>
-          <h1 className="mt-3 text-heading text-navy">Your order is placed</h1>
+          <h1 className="mt-3 font-display text-display text-navy">Your order is placed</h1>
           {/* Order ID format is a placeholder — the client has no order-numbering format yet. */}
           <p className="numeric mt-4 text-body text-navy">
             Order ID <span className="font-semibold">{order.id}</span>

@@ -54,13 +54,9 @@ function ComparePage() {
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Compare" }]} />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Like for like</p>
-        <h1 className="mt-3 text-heading text-navy">
+        <h1 className="mt-3 font-display text-display text-navy">
           Compare {categoryName ?? "products"}
         </h1>
-        <p className="mt-3 max-w-2xl text-caption leading-relaxed text-muted-foreground">
-          Comparison is limited to one category at a time — a refrigerator against another
-          refrigerator — so that every row on the table means the same thing. Up to four products.
-        </p>
       </Container>
 
       {items.length === 0 ? (

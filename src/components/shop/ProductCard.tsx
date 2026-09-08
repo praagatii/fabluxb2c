@@ -48,11 +48,11 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
         />
 
         <div className="absolute left-3 top-3 flex items-center gap-1.5">
-          <span className="uppercase bg-navy px-2.5 py-1 text-[10px] font-semibold leading-none tracking-wide text-white">
+          <span className="uppercase bg-navy px-2.5 py-1 text-micro font-semibold leading-none tracking-wide text-white">
             {categoryLabel ?? product.categorySlug}
           </span>
           {product.badge ? (
-            <span className="uppercase bg-white/85 px-2.5 py-1 text-[10px] font-medium leading-none tracking-wide text-navy">
+            <span className="uppercase bg-white/85 px-2.5 py-1 text-micro font-medium leading-none tracking-wide text-navy">
               {product.badge}
             </span>
           ) : null}
@@ -73,7 +73,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
       </div>
 
       <div className="flex flex-1 flex-col p-4">
-        <p className="uppercase text-[11px] font-medium leading-relaxed tracking-wide text-muted-foreground">
+        <p className="uppercase text-micro font-medium leading-relaxed tracking-wide text-muted-foreground">
           {product.brand}
         </p>
         <h3 className="mt-0.5 line-clamp-2 text-base leading-snug text-navy">

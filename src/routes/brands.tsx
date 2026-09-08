@@ -45,11 +45,7 @@ function BrandsPage() {
         <div className="max-w-2xl">
           <span className="rule-gold mb-4" aria-hidden="true" />
           <p className="label-eyebrow text-teal">Brands</p>
-          <h1 className="mt-3 text-heading text-navy">The makers we carry</h1>
-          <p className="mt-4 text-body leading-relaxed text-muted-foreground">
-            Appliances and interiors pieces from a focused set of makers, each specified for Indian
-            homes and fulfilled by Fabluxe.
-          </p>
+          <h1 className="mt-3 font-display text-display text-navy">The makers we carry</h1>
         </div>
 
         <nav className="mt-8 flex flex-wrap gap-2" aria-label="Jump to brand">

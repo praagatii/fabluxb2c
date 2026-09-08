@@ -56,11 +56,7 @@ function CollectionsPage() {
         <div className="max-w-2xl">
           <span className="rule-gold mb-4" aria-hidden="true" />
           <p className="label-eyebrow text-teal">Collections</p>
-          <h1 className="mt-3 text-heading text-navy">Curated edits for the considered home</h1>
-          <p className="mt-4 text-body leading-relaxed text-muted-foreground">
-            Each collection is put together by the Fabluxe buying team. Shop the edit, or explore
-            the full catalogue.
-          </p>
+          <h1 className="mt-3 font-display text-display text-navy">Curated edits for the considered home</h1>
         </div>
       </Container>
 

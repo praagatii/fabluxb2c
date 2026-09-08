@@ -34,7 +34,7 @@ export function AccountLayout({
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Account", to: "/account" }, ...crumbs]} />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">{eyebrow}</p>
-        <h1 className="mt-3 text-heading text-navy">{title}</h1>
+        <h1 className="mt-3 font-display text-display text-navy">{title}</h1>
         {signedIn && user ? (
           <p className="mt-3 text-caption text-muted-foreground">
             Signed in as {user.name} · {user.email}

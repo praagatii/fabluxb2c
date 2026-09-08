@@ -45,10 +45,7 @@ function CategoryGroupPage() {
           <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Shop", to: "/shop" }, { label: group.name }]} />
           <span className="rule-gold mb-4 mt-8 block" aria-hidden="true" />
           <p className="label-eyebrow text-teal">{group.name}</p>
-          <h1 className="mt-3 text-display text-navy">{group.name}</h1>
-          <p className="mt-4 max-w-2xl text-body leading-relaxed text-muted-foreground">
-            {group.tagline}
-          </p>
+          <h1 className="mt-3 font-display text-display text-navy">{group.name}</h1>
         </div>
       </Container>
 

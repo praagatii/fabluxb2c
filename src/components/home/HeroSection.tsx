@@ -85,7 +85,7 @@ export function HeroSection() {
                     </span>
                   ))}
                 </h1>
-                <p className="mt-5 line-clamp-2 max-w-xl text-lg leading-relaxed text-sky">
+                <p className="mt-5 line-clamp-2 max-w-xl text-body leading-relaxed text-sky">
                   {slide.copy}
                 </p>
                 <div className="mt-8">

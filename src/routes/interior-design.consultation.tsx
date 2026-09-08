@@ -46,18 +46,9 @@ function ConsultationPage() {
           <div>
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-teal">Consultation</p>
-            <h1 className="mt-3 text-heading leading-tight text-navy">
+            <h1 className="mt-3 font-display text-display leading-tight text-navy">
               An hour with a senior designer
             </h1>
-            <p className="mt-5 text-body leading-relaxed text-muted-foreground">
-              We start with how the room is used — who is in it, at what time of day, and what is
-              not working now. Bring a floor plan if you have one, or photographs on your phone if
-              you do not.
-            </p>
-            <p className="mt-4 text-body leading-relaxed text-muted-foreground">
-              After the visit we come back with a layout, a material direction and a phased scope of
-              work, and we discuss it with you in person. Nothing is priced online.
-            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#booking"

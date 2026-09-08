@@ -219,7 +219,7 @@ function CheckoutPage() {
         />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Secure checkout</p>
-        <h1 className="mt-3 text-heading text-navy">Complete your order</h1>
+        <h1 className="mt-3 font-display text-display text-navy">Complete your order</h1>
 
         <ol className="mt-8 grid gap-3 sm:grid-cols-4">
           {steps.map((label, index) => {

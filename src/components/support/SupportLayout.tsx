@@ -24,7 +24,7 @@ export function SupportLayout({ children }: { children: ReactNode }) {
           <div className="pt-8 pb-5">
             <span className="rule-gold mb-4" aria-hidden="true" />
             <p className="label-eyebrow text-teal">Customer Support</p>
-            <h1 className="mt-3 text-heading text-navy">
+            <h1 className="mt-3 font-display text-display text-navy">
               Help and support
             </h1>
           </div>

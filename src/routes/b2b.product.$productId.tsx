@@ -87,7 +87,7 @@ function B2BProductPage() {
 
           <div>
             <B2BPageMark>{product.brand}</B2BPageMark>
-            <h1 className="mt-4 text-heading leading-tight text-navy">
+            <h1 className="mt-4 font-display text-display leading-tight text-navy">
               {product.name}
             </h1>
             <p className="mt-4 text-body leading-relaxed text-muted-foreground">{product.summary}</p>

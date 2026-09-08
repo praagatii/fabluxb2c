@@ -84,7 +84,7 @@ function CartPage() {
         <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Cart" }]} />
         <span className="rule-gold mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">Your order</p>
-        <h1 className="mt-3 text-heading text-navy">Shopping cart</h1>
+        <h1 className="mt-3 font-display text-display text-navy">Shopping cart</h1>
         <p className="mt-3 text-caption text-muted-foreground">
           {rows.length} {rows.length === 1 ? "line" : "lines"} in your cart
         </p>
