@@ -95,12 +95,12 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav }: ListingVi
       <Container>
         <div className="flex flex-col gap-8 py-14 sm:py-[var(--spacing-section)] lg:flex-row">
           <aside className="hidden w-64 shrink-0 lg:block">
-          <div className="scrollbar-hide sticky top-28 h-[calc(100dvh-8rem)] overflow-y-auto">
+          <div className="scrollbar-hide sticky top-28 max-h-[calc(100dvh-8rem)] overflow-y-auto">
             {filterPanel}
           </div>
         </aside>
 
-          <div className="scrollbar-hide min-w-0 flex-1 lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto">
+          <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-4">
               <p className="numeric text-caption text-muted-foreground">
                 <span className="font-semibold text-navy">{results.length}</span> products

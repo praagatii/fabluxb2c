@@ -135,12 +135,12 @@ export function B2BCatalogueView({
   return (
     <div className="grid gap-8 lg:grid-cols-[16rem_1fr]">
       <aside className="hidden lg:block">
-        <div className="scrollbar-hide sticky top-28 h-[calc(100dvh-8rem)] overflow-y-auto">
+        <div className="scrollbar-hide sticky top-28 max-h-[calc(100dvh-8rem)] overflow-y-auto">
           {filters}
         </div>
       </aside>
 
-      <div className="scrollbar-hide min-w-0 lg:h-[calc(100dvh-8rem)] lg:overflow-y-auto">
+      <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative min-w-0 flex-1">
             <Search
