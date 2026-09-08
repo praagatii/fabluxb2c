@@ -4,7 +4,7 @@ import { TestimonialCard } from "@/components/common/TestimonialCard";
 
 export function ReviewHighlights() {
   return (
-    <Section>
+    <Section className="pt-4">
       <div className="text-center">
         <span className="rule-gold mx-auto mb-4" aria-hidden="true" />
         <p className="label-eyebrow text-teal">What customers say</p>
