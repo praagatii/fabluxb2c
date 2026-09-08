@@ -118,7 +118,11 @@ function InteriorDesignLanding() {
           eyebrow="Room styles"
           title="Six directions to start from"
         />
-        <div className="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter styles by room type">
+        <div
+          role="group"
+          aria-label="Filter styles by room type"
+          className="scrollbar-hide mt-8 flex gap-2 overflow-x-auto pb-1"
+        >
           <FilterChip active={room === "all"} onClick={() => setRoom("all")} label="All rooms" />
           {roomTypes.map((type) => (
             <FilterChip
@@ -274,8 +278,8 @@ function FilterChip({
       aria-pressed={active}
       className={
         active
-          ? "border border-navy bg-navy px-3 py-1.5 text-caption text-primary-foreground"
-          : "border border-border bg-card px-3 py-1.5 text-caption text-navy transition-colors hover:border-gold"
+          ? "shrink-0 whitespace-nowrap border border-navy bg-navy px-3 py-1.5 text-caption text-primary-foreground"
+          : "shrink-0 whitespace-nowrap border border-border bg-card px-3 py-1.5 text-caption text-navy transition-colors hover:border-gold"
       }
     >
       {label}
