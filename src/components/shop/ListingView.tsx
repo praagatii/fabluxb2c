@@ -14,6 +14,8 @@ import {
 import { ProductCard } from "@/components/shop/ProductCard";
 import { Breadcrumbs, type Crumb } from "@/components/shop/Breadcrumbs";
 import { FilterPanel } from "@/components/shop/FilterPanel";
+import { TestimonialCard } from "@/components/common/TestimonialCard";
+import { reviewHighlights } from "@/data/site";
 import { SmartLink } from "@/components/common/SmartLink";
 import { Container } from "@/components/common/Section";
 import { cn } from "@/lib/utils";
@@ -259,6 +261,24 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav, banner }: L
           </div>
         </div>
       ) : null}
+
+      <section className="border-t border-border bg-card py-14 sm:py-[var(--spacing-section)]">
+        <Container>
+          <ul className="grid gap-6 lg:grid-cols-3">
+            {reviewHighlights.map((review) => (
+              <li key={review.id} className="h-full">
+                <TestimonialCard
+                  quote={review.quote}
+                  name={review.author}
+                  detail={review.location}
+                  rating={review.rating}
+                  surface="background"
+                />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
     </>
   );
 }
