@@ -104,7 +104,7 @@ function InteriorDesignLanding() {
         />
         <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {howItWorks.map((step) => (
-            <li key={step.id} className="rounded-[12px] border border-border bg-card p-6">
+            <li key={step.id} className="rounded-[12px] border border-border bg-card p-5 transition-shadow hover:shadow-[var(--shadow-soft)]">
               <p className="font-display text-heading text-gold">{step.step}</p>
               <h3 className="mt-3 text-heading text-navy">{step.title}</h3>
               <p className="mt-2 text-caption leading-relaxed text-muted-foreground">{step.copy}</p>
@@ -136,7 +136,7 @@ function InteriorDesignLanding() {
               <Link
                 to="/interior-design/styles/$styleId"
                 params={{ styleId: style.id }}
-                className="group flex h-full flex-col border border-border bg-card"
+                className="group flex h-full flex-col overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]"
               >
                 <img
                   src={interiorImage(style.image)}
@@ -146,7 +146,7 @@ function InteriorDesignLanding() {
                   height={900}
                   className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="flex flex-1 flex-col p-6">
+                <div className="flex flex-1 flex-col p-5">
                   <span className="rule-gold mb-3" aria-hidden="true" />
                   <h3 className="text-heading text-navy">{style.name}</h3>
                   <p className="mt-2 text-caption leading-relaxed text-muted-foreground">
@@ -197,7 +197,7 @@ function InteriorDesignLanding() {
                   height={900}
                   className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="p-6">
+                <div className="p-5">
                   <p className="label-eyebrow text-teal">
                     {roomTypeLabel(project.roomTypeId)} · {project.city}
                   </p>
@@ -274,8 +274,8 @@ function FilterChip({
       aria-pressed={active}
       className={
         active
-          ? "border border-navy bg-navy px-4 py-2 text-caption tracking-[0.12em] text-primary-foreground uppercase"
-          : "border border-border bg-card px-4 py-2 text-caption tracking-[0.12em] text-navy uppercase transition-colors hover:border-teal"
+          ? "border border-navy bg-navy px-3 py-1.5 text-caption text-primary-foreground"
+          : "border border-border bg-card px-3 py-1.5 text-caption text-navy transition-colors hover:border-gold"
       }
     >
       {label}

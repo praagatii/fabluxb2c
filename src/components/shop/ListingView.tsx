@@ -57,11 +57,9 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav }: ListingVi
 
   return (
     <>
-      <div className="border-b border-border bg-beige">
-        <Container>
-          <Breadcrumbs items={crumbs} />
-        </Container>
-      </div>
+      <Container>
+        <Breadcrumbs items={crumbs} />
+      </Container>
 
       <header className="py-14 sm:py-[var(--spacing-section)]">
         <Container>

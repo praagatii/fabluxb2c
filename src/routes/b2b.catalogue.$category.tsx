@@ -5,7 +5,6 @@ import { SmartLink } from "@/components/common/SmartLink";
 import { B2BPageMark } from "@/components/b2b/B2BChrome";
 import { B2BCatalogueView } from "@/components/b2b/B2BCatalogueView";
 import { getB2BCategory, b2bProductsIn } from "@/data/b2b";
-import { b2bImage } from "@/lib/b2b-images";
 
 export const Route = createFileRoute("/b2b/catalogue/$category")({
   loader: ({ params }) => {
@@ -55,40 +54,27 @@ function B2BCategoryPage() {
 
   return (
     <>
-      <Container>
-        <Breadcrumbs
-          items={[
-            { label: "Home", to: "/" },
-            { label: "B2B Store", to: "/b2b" },
-            { label: "Catalogue", to: "/b2b/catalogue" },
-            { label: category.name },
-          ]}
-        />
-      </Container>
-
-      <Container>
-        <div className="relative overflow-hidden">
-          <img
-            src={b2bImage(category.image)}
-            alt={category.name}
-            width={1200}
-            height={900}
-            loading="lazy"
-            decoding="async"
-            className="h-56 w-full object-cover sm:h-72"
+      <div className="border-b border-border bg-beige">
+        <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Home", to: "/" },
+              { label: "B2B Store", to: "/b2b" },
+              { label: "Catalogue", to: "/b2b/catalogue" },
+              { label: category.name },
+            ]}
           />
-          <div className="absolute inset-0 bg-navy/60" />
-          <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10">
-            <B2BPageMark inverse>{category.tagline}</B2BPageMark>
-            <h1 className="mt-3 font-display text-display text-beige">{category.name}</h1>
-            <p className="mt-2 max-w-2xl text-caption leading-relaxed text-sky">
-              {category.description}
-            </p>
-          </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
 
-      <Section>
+      <header className="py-14 sm:py-[var(--spacing-section)]">
+        <Container>
+          <B2BPageMark>{category.tagline}</B2BPageMark>
+          <h1 className="mt-2 max-w-2xl font-display text-display text-navy">{category.name}</h1>
+        </Container>
+      </header>
+
+      <Section className="pt-0">
         <B2BCatalogueView products={products} />
       </Section>
     </>

@@ -27,7 +27,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
     >
       <div
         className={cn(
-          "relative aspect-square overflow-hidden bg-[#ececec]",
+          "relative aspect-[4/3] overflow-hidden bg-[#ececec]",
           list && "sm:aspect-4/3 sm:w-52 sm:shrink-0",
         )}
       >
@@ -76,7 +76,7 @@ export function ProductCard({ product, view = "grid" }: ProductCardProps) {
         <p className="uppercase text-micro font-medium leading-relaxed tracking-wide text-muted-foreground">
           {product.brand}
         </p>
-        <h3 className="mt-0.5 line-clamp-2 text-base leading-snug text-navy">
+        <h3 className="mt-0.5 line-clamp-2 text-heading leading-snug text-navy">
           <SmartLink to={`/shop/product/${product.id}`} className="transition-colors hover:text-teal">
             {product.name}
           </SmartLink>

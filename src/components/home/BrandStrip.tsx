@@ -2,7 +2,7 @@ import { brands } from "@/data/site";
 
 export function BrandStrip() {
   return (
-    <section className="overflow-hidden border-y border-border py-8">
+    <section className="overflow-hidden border-t border-border py-8">
       <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 sm:gap-x-16">
         {brands.map((brand) => (
           <li key={brand} className="shrink-0">

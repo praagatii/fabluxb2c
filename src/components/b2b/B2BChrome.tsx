@@ -22,38 +22,36 @@ export function B2BLabel({ className }: { className?: string | undefined }) {
 export function B2BHeaderBand() {
   return (
     <div className="bg-navy text-beige">
-      <Container>
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 py-3">
-          <SmartLink to="/b2b" className="flex items-center gap-3">
-            <span className="inline-flex items-center rounded-sm bg-teal px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-beige">
-              B2B
-            </span>
-            <span className="font-display text-heading leading-none text-beige">
-              Fabluxe B2B Store
-            </span>
-          </SmartLink>
-          <nav aria-label="B2B catalogue" className="ml-auto">
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              <li>
-                <SmartLink
-                  to="/b2b/catalogue"
-                  className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
-                >
-                  Catalogue
-                </SmartLink>
-              </li>
-              <li>
-                <SmartLink
-                  to="/b2b/enquiry"
-                  className="rounded-sm border border-beige/60 px-3 py-1.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
-                >
-                  Raise an enquiry
-                </SmartLink>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </Container>
+      <div className="mx-auto flex h-14 max-w-[80rem] flex-wrap items-center gap-x-6 px-5 sm:h-16 sm:px-8">
+        <SmartLink to="/b2b" className="flex items-center gap-3">
+          <span className="inline-flex items-center rounded-sm bg-teal px-2.5 py-1 text-micro font-semibold uppercase tracking-[0.22em] text-beige">
+            B2B
+          </span>
+          <span className="font-display text-heading leading-none text-beige">
+            Fabluxe B2B Store
+          </span>
+        </SmartLink>
+        <nav aria-label="B2B catalogue" className="ml-auto">
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <li>
+              <SmartLink
+                to="/b2b/catalogue"
+                className="text-caption uppercase tracking-[0.18em] text-sky transition-colors hover:text-gold"
+              >
+                Catalogue
+              </SmartLink>
+            </li>
+            <li>
+              <SmartLink
+                to="/b2b/enquiry"
+                className="rounded-sm border border-beige/60 px-3 py-1.5 text-caption uppercase tracking-[0.18em] text-beige transition-colors hover:bg-beige hover:text-navy"
+              >
+                Raise an enquiry
+              </SmartLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   );
 }

@@ -113,7 +113,7 @@ function B2BLanding() {
               to={`/b2b/catalogue/${category.slug}`}
               className="group block overflow-hidden rounded-[12px] border border-border bg-card transition-shadow hover:shadow-[var(--shadow-soft)]"
             >
-              <div className="overflow-hidden bg-beige">
+              <div className="overflow-hidden bg-[#ececec]">
                 <img
                   src={b2bImage(category.image)}
                   alt={category.name}
