@@ -192,12 +192,7 @@ export function ListingView({ eyebrow, title, crumbs, items, subNav, banner }: L
                 </button>
               </p>
             ) : (
-              <ul
-                className={cn(
-                  "mt-8 grid gap-x-5 gap-y-10",
-                  view === "grid" ? "grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1",
-                )}
-              >
+              <ul className={cn("mt-8 grid gap-6", view === "grid" ? "sm:grid-cols-2 xl:grid-cols-3" : "grid-cols-1")}>
                 {visible.map((product) => (
                   <li key={product.id}>
                     <ProductCard product={product} view={view} />
