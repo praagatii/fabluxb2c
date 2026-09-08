@@ -47,54 +47,54 @@ function InteriorDesignLanding() {
     room === "all" ? roomStyles : roomStyles.filter((style) => style.suits.includes(room));
 
   return (
-    <div className="bg-background">
-      <Container>
-        <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Interior Design" }]} />
-      </Container>
+<div className="bg-background">
+      <div className="mx-auto mt-6 w-full max-w-[80rem] px-5 sm:px-8">
+        <div className="rounded-md border border-teal/15 bg-sky/45 px-5 py-3 backdrop-blur-sm sm:px-8">
+          <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Interior Design" }]} />
+        </div>
+      </div>
 
-      <section className="relative">
-        <img
-          src={heroImage}
-          alt="A Fabluxora Interiors living room in navy velvet, brass and linen"
-          width={1920}
-          height={1080}
-          loading="lazy"
-          decoding="async"
-          className="h-[70vh] min-h-[26rem] w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-navy/60" aria-hidden="true" />
-        <div className="absolute inset-0 grid items-center">
-          <Container>
-            <div className="max-w-2xl">
-              <span className="rule-gold mb-4" aria-hidden="true" />
+      <section className="px-5 pt-2 sm:px-8">
+        <Container>
+          <div className="relative overflow-hidden rounded-[12px]">
+            <img
+              src={heroImage}
+              alt="A Fabluxora Interiors living room in navy velvet, brass and linen"
+              width={1920}
+              height={1080}
+              loading="lazy"
+              decoding="async"
+              className="h-72 w-full object-cover sm:h-96"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-navy/90 via-navy/40 to-navy/5" aria-hidden="true" />
+            <div className="absolute inset-0 flex flex-col items-start justify-end p-6 sm:p-10">
               <p className="label-eyebrow text-gold">Fabluxora Interiors</p>
-              <h1 className="mt-4 font-display text-display leading-tight text-primary-foreground">
+              <h1 className="mt-3 font-display text-display leading-tight text-beige">
                 We design the whole room, not the shopping list
               </h1>
-              <p className="mt-5 max-w-xl text-body leading-relaxed text-sky">
+              <p className="mt-3 max-w-xl text-body leading-relaxed text-sky">
                 Layout, light, joinery, materials and the pieces that sit in them — considered
                 together, by one senior designer who stays with your project from the first
                 conversation to handover.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <button
                   type="button"
                   onClick={() => setDialogOpen(true)}
-                className="bg-gold px-7 py-2.5 text-body font-medium text-navy transition-colors hover:bg-sky"
+                  className="bg-beige px-7 py-2.5 text-body font-medium text-navy transition-colors hover:bg-gold"
                 >
                   Book a consultation
                 </button>
                 <Link
                   to="/interior-design/portfolio"
-                className="border border-sky px-7 py-2.5 text-body font-medium text-primary-foreground transition-colors hover:border-gold hover:text-gold"
+                  className="border border-sky px-7 py-2.5 text-body font-medium text-beige transition-colors hover:border-gold hover:text-gold"
                 >
                   See completed projects
                 </Link>
               </div>
-              <p className="label-eyebrow mt-8 text-sky">Enquiry only — no pricing online</p>
             </div>
-          </Container>
-        </div>
+          </div>
+        </Container>
       </section>
 
       <Section className="bg-beige">
